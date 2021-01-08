@@ -17,12 +17,12 @@ public class Main {
         boolean isFounded = false;
         int nod = 1;
 
-        for (int i = findMinElement(mass); i >= 1; i--) {
+        for (int i = findMinABSNotZeroElement(mass); i >= 1; i--) {
             for (int k : mass) {
                 isFounded = k % i == 0;
                 if (!isFounded) break;
             }
-            if (isFounded){
+            if (isFounded) {
                 nod = i;
                 break;
             }
@@ -31,11 +31,11 @@ public class Main {
         return nod;
     }
 
-    public static int findMinElement(int[] mass) {
-        int min = mass[0];
+    public static int findMinABSNotZeroElement(int[] mass) {
+        int min = Integer.MAX_VALUE;
         for (int j : mass) {
-            if (min > j) {
-                min = j;
+            if (min > Math.abs(j) && j != 0) {
+                min = Math.abs(j);
             }
         }
         return min;
