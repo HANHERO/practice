@@ -13,146 +13,59 @@ import static org.junit.Assert.assertEquals;
 public class MainTest {
 
     private final ByteArrayOutputStream output = new ByteArrayOutputStream();
-
     @Before
-    public void setUpStreams() {
-        System.setOut(new PrintStream(output));
-    }
-
+    public void setUpStreams() { System.setOut(new PrintStream(output)); }
     @After
-    public void cleanUpStreams() {
-        System.setOut(null);
-    }
+    public void cleanUpStreams() { System.setOut(null); }
     /////////////////////////////////////////////////Максимальное/минимальное значения
     @Test(expected = NegativeArraySizeException.class)
-    public void minIntValueArgument() {
-        Main.fib(-2147483648);
-    }
-
+    public void minIntValueArgument() { Main.fib(-2147483648); }
     @Test(expected = NegativeArraySizeException.class)
-    public void maxIntValueArgument() {
-        Main.fib(2147483647);
-    }
-
-
+    public void maxIntValueArgument() { Main.fib(2147483647); }
     /////////////////////////////////////////////////Уникальное значение
     @Test
-    public void uniqueValue() {
-        assertEquals(new BigInteger("0"), Main.fib(0));
-    }
-
-
+    public void uniqueValue() { assertEquals(new BigInteger("0"), Main.fib(0)); }
     /////////////////////////////////////////////////Предметная область
     @Test
-    public void subjectArea1() {
-        assertEquals(new BigInteger("1"), Main.fib(1));
-    }
-
+    public void subjectArea1() { assertEquals(new BigInteger("1"), Main.fib(1)); }
     @Test
-    public void subjectArea2() {
-        assertEquals(new BigInteger("1"), Main.fib(2));
-    }
-
+    public void subjectArea2() { assertEquals(new BigInteger("1"), Main.fib(2)); }
     @Test
-    public void subjectArea3() {
-        assertEquals(new BigInteger("2"), Main.fib(3));
-    }
-
+    public void subjectArea3() { assertEquals(new BigInteger("2"), Main.fib(3)); }
     @Test
-    public void subjectArea4() {
-        assertEquals(new BigInteger("3"), Main.fib(4));
-    }
-
+    public void subjectArea4() { assertEquals(new BigInteger("3"), Main.fib(4)); }
     @Test
-    public void subjectArea5() {
-        assertEquals(new BigInteger("5"), Main.fib(5));
-    }
-
+    public void subjectArea5() { assertEquals(new BigInteger("5"), Main.fib(5)); }
     @Test
-    public void subjectArea6() {
-        assertEquals(new BigInteger("8"), Main.fib(6));
-    }
-
+    public void subjectArea6() { assertEquals(new BigInteger("8"), Main.fib(6)); }
     @Test
-    public void subjectArea7() {
-        assertEquals(new BigInteger("13"), Main.fib(7));
-    }
-
+    public void subjectArea7() { assertEquals(new BigInteger("13"), Main.fib(7)); }
     @Test
-    public void subjectArea8() {
-        assertEquals(new BigInteger("21"), Main.fib(8));
-    }
-
+    public void subjectArea8() { assertEquals(new BigInteger("21"), Main.fib(8)); }
     @Test
-    public void subjectArea9() {
-        assertEquals(new BigInteger("34"), Main.fib(9));
-    }
-
+    public void subjectArea9() { assertEquals(new BigInteger("34"), Main.fib(9)); }
     @Test
-    public void subjectArea10() {
-        assertEquals(new BigInteger("55"), Main.fib(10));
-    }
-
+    public void subjectArea10() { assertEquals(new BigInteger("55"), Main.fib(10)); }
     @Test
-    public void subjectArea11() {
-        assertEquals(new BigInteger("1"), Main.fib(-1));
-        assertEquals("Вы ввели отрицателый номер числа Фибоначчи, вот его значение: ", output.toString());
-    }
-
+    public void subjectArea11() { assertEquals(new BigInteger("1"), Main.fib(-1));assertEquals("Вы ввели отрицателый номер числа Фибоначчи, вот его значение: ", output.toString()); }
     @Test
-    public void subjectArea22() {
-        assertEquals(new BigInteger("-1"), Main.fib(-2));
-        assertEquals("Вы ввели отрицателый номер числа Фибоначчи, вот его значение: ", output.toString());
-    }
-
+    public void subjectArea22() { assertEquals(new BigInteger("-1"), Main.fib(-2));assertEquals("Вы ввели отрицателый номер числа Фибоначчи, вот его значение: ", output.toString()); }
     @Test
-    public void subjectArea33() {
-        assertEquals(new BigInteger("2"), Main.fib(-3));
-        assertEquals("Вы ввели отрицателый номер числа Фибоначчи, вот его значение: ", output.toString());
-    }
-
+    public void subjectArea33() { assertEquals(new BigInteger("2"), Main.fib(-3));assertEquals("Вы ввели отрицателый номер числа Фибоначчи, вот его значение: ", output.toString()); }
     @Test
-    public void subjectArea44() {
-        assertEquals(new BigInteger("-3"), Main.fib(-4));
-        assertEquals("Вы ввели отрицателый номер числа Фибоначчи, вот его значение: ", output.toString());
-    }
-
+    public void subjectArea44() {assertEquals(new BigInteger("-3"), Main.fib(-4));assertEquals("Вы ввели отрицателый номер числа Фибоначчи, вот его значение: ", output.toString()); }
     @Test
-    public void subjectArea55() {
-        assertEquals(new BigInteger("5"), Main.fib(-5));
-        assertEquals("Вы ввели отрицателый номер числа Фибоначчи, вот его значение: ", output.toString());
-    }
-
+    public void subjectArea55() { assertEquals(new BigInteger("5"), Main.fib(-5));assertEquals("Вы ввели отрицателый номер числа Фибоначчи, вот его значение: ", output.toString()); }
     @Test
-    public void subjectArea66() {
-        assertEquals(new BigInteger("-8"), Main.fib(-6));
-        assertEquals("Вы ввели отрицателый номер числа Фибоначчи, вот его значение: ", output.toString());
-    }
-
+    public void subjectArea66() { assertEquals(new BigInteger("-8"), Main.fib(-6));assertEquals("Вы ввели отрицателый номер числа Фибоначчи, вот его значение: ", output.toString()); }
     @Test
-    public void subjectArea77() {
-        assertEquals(new BigInteger("13"), Main.fib(-7));
-        assertEquals("Вы ввели отрицателый номер числа Фибоначчи, вот его значение: ", output.toString());
-    }
-
+    public void subjectArea77() { assertEquals(new BigInteger("13"), Main.fib(-7));assertEquals("Вы ввели отрицателый номер числа Фибоначчи, вот его значение: ", output.toString()); }
     @Test
-    public void subjectArea88() {
-        assertEquals(new BigInteger("-21"), Main.fib(-8));
-        assertEquals("Вы ввели отрицателый номер числа Фибоначчи, вот его значение: ", output.toString());
-    }
-
+    public void subjectArea88() { assertEquals(new BigInteger("-21"), Main.fib(-8));assertEquals("Вы ввели отрицателый номер числа Фибоначчи, вот его значение: ", output.toString()); }
     @Test
-    public void subjectArea99() {
-        assertEquals(new BigInteger("34"), Main.fib(-9));
-        assertEquals("Вы ввели отрицателый номер числа Фибоначчи, вот его значение: ", output.toString());
-    }
-
+    public void subjectArea99() { assertEquals(new BigInteger("34"), Main.fib(-9));assertEquals("Вы ввели отрицателый номер числа Фибоначчи, вот его значение: ", output.toString()); }
     @Test
-    public void subjectArea1010() {
-        assertEquals(new BigInteger("-55"), Main.fib(-10));
-        assertEquals("Вы ввели отрицателый номер числа Фибоначчи, вот его значение: ", output.toString());
-    }
-
+    public void subjectArea1010() { assertEquals(new BigInteger("-55"), Main.fib(-10));assertEquals("Вы ввели отрицателый номер числа Фибоначчи, вот его значение: ", output.toString()); }
     ///////////////////////////////////////////////////////Реализация
     @Test
     public void lowerLimitOfProgram(){
@@ -216,42 +129,19 @@ public class MainTest {
 
     /////////////////////////////////////////////////////5.Случайные значения
     @Test
-    public void randomFib1() {
-        assertEquals(new BigInteger("4052739537881"), Main.fib(62));
-    }
-
+    public void randomFib1() { assertEquals(new BigInteger("4052739537881"), Main.fib(62)); }
     @Test
-    public void randomFib2() {
-        assertEquals(new BigInteger("-1304969544928657"), Main.fib(-74));
-    }
-
+    public void randomFib2() { assertEquals(new BigInteger("-1304969544928657"), Main.fib(-74)); }
     @Test
-    public void randomFib3() {
-        assertEquals(new BigInteger("679891637638612258"), Main.fib(87));
-    }
-
+    public void randomFib3() { assertEquals(new BigInteger("679891637638612258"), Main.fib(87)); }
     @Test
-    public void randomFib4() {
-        assertEquals(new BigInteger("37889062373143906"), Main.fib(81));
-    }
-
+    public void randomFib4() { assertEquals(new BigInteger("37889062373143906"), Main.fib(81)); }
     @Test
-    public void randomFib5() {
-        assertEquals(new BigInteger("1134903170"), Main.fib(45));
-    }
-
+    public void randomFib5() { assertEquals(new BigInteger("1134903170"), Main.fib(45)); }
     @Test
-    public void randomFib6() {
-        assertEquals(new BigInteger("9227465"), Main.fib(35));
-    }
-
+    public void randomFib6() { assertEquals(new BigInteger("9227465"), Main.fib(35)); }
     @Test
-    public void randomFib7() {
-        assertEquals(new BigInteger("10946"), Main.fib(-21));
-    }
-
+    public void randomFib7() { assertEquals(new BigInteger("10946"), Main.fib(-21)); }
     @Test
-    public void randomFib8() {
-        assertEquals(new BigInteger("196418"), Main.fib(27));
-    }
+    public void randomFib8() { assertEquals(new BigInteger("196418"), Main.fib(27)); }
 }
