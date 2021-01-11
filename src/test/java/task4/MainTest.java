@@ -23,7 +23,7 @@ public class MainTest {
     public void cleanUpStreams() {
         System.setOut(null);
     }
-    /////////////////////////////////////////////////1. Максимальное/минимальное значения
+    /////////////////////////////////////////////////Максимальное/минимальное значения
     @Test(expected = NegativeArraySizeException.class)
     public void minIntValueArgument() {
         Main.fib(-2147483648);
@@ -35,14 +35,14 @@ public class MainTest {
     }
 
 
-    /////////////////////////////////////////////////2.???? Уникальное значение
+    /////////////////////////////////////////////////Уникальное значение
     @Test
     public void uniqueValue() {
         assertEquals(new BigInteger("0"), Main.fib(0));
     }
 
 
-    /////////////////////////////////////////////////3. Предметная область
+    /////////////////////////////////////////////////Предметная область
     @Test
     public void subjectArea1() {
         assertEquals(new BigInteger("1"), Main.fib(1));
@@ -153,7 +153,7 @@ public class MainTest {
         assertEquals("Вы ввели отрицателый номер числа Фибоначчи, вот его значение: ", output.toString());
     }
 
-    ///////////////////////////////////////////////////////4. Реализация
+    ///////////////////////////////////////////////////////Реализация
     @Test
     public void lowerLimitOfProgramPerformance(){
         assertEquals(new BigInteger("-336447648764317832666216120051075433103021484606800639065647" +
