@@ -16,12 +16,19 @@ public class Main {
     }
 
     public static String findDayOfWeek(int startDay, int currentDay, int month) {
-        if (startDay <= 0 || currentDay <= 0 || month <= 0) {
-            return "День недели Нового года, искомый день и искомый месяц должны быть положительными числами";
-        }
-        String[] week = {"Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота", "Воскресенье"};
         int[] daysInMonth = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
         int numberOfDays = currentDay - 1;
+        if (startDay > 7 || startDay < 1) {
+            return "День недели должен быть в пределе 1-7";
+        }
+        if (month > 12 || month < 1) {
+            return "Месяц должен быть в пределе 1-12";
+        }
+        if (currentDay > daysInMonth[month] || currentDay < 1) {
+            return "Искомый день должен быть не меньше 1 и не больше числа дней в заданном месяце";
+        }
+        String[] week = {"Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота", "Воскресенье"};
+
         for (int i = 0; i < month; i++) {
             numberOfDays = numberOfDays + daysInMonth[i];
         }

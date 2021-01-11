@@ -17,7 +17,7 @@ public class Main {
     }
 
     public static BigInteger fib(int n) {
-        BigInteger[] fibMass = new BigInteger[Math.abs(n) + 1];
+        BigInteger[] fibMass = new BigInteger[Math.abs(n) + 2];
         fibMass[0] = new BigInteger("0");
         if (n < 0) {
             fibMass[1] = new BigInteger("-1");
