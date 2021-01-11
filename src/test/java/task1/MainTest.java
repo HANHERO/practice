@@ -86,6 +86,4 @@ public class MainTest {
     public void randomTest10() {
         assertEquals("A = -40, B = -30", Main.swap(-30, -40));
     }
-
-
 }
