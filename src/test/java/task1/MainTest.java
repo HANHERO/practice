@@ -9,12 +9,12 @@ public class MainTest {
 
     @Test
     public void maxAndMinSwap() {
-        assertEquals("A = 2147483647, B = -2147483648", Main.swap(-2147483648, 2147483647));
+        assertEquals("A = -2147483648, B = 2147483647", Main.swap(2147483647, -2147483648));
     }
 
     @Test
     public void minAndMaxSwap() {
-        assertEquals("A = -2147483648, B = 2147483647", Main.swap(2147483647, -2147483648));
+        assertEquals("A = 2147483647, B = -2147483648", Main.swap(-2147483648, 2147483647));
     }
 
     @Test
