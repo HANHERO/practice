@@ -8,6 +8,8 @@ import static org.junit.Assert.assertEquals;
 
 public class MainTest {
     ////////////////////////////////1. Максимальное/минимальное значение аргумента
+    @Test public void minAndMinSwap() { assertEquals("A = -2147483648, B = -2147483648", Main.swap(-2147483648, -2147483648)); }
+    @Test public void maxAndMaxSwap() { assertEquals("A = 2147483647, B = 2147483647", Main.swap(2147483647, 2147483647)); }
     @Test public void maxAndMinSwap() { assertEquals("A = -2147483648, B = 2147483647", Main.swap(2147483647, -2147483648)); }
     @Test public void minAndMaxSwap() { assertEquals("A = 2147483647, B = -2147483648", Main.swap(-2147483648, 2147483647)); }
     ////////////////////////////////2. Классы эквивалентности
@@ -42,5 +44,4 @@ public class MainTest {
     @Test public void random1() { assertEquals("A = 37, B = 55", Main.swap(55, 37)); }
     @Test public void random2() { assertEquals("A = 0, B = 1540", Main.swap(1540, 0)); }
     @Test public void random3() { assertEquals("A = -4002, B = -26530", Main.swap(-26530, -4002)); }
-
 }
