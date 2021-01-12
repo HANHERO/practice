@@ -20,16 +20,19 @@ public class NewFib {
         BigInteger temp;
         BigInteger a = new BigInteger("0");
         BigInteger b = new BigInteger("1");
+        int nABS = Math.abs(n);
         if (n == 0) {
             return a;
         }
-        for (int i = 1; i < n; i++) {
+        for (int i = 1; i < nABS; i++) {
             temp = b;
             b = a.add(b);
             a = temp;
+            if(i%10000==0) System.out.println(i);
         }
-        if (n < 0 && n%2==0) {
-            return b.multiply(new BigInteger("-1"));
+        if (n < 0) {
+            System.out.print("Вы ввели отрицателый номер числа Фибоначчи, вот его значение: ");
+            if(n % 2 == 0) return b.multiply(new BigInteger("-1"));
         }
         return b;
     }
