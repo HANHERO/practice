@@ -12,20 +12,16 @@ public class Main {
         try {
             int[] mass = {Integer.parseInt(br.readLine()), Integer.parseInt(br.readLine()),
                     Integer.parseInt(br.readLine()), Integer.parseInt(br.readLine())};
-
             System.out.print("НОД = " + findNOD(mass));
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
     }
 
     public static int findNOD(int[] mass) throws IOException {
         boolean isFounded = false;
         int nod = 0;
         int min = findMinABSNotZeroElement(mass);
-
         if (min == -1) {
             throw new IOException();
         } else {
@@ -39,12 +35,11 @@ public class Main {
                     break;
                 }
             }
-
         }
         return nod;
     }
 
-    public static int findMinABSNotZeroElement(int[] mass) {
+    private static int findMinABSNotZeroElement(int[] mass) {
         int min = Integer.MAX_VALUE;
         for (int j : mass) {
             if (j == Integer.MIN_VALUE) {
