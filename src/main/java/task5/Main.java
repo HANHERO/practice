@@ -12,19 +12,19 @@ public class Main {
         int currentDay = Integer.parseInt(br.readLine());
         System.out.print("Введите искомый месяц: ");
         int month = Integer.parseInt(br.readLine());
-        System.out.println(findDayOfWeek(startDay, currentDay, month));
+        System.out.println(findDay(startDay, currentDay, month));
     }
 
-    public static String findDayOfWeek(int startDay, int currentDay, int month) {
+    public static String findDay(int start, int current, int month) {
         int[] daysInMonth = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
-        int numberOfDays = currentDay - 1;
-        if (startDay > 7 || startDay < 1) {
+        int numberOfDays = current - 1;
+        if (start > 7 || start < 1) {
             return "День недели должен быть в пределе 1-7";
         }
         if (month > 12 || month < 1) {
             return "Месяц должен быть в пределе 1-12";
         }
-        if (currentDay > daysInMonth[month] || currentDay < 1) {
+        if (current > daysInMonth[month] || current < 1) {
             return "Искомый день должен быть не меньше 1 и не больше числа дней в заданном месяце";
         }
         String[] week = {"Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота", "Воскресенье"};
@@ -33,6 +33,6 @@ public class Main {
             numberOfDays = numberOfDays + daysInMonth[i];
         }
 
-        return week[(numberOfDays + startDay - 1) % 7];
+        return week[(numberOfDays + start - 1) % 7];
     }
 }

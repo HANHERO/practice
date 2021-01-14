@@ -18,12 +18,17 @@ public class Main {
         }
     }
 
-    public static int findNOD(int[] mass) throws IOException {
+    public static int findNOD(int[] mass)  {
         boolean isFounded = false;
         int nod = 0;
         int min = findMinABSNotZeroElement(mass);
         if (min == -1) {
-            throw new IOException();
+            try {
+                throw new IOException();
+            }catch (Exception e){
+
+            }
+
         } else {
             for (int i = min; i >= 1; i--) {
                 for (int k : mass) {
