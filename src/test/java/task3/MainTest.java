@@ -92,6 +92,4 @@ public class MainTest {
     @Test public void randomTest28() { assertEquals(2, findNOD(new int[]{2, 4, 8, 16})); }
     @Test public void randomTest29() { assertEquals(10, findNOD(new int[]{50, 400, 30, 170})); }
     @Test public void randomTest30() { assertEquals(1, findNOD(new int[]{7, 100, 200, 400})); }
-
-
 }

@@ -26,31 +26,31 @@ public class MainTest {
     @Test public void entranceClassFirstApAtEntrance() { assertEquals("1 этаж, 2 подъезд.", determ(101, 10, 10)); }
     @Test public void entranceClassLastApAtEntrance() { assertEquals("10 этаж, 2 подъезд.", determ(200, 10, 10)); }
     ////////////////////////////////////////2.2 Впритык слева и справа от грацницы
-    @Test public void floorClassFirstApAtFloorLeftBorderStep() { assertEquals("1 этаж, 1 подъезд.", determ(10, 10, 10)); }
-    @Test public void floorClassFirstApAtFloorRightBorderStep() { assertEquals("2 этаж, 1 подъезд.", determ(12, 10, 10)); }
-    @Test public void floorClassLastApLeftBorderStep() { assertEquals("2 этаж, 1 подъезд.", determ(19, 10, 10)); }
-    @Test public void floorClassLastApRightBorderStep() { assertEquals("3 этаж, 1 подъезд.", determ(21, 10, 10)); }
+    @Test public void floorFirstApAtFloorLeftBorderStep() { assertEquals("1 этаж, 1 подъезд.", determ(10, 10, 10)); }
+    @Test public void floorFirstApAtFloorRightBorderStep() { assertEquals("2 этаж, 1 подъезд.", determ(12, 10, 10)); }
+    @Test public void floorLastApLeftBorderStep() { assertEquals("2 этаж, 1 подъезд.", determ(19, 10, 10)); }
+    @Test public void floorLastApRightBorderStep() { assertEquals("3 этаж, 1 подъезд.", determ(21, 10, 10)); }
 
-    @Test public void entranceClassFirstApAtEntranceLeftBorderStep() { assertEquals("10 этаж, 1 подъезд.", determ(100, 10, 10)); }
-    @Test public void entranceClassFirstApAtEntranceRightBorderStep() { assertEquals("1 этаж, 2 подъезд.", determ(102, 10, 10)); }
-    @Test public void entranceClassLastApAtEntranceLeftBorderStep() { assertEquals("10 этаж, 2 подъезд.", determ(199, 10, 10)); }
-    @Test public void entranceClassLastApAtEntranceRightBorderStep() { assertEquals("1 этаж, 3 подъезд.", determ(201, 10, 10)); }
+    @Test public void entranceFirstApAtEntranceLeftStep() { assertEquals("10 этаж, 1 подъезд.", determ(100, 10, 10)); }
+    @Test public void entranceFirstApAtEntranceRightStep() { assertEquals("1 этаж, 2 подъезд.", determ(102, 10, 10)); }
+    @Test public void entranceLastApAtEntranceLeftStep() { assertEquals("10 этаж, 2 подъезд.", determ(199, 10, 10)); }
+    @Test public void entranceLastApAtEntranceRightStep() { assertEquals("1 этаж, 3 подъезд.", determ(201, 10, 10)); }
     ////////////////////////////////////////2.3 Внутри класса эквивалентности
-    @Test public void floorInternalTest1() { assertEquals("2 этаж, 1 подъезд.", determ(13, 10, 10)); }
-    @Test public void floorInternalTest2() { assertEquals("2 этаж, 1 подъезд.", determ(14, 10, 10)); }
-    @Test public void floorInternalTest3() { assertEquals("2 этаж, 1 подъезд.", determ(15, 10, 10)); }
-    @Test public void floorInternalTest4() { assertEquals("2 этаж, 1 подъезд.", determ(16, 10, 10)); }
-    @Test public void floorInternalTest5() { assertEquals("2 этаж, 1 подъезд.", determ(17, 10, 10)); }
-    @Test public void floorInternalTest6() { assertEquals("2 этаж, 1 подъезд.", determ(18, 10, 10)); }
+    @Test public void floorInternal1() { assertEquals("2 этаж, 1 подъезд.", determ(13, 10, 10)); }
+    @Test public void floorInternal2() { assertEquals("2 этаж, 1 подъезд.", determ(14, 10, 10)); }
+    @Test public void floorInternal3() { assertEquals("2 этаж, 1 подъезд.", determ(15, 10, 10)); }
+    @Test public void floorInternal4() { assertEquals("2 этаж, 1 подъезд.", determ(16, 10, 10)); }
+    @Test public void floorInternal5() { assertEquals("2 этаж, 1 подъезд.", determ(17, 10, 10)); }
+    @Test public void floorInternal6() { assertEquals("2 этаж, 1 подъезд.", determ(18, 10, 10)); }
 
-    @Test public void entranceInternalTest1() { assertEquals("2 этаж, 2 подъезд.", determ(111, 10, 10)); }
-    @Test public void entranceInternalTest2() { assertEquals("3 этаж, 2 подъезд.", determ(125, 10, 10)); }
-    @Test public void entranceInternalTest3() { assertEquals("4 этаж, 2 подъезд.", determ(135, 10, 10)); }
-    @Test public void entranceInternalTest4() { assertEquals("5 этаж, 2 подъезд.", determ(146, 10, 10)); }
-    @Test public void entranceInternalTest5() { assertEquals("6 этаж, 2 подъезд.", determ(157, 10, 10)); }
-    @Test public void entranceInternalTest6() { assertEquals("7 этаж, 2 подъезд.", determ(168, 10, 10)); }
-    @Test public void entranceInternalTest7() { assertEquals("8 этаж, 2 подъезд.", determ(178, 10, 10)); }
-    @Test public void entranceInternalTest8() { assertEquals("9 этаж, 2 подъезд.", determ(188, 10, 10)); }
+    @Test public void entranceInternal1() { assertEquals("2 этаж, 2 подъезд.", determ(111, 10, 10)); }
+    @Test public void entranceInternal2() { assertEquals("3 этаж, 2 подъезд.", determ(125, 10, 10)); }
+    @Test public void entranceInternal3() { assertEquals("4 этаж, 2 подъезд.", determ(135, 10, 10)); }
+    @Test public void entranceInternal4() { assertEquals("5 этаж, 2 подъезд.", determ(146, 10, 10)); }
+    @Test public void entranceInternal5() { assertEquals("6 этаж, 2 подъезд.", determ(157, 10, 10)); }
+    @Test public void entranceInternal6() { assertEquals("7 этаж, 2 подъезд.", determ(168, 10, 10)); }
+    @Test public void entranceInternal7() { assertEquals("8 этаж, 2 подъезд.", determ(178, 10, 10)); }
+    @Test public void entranceInternal8() { assertEquals("9 этаж, 2 подъезд.", determ(188, 10, 10)); }
     ////////////////////////////////////////3. Предметная область
     @Test public void realExample1() { assertEquals("3 этаж, 1 подъезд.", determ(15, 6, 9)); }
     @Test public void realExample2() { assertEquals("2 этаж, 4 подъезд.", determ(113, 4, 9)); }
