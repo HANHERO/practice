@@ -9,10 +9,9 @@ import java.io.PrintStream;
 import java.math.BigInteger;
 
 import static org.junit.Assert.assertEquals;
-import static task4.NewFib.fib;
+import static task4.NewFib.f;
 
 public class MainTest {
-    private final String negative = "Вы ввели отрицателый номер числа Фибоначчи, вот его значение: ";
     private final BigInteger foundedInNet10K = new BigInteger("33644764876431783266621612005107543310302148460680063906564769974680081" +
             "4421666623681555955136337340255820653326808361593737347904838652682630408924630564318873545443695598274916066020998841839338646527313000" +
             "8883026923567361313511757929743785441375213052050434770160226475831890652789085515436615958298727968298751063120057542878345321551510387" +
@@ -45,78 +44,85 @@ public class MainTest {
             "5327097469953187707243768259074199396322659841474981936092852239450397071654431564213281576889080587831834049174345562705202235648464951" +
             "9611246026831397097506938264870661326450766507461151267752274862159864253071129844118262266105716351506926002986170494542504749137811515" +
             "4139941550671256271197133252763631939606902895650288268608362241082050562430701794976171121233066073310059947366875");
-    private final ByteArrayOutputStream out = new ByteArrayOutputStream();
-    @Before public void setUpStreams() { System.setOut(new PrintStream(out)); }
+    private final ByteArrayOutputStream o = new ByteArrayOutputStream();
+    @Before public void setUpStreams() { System.setOut(new PrintStream(o)); }
     @After public void cleanUpStreams() { System.setOut(null); }
+
+    private void aE(BigInteger e, BigInteger a){
+        assertEquals(e, a);
+    }
+    private void aE(String a){
+        assertEquals("Вы ввели отрицателый номер числа Фибоначчи, вот его значение: ", a);
+    }
     /////////////////////////////////////////////////1. Максимальное/минимальное значения
-    @Test public void minIntValueArgument() { assertEquals(BigInteger.class, fib(-2000000).getClass()); }
-    @Test public void maxIntValueArgument() { assertEquals(BigInteger.class, fib(2000000).getClass()); }
+    @Test public void min() { assertEquals(BigInteger.class, f(-2000000).getClass()); }
+    @Test public void max() { assertEquals(BigInteger.class, f(2000000).getClass()); }
     /////////////////////////////////////////////////2. Классы эквивалентности
     /////////////////////////////////////////////////2.1 Границы классов эквивалентности
 
     /////////////////////////////////////////////////2.2 Впритык слева и справа от границы
 
     /////////////////////////////////////////////////2.3 Внутри класса эквивалентности
-    @Test public void internal1(){ assertEquals(new BigInteger("0"), fib(0));}
-    @Test public void internal2(){ assertEquals(new BigInteger("89"), fib(11));}
-    @Test public void internal3(){ assertEquals(new BigInteger("89"), fib(-11));assertEquals(negative, out.toString()); }
-    @Test public void internal4(){ assertEquals(new BigInteger("514229"), fib(29));}
-    @Test public void internal5(){ assertEquals(new BigInteger("514229"), fib(-29));assertEquals(negative, out.toString()); }
-    @Test public void internal6(){ assertEquals(new BigInteger("498454011879264"), fib(72));}
-    @Test public void internal7(){ assertEquals(new BigInteger("-498454011879264"), fib(-72));assertEquals(negative, out.toString()); }
-    @Test public void lowerLimitOfProgram(){ assertEquals(foundedInNetMinus10K, fib(-10000)); assertEquals(negative, out.toString()); }
-    @Test public void upperLimitOfProgram(){ assertEquals(foundedInNet10K, fib(10000)); }
+    @Test public void i1(){ aE(new BigInteger("0"), f(0));}
+    @Test public void i2(){ aE(new BigInteger("89"), f(11));}
+    @Test public void i3(){ aE(new BigInteger("89"), f(-11));aE(o.toString()); }
+    @Test public void i4(){ aE(new BigInteger("514229"), f(29));}
+    @Test public void i5(){ aE(new BigInteger("514229"), f(-29));aE(o.toString()); }
+    @Test public void i6(){ aE(new BigInteger("498454011879264"), f(72));}
+    @Test public void i7(){ aE(new BigInteger("-498454011879264"), f(-72));aE(o.toString()); }
+    @Test public void lL(){ aE(foundedInNetMinus10K, f(-10000)); aE(o.toString()); }
+    @Test public void uL(){ aE(foundedInNet10K, f(10000)); }
     /////////////////////////////////////////////////3. Предметная область
-    @Test public void subjectArea1() { assertEquals(new BigInteger("1"), fib(1)); }
-    @Test public void subjectArea2() { assertEquals(new BigInteger("1"), fib(2)); }
-    @Test public void subjectArea3() { assertEquals(new BigInteger("2"), fib(3)); }
-    @Test public void subjectArea4() { assertEquals(new BigInteger("3"), fib(4)); }
-    @Test public void subjectArea5() { assertEquals(new BigInteger("5"), fib(5)); }
-    @Test public void subjectArea6() { assertEquals(new BigInteger("8"), fib(6)); }
-    @Test public void subjectArea7() { assertEquals(new BigInteger("13"), fib(7)); }
-    @Test public void subjectArea8() { assertEquals(new BigInteger("21"), fib(8)); }
-    @Test public void subjectArea9() { assertEquals(new BigInteger("34"), fib(9)); }
-    @Test public void subjectArea11() { assertEquals(new BigInteger("55"), fib(10)); }
-    @Test public void subjectArea12() { assertEquals(new BigInteger("89"), fib(11)); }
-    @Test public void subjectArea13() { assertEquals(new BigInteger("144"), fib(12)); }
-    @Test public void subjectArea14() { assertEquals(new BigInteger("233"), fib(13)); }
-    @Test public void subjectArea15() { assertEquals(new BigInteger("377"), fib(14)); }
-    @Test public void subjectArea16() { assertEquals(new BigInteger("610"), fib(15)); }
-    @Test public void subjectArea17() { assertEquals(new BigInteger("987"), fib(16)); }
-    @Test public void subjectArea18() { assertEquals(new BigInteger("1597"), fib(17)); }
-    @Test public void subjectArea19() { assertEquals(new BigInteger("2584"), fib(18)); }
-    @Test public void subjectArea20() { assertEquals(new BigInteger("4181"), fib(19)); }
-    @Test public void subjectArea21() { assertEquals(new BigInteger("6765"), fib(20)); }
-    @Test public void subjectArea22() { assertEquals(new BigInteger("1"), fib(-1));assertEquals(negative, out.toString()); }
-    @Test public void subjectArea23() { assertEquals(new BigInteger("-1"), fib(-2));assertEquals(negative, out.toString()); }
-    @Test public void subjectArea24() { assertEquals(new BigInteger("2"), fib(-3));assertEquals(negative, out.toString()); }
-    @Test public void subjectArea25() { assertEquals(new BigInteger("-3"), fib(-4));assertEquals(negative, out.toString()); }
-    @Test public void subjectArea26() { assertEquals(new BigInteger("5"), fib(-5));assertEquals(negative, out.toString()); }
-    @Test public void subjectArea27() { assertEquals(new BigInteger("-8"), fib(-6));assertEquals(negative, out.toString()); }
-    @Test public void subjectArea28() { assertEquals(new BigInteger("13"), fib(-7));assertEquals(negative, out.toString()); }
-    @Test public void subjectArea29() { assertEquals(new BigInteger("-21"), fib(-8));assertEquals(negative, out.toString()); }
-    @Test public void subjectArea30() { assertEquals(new BigInteger("34"), fib(-9));assertEquals(negative, out.toString()); }
-    @Test public void subjectArea31() { assertEquals(new BigInteger("-55"), fib(-10));assertEquals(negative, out.toString()); }
-    @Test public void subjectArea32() { assertEquals(new BigInteger("89"), fib(-11));assertEquals(negative, out.toString()); }
-    @Test public void subjectArea33() { assertEquals(new BigInteger("-144"), fib(-12));assertEquals(negative, out.toString()); }
-    @Test public void subjectArea34() { assertEquals(new BigInteger("233"), fib(-13));assertEquals(negative, out.toString()); }
-    @Test public void subjectArea35() { assertEquals(new BigInteger("-377"), fib(-14));assertEquals(negative, out.toString()); }
-    @Test public void subjectArea36() { assertEquals(new BigInteger("610"), fib(-15));assertEquals(negative, out.toString()); }
-    @Test public void subjectArea37() { assertEquals(new BigInteger("-987"), fib(-16));assertEquals(negative, out.toString()); }
-    @Test public void subjectArea38() { assertEquals(new BigInteger("1597"), fib(-17));assertEquals(negative, out.toString()); }
-    @Test public void subjectArea39() { assertEquals(new BigInteger("-2584"), fib(-18));assertEquals(negative, out.toString()); }
-    @Test public void subjectArea40() { assertEquals(new BigInteger("4181"), fib(-19));assertEquals(negative, out.toString()); }
-    @Test public void subjectArea41() { assertEquals(new BigInteger("-6765"), fib(-20));assertEquals(negative, out.toString()); }
+    @Test public void s1() { aE(new BigInteger("1"), f(1)); }
+    @Test public void s2() { aE(new BigInteger("1"), f(2)); }
+    @Test public void s3() { aE(new BigInteger("2"), f(3)); }
+    @Test public void s4() { aE(new BigInteger("3"), f(4)); }
+    @Test public void s5() { aE(new BigInteger("5"), f(5)); }
+    @Test public void s6() { aE(new BigInteger("8"), f(6)); }
+    @Test public void s7() { aE(new BigInteger("13"), f(7)); }
+    @Test public void s8() { aE(new BigInteger("21"), f(8)); }
+    @Test public void s9() { aE(new BigInteger("34"), f(9)); }
+    @Test public void s11() { aE(new BigInteger("55"), f(10)); }
+    @Test public void s12() { aE(new BigInteger("89"), f(11)); }
+    @Test public void s13() { aE(new BigInteger("144"), f(12)); }
+    @Test public void s14() { aE(new BigInteger("233"), f(13)); }
+    @Test public void s15() { aE(new BigInteger("377"), f(14)); }
+    @Test public void s16() { aE(new BigInteger("610"), f(15)); }
+    @Test public void s17() { aE(new BigInteger("987"), f(16)); }
+    @Test public void s18() { aE(new BigInteger("1597"), f(17)); }
+    @Test public void s19() { aE(new BigInteger("2584"), f(18)); }
+    @Test public void s20() { aE(new BigInteger("4181"), f(19)); }
+    @Test public void s21() { aE(new BigInteger("6765"), f(20)); }
+    @Test public void s22() { aE(new BigInteger("1"), f(-1));aE(o.toString()); }
+    @Test public void s23() { aE(new BigInteger("-1"), f(-2));aE(o.toString()); }
+    @Test public void s24() { aE(new BigInteger("2"), f(-3));aE(o.toString()); }
+    @Test public void s25() { aE(new BigInteger("-3"), f(-4));aE(o.toString()); }
+    @Test public void s26() { aE(new BigInteger("5"), f(-5));aE(o.toString()); }
+    @Test public void s27() { aE(new BigInteger("-8"), f(-6));aE(o.toString()); }
+    @Test public void s28() { aE(new BigInteger("13"), f(-7));aE(o.toString()); }
+    @Test public void s29() { aE(new BigInteger("-21"), f(-8));aE(o.toString()); }
+    @Test public void s30() { aE(new BigInteger("34"), f(-9));aE(o.toString()); }
+    @Test public void s31() { aE(new BigInteger("-55"), f(-10));aE(o.toString()); }
+    @Test public void s32() { aE(new BigInteger("89"), f(-11));aE(o.toString()); }
+    @Test public void s33() { aE(new BigInteger("-144"), f(-12));aE(o.toString()); }
+    @Test public void s34() { aE(new BigInteger("233"), f(-13));aE(o.toString()); }
+    @Test public void s35() { aE(new BigInteger("-377"), f(-14));aE(o.toString()); }
+    @Test public void s36() { aE(new BigInteger("610"), f(-15));aE(o.toString()); }
+    @Test public void s37() { aE(new BigInteger("-987"), f(-16));aE(o.toString()); }
+    @Test public void s38() { aE(new BigInteger("1597"), f(-17));aE(o.toString()); }
+    @Test public void s39() { aE(new BigInteger("-2584"), f(-18));aE(o.toString()); }
+    @Test public void s40() { aE(new BigInteger("4181"), f(-19));aE(o.toString()); }
+    @Test public void s41() { aE(new BigInteger("-6765"), f(-20));aE(o.toString()); }
     ///////////////////////////////////////////////////////4. Реализация
 
-    @Test(expected = Exception.class) public void incorrectInput(){ fib(Integer.parseInt("hfuvn3737")); }
+    @Test(expected = Exception.class) public void incorrectInput(){ f(Integer.parseInt("hfuvn3737")); }
     /////////////////////////////////////////////////////5.Случайные значения
-    @Test public void randomFib1() { assertEquals(new BigInteger("4052739537881"), fib(62)); }
-    @Test public void randomFib2() { assertEquals(new BigInteger("-1304969544928657"), fib(-74)); assertEquals(negative, out.toString()); }
-    @Test public void randomFib3() { assertEquals(new BigInteger("679891637638612258"), fib(87)); }
-    @Test public void randomFib4() { assertEquals(new BigInteger("37889062373143906"), fib(81)); }
-    @Test public void randomFib5() { assertEquals(new BigInteger("1134903170"), fib(45)); }
-    @Test public void randomFib6() { assertEquals(new BigInteger("9227465"), fib(35)); }
-    @Test public void randomFib7() { assertEquals(new BigInteger("10946"), fib(-21)); assertEquals(negative, out.toString()); }
-    @Test public void randomFib8() { assertEquals(new BigInteger("196418"), fib(27)); }
+    @Test public void r1() { aE(new BigInteger("4052739537881"), f(62)); }
+    @Test public void r2() { aE(new BigInteger("-1304969544928657"), f(-74)); aE(o.toString()); }
+    @Test public void r3() { aE(new BigInteger("679891637638612258"), f(87)); }
+    @Test public void r4() { aE(new BigInteger("37889062373143906"), f(81)); }
+    @Test public void r5() { aE(new BigInteger("1134903170"), f(45)); }
+    @Test public void r6() { aE(new BigInteger("9227465"), f(35)); }
+    @Test public void r7() { aE(new BigInteger("10946"), f(-21)); aE(o.toString()); }
+    @Test public void r8() { aE(new BigInteger("196418"), f(27)); }
 }

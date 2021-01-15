@@ -13,13 +13,13 @@ public class Main {
             int numberOfApOnFloor = Integer.parseInt(br.readLine());
             System.out.print("Введите количество этажей (1 - 2147483647): ");
             int numberOfFloors = Integer.parseInt(br.readLine());
-            System.out.println(determ(appNumber, numberOfApOnFloor, numberOfFloors));
+            System.out.println(d(appNumber, numberOfApOnFloor, numberOfFloors));
         } catch (Exception e) {
             System.out.println("Введены не корректные данные");
         }
     }
 
-    public static String determ(int apNum, int apps, int floors) {
+    public static String d(int apNum, int apps, int floors) {
         if (apNum <= 0 || apps <= 0 || floors <= 0) {
             return "Введены не корректные данные.";
         }

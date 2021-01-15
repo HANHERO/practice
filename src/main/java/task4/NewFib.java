@@ -10,13 +10,13 @@ public class NewFib {
         System.out.print("Введите порядковый номер необходимого числа Фибоначчи: ");
         try {
             int fibDigit = Integer.parseInt(br.readLine());
-            System.out.println(fib(fibDigit));
+            System.out.println(f(fibDigit));
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public static BigInteger fib(int n) {
+    public static BigInteger f(int n) {
         BigInteger temp;
         BigInteger a = new BigInteger("0");
         BigInteger b = new BigInteger("1");
