@@ -19,6 +19,10 @@ public class MainTest {
     @Test public void mM2() { aE("A = 2147483647, B = 2147483647", s(max, max)); }
     @Test public void mM3() { aE("A = -2147483648, B = 2147483647", s(max, min)); }
     @Test public void mM4() { aE("A = 2147483647, B = -2147483648", s(min, max)); }
+    @Test public void mM5() { aE("A = -2147483648, B = -2147483648", s(min, 0)); }
+    @Test public void mM6() { aE("A = 2147483647, B = 2147483647", s(0, max)); }
+    @Test public void mM7() { aE("A = -2147483648, B = 2147483647", s(max, 0)); }
+    @Test public void mM8() { aE("A = 2147483647, B = -2147483648", s(0, min)); }
     ////////////////////////////////2. Классы эквивалентности
     ////////////////////////////////2.1 Границы классов эквивалентности
 
