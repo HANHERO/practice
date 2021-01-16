@@ -13,27 +13,27 @@ public class Main {
             int numberOfApOnFloor = Integer.parseInt(br.readLine());
             System.out.print("Введите количество этажей (1 - 2147483647): ");
             int numberOfFloors = Integer.parseInt(br.readLine());
-            System.out.println(determinateEntranceAndFloor(appNumber, numberOfApOnFloor, numberOfFloors));
+            System.out.println(d(appNumber, numberOfApOnFloor, numberOfFloors));
         } catch (Exception e) {
             System.out.println("Введены не корректные данные");
         }
     }
 
-    public static String determinateEntranceAndFloor(int apNumber, int numberOfApOnFloor, int numberOfFloors) {
-        if (apNumber <= 0 || numberOfApOnFloor <= 0 || numberOfFloors <= 0) {
+    public static String d(int apNum, int apps, int floors) {
+        if (apNum <= 0 || apps <= 0 || floors <= 0) {
             return "Введены не корректные данные.";
         }
 
         int entrance = 1;
         int floor = 1;
 
-        while (apNumber - numberOfApOnFloor > 0) {
-            apNumber -= numberOfApOnFloor;
+        while (apNum - apps > 0) {
+            apNum -= apps;
             floor++;
         }
 
-        while (floor - numberOfFloors > 0) {
-            floor -= numberOfFloors;
+        while (floor - floors > 0) {
+            floor -= floors;
             entrance++;
         }
 

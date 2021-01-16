@@ -3,61 +3,100 @@ package task3;
 
 import org.junit.Test;
 
-import java.io.IOException;
-
 import static org.junit.Assert.assertEquals;
+import static task3.Main.f;
 
 public class MainTest {
+    private final int min = -2147483647;
+    private final int max = 2147483647;
+
+    private void aE(int e, int a){
+        assertEquals(e, a);
+    }
+    private int iP(String s){
+        return Integer.parseInt(s);
+    }
 
     //////////////////////////////1. Минимальные/максимальные значения аргументов
-    @Test(expected = IOException.class) public void allMinArgsNOD1() throws IOException { Main.findNOD(new int[]{Integer.MIN_VALUE, 0, 0, 0}); }
-    @Test(expected = IOException.class) public void allMinArgsNOD2() throws IOException { Main.findNOD(new int[]{0, Integer.MIN_VALUE, 0, 0}); }
-    @Test(expected = IOException.class) public void allMinArgsNOD3() throws IOException { Main.findNOD(new int[]{0, 0, Integer.MIN_VALUE, 0}); }
-    @Test(expected = IOException.class) public void allMinArgsNOD4() throws IOException { Main.findNOD(new int[]{0, 0, 0, Integer.MIN_VALUE}); }
-    @Test public void allMaxArgsNOD1() throws IOException { assertEquals(Integer.MAX_VALUE, Main.findNOD(new int[]{Integer.MAX_VALUE, 0, 0, 0})); }
-    @Test public void allMaxArgsNOD2() throws IOException { assertEquals(Integer.MAX_VALUE, Main.findNOD(new int[]{0, Integer.MAX_VALUE, 0, 0})); }
-    @Test public void allMaxArgsNOD3() throws IOException { assertEquals(Integer.MAX_VALUE, Main.findNOD(new int[]{0, 0, Integer.MAX_VALUE, 0})); }
-    @Test public void allMaxArgsNOD4() throws IOException { assertEquals(Integer.MAX_VALUE, Main.findNOD(new int[]{0, 0, 0, Integer.MAX_VALUE})); }
+    @Test public void mM1() { aE(max, f(new int[]{min, min, min, min})); }
+    @Test public void mM2() { aE(max, f(new int[]{min, min, min, max})); }
+    @Test public void mM3() { aE(max, f(new int[]{min, min, max, min})); }
+    @Test public void mM4() { aE(max, f(new int[]{min, min, max, max})); }
+    @Test public void mM5() { aE(max, f(new int[]{min, max, min, min})); }
+    @Test public void mM6() { aE(max, f(new int[]{min, max, min, max})); }
+    @Test public void mM7() { aE(max, f(new int[]{min, max, max, min})); }
+    @Test public void mM8() { aE(max, f(new int[]{min, max, max, max})); }
+    @Test public void mM9() { aE(max, f(new int[]{max, min, min, min})); }
+    @Test public void mM10() { aE(max, f(new int[]{max, min, min, max})); }
+    @Test public void mM11() { aE(max, f(new int[]{max, min, max, min})); }
+    @Test public void mM12() { aE(max, f(new int[]{max, min, max, max})); }
+    @Test public void mM13() { aE(max, f(new int[]{max, max, min, min})); }
+    @Test public void mM14() { aE(max, f(new int[]{max, max, min, max})); }
+    @Test public void mM15() { aE(max, f(new int[]{max, max, max, min})); }
+    @Test public void mM16() { aE(max, f(new int[]{max, max, max, max})); }
+
     //////////////////////////////2. Классы эквивалентности
     //////////////////////////////2.1 Границы классов эквивалентности
-    @Test public void leftBorderNOD() throws IOException{ assertEquals(2147483647, Main.findNOD(new int[]{-2147483647, -2147483647, -2147483647, -2147483647})); }
-    @Test public void rightBorderNOD() throws IOException{ assertEquals(2147483647, Main.findNOD(new int[]{2147483647, 2147483647, 2147483647, 2147483647})); }
+    @Test public void lB() { aE(2147483647, f(new int[]{-2147483647, -2147483647, -2147483647, -2147483647})); }
+    @Test public void rB() { aE(2147483647, f(new int[]{2147483647, 2147483647, 2147483647, 2147483647})); }
     //////////////////////////////2.2 Впритык слева и справа от границы
-    @Test(expected = IOException.class) public void leftBorderLeftStepNOD() throws IOException { Main.findNOD(new int[]{-2147483648, -2147483648, -2147483648, -2147483648}); }
-    @Test public void leftBorderRightStepNOD() throws IOException{ assertEquals(2147483646, Main.findNOD(new int[]{-2147483646, -2147483646, -2147483646, -2147483646})); }
-    @Test(expected = NumberFormatException.class) public void rightBorderRightStepNOD() throws IOException{ Main.findNOD(new int[]{Integer.parseInt("2147483648"), Integer.parseInt("2147483648"), Integer.parseInt("2147483648"), Integer.parseInt("2147483648")});}
-    @Test public void rightBorderLeftStepNOD() throws IOException{ assertEquals(2147483646, Main.findNOD(new int[]{2147483646, 2147483646, 2147483646, 2147483646}));}
+    @Test public void lBRS() { aE(2147483646, f(new int[]{-2147483646, -2147483646, -2147483646, -2147483646})); }
+    @Test(expected = NumberFormatException.class) public void rBRS() { f(new int[]{iP("2147483648"), iP("2147483648"), iP("2147483648"), iP("2147483648")});}
+    @Test public void rBLS() { aE(2147483646, f(new int[]{2147483646, 2147483646, 2147483646, 2147483646}));}
     //////////////////////////////2.3 Внутри класса эквивалентности
-    @Test public void internal1() throws IOException { assertEquals(12, Main.findNOD(new int[]{48, 24, 120, 12})); }
-    @Test public void internal2() throws IOException { assertEquals(17, Main.findNOD(new int[]{-34, -68, 17, -170})); }
-    @Test public void internal3() throws IOException { assertEquals(42, Main.findNOD(new int[]{84, 42, 168, 42})); }
-    @Test public void internal4() throws IOException { assertEquals(15, Main.findNOD(new int[]{150, 30, -45, 6000})); }
+    @Test public void i1() { aE(12, f(new int[]{48, 24, 120, 12})); }
+    @Test public void i2() { aE(17, f(new int[]{-34, -68, 17, -170})); }
+    @Test public void i3() { aE(42, f(new int[]{84, 42, 168, 42})); }
+    @Test public void i4() { aE(15, f(new int[]{150, 30, -45, 6000})); }
     //////////////////////////////3. Предметная область
-    @Test public void realExample1() throws IOException {assertEquals(2, Main.findNOD(new int[]{4,6,8,24}));}
-    @Test public void realExample2() throws IOException {assertEquals(3, Main.findNOD(new int[]{9,18,24,54}));}
-    @Test public void realExample3() throws IOException {assertEquals(5, Main.findNOD(new int[]{25,15,100,30}));}
-    @Test public void realExample4() throws IOException {assertEquals(7, Main.findNOD(new int[]{14,49,28,56}));}
-    @Test public void realExample5() throws IOException {assertEquals(9, Main.findNOD(new int[]{81,90,144,162}));}
+    @Test public void e1() {aE(2, f(new int[]{4,6,8,24}));}
+    @Test public void e2() {aE(3, f(new int[]{9,18,24,54}));}
+    @Test public void e3() {aE(5, f(new int[]{25,15,100,30}));}
+    @Test public void e4() {aE(7, f(new int[]{14,49,28,56}));}
+    @Test public void e5() {aE(9, f(new int[]{81,90,144,162}));}
     //////////////////////////////4. Реализация
-    @Test public void ignoringZero1() throws IOException {assertEquals(8, Main.findNOD(new int[]{0,8,8,88}));}
-    @Test public void ignoringZero2() throws IOException {assertEquals(4, Main.findNOD(new int[]{4,0,8,12}));}
-    @Test public void ignoringZero3() throws IOException {assertEquals(10, Main.findNOD(new int[]{30,20,0,10}));}
-    @Test public void ignoringZero4() throws IOException {assertEquals(6, Main.findNOD(new int[]{24,6,12,0}));}
-    @Test public void ignoringZero5() throws IOException {assertEquals (Integer.MAX_VALUE, Main.findNOD(new int[]{0,0,0,0}));}
-    @Test(expected = Exception.class) public void incorrectInput1() throws IOException{ Main.findNOD(new int[]{Integer.parseInt("hfy7e72"),1,1,1});}
-    @Test(expected = Exception.class) public void incorrectInput2() throws IOException{ Main.findNOD(new int[]{1,Integer.parseInt("hfy7e72"),1,1});}
-    @Test(expected = Exception.class) public void incorrectInput3() throws IOException{ Main.findNOD(new int[]{1,1,Integer.parseInt("hfy7e72"),1});}
-    @Test(expected = Exception.class) public void incorrectInput4() throws IOException{ Main.findNOD(new int[]{1,1,1,Integer.parseInt("hfy7e72")});}
-    @Test(expected = Exception.class) public void incorrectInput5() throws IOException{ Main.findNOD(new int[]{Integer.parseInt("9999999999"),1,1,1});}
-    @Test(expected = Exception.class) public void incorrectInput6() throws IOException{ Main.findNOD(new int[]{1,Integer.parseInt("9999999999"),1,1});}
-    @Test(expected = Exception.class) public void incorrectInput7() throws IOException{ Main.findNOD(new int[]{1,1,Integer.parseInt("9999999999"),1});}
-    @Test(expected = Exception.class) public void incorrectInput8() throws IOException{ Main.findNOD(new int[]{1,1,1,Integer.parseInt("9999999999")});}
+    @Test public void iZ1() {aE(8, f(new int[]{0,8,8,88}));}
+    @Test public void iZ2() {aE(4, f(new int[]{4,0,8,12}));}
+    @Test public void iZ3() {aE(10, f(new int[]{30,20,0,10}));}
+    @Test public void iZ4() {aE(6, f(new int[]{24,6,12,0}));}
+    @Test public void iZ5() {aE (Integer.MAX_VALUE, f(new int[]{0,0,0,0}));}
+    @Test(expected = Exception.class) public void iI1() { f(new int[]{iP("hfy7e72"),1,1,1});}
+    @Test(expected = Exception.class) public void iI2() { f(new int[]{1,iP("hfy7e72"),1,1});}
+    @Test(expected = Exception.class) public void iI3() { f(new int[]{1,1,iP("hfy7e72"),1});}
+    @Test(expected = Exception.class) public void iI4() { f(new int[]{1,1,1,iP("hfy7e72")});}
+    @Test(expected = Exception.class) public void iI5() { f(new int[]{iP("9999999999"),1,1,1});}
+    @Test(expected = Exception.class) public void iI6() { f(new int[]{1,iP("9999999999"),1,1});}
+    @Test(expected = Exception.class) public void iI7() { f(new int[]{1,1,iP("9999999999"),1});}
+    @Test(expected = Exception.class) public void iI8() { f(new int[]{1,1,1,iP("9999999999")});}
     //////////////////////////////5. Случайные значения
-    @Test public void randomTest1() throws IOException { assertEquals(10, Main.findNOD(new int[]{10, 20, 30, 40})); }
-    @Test public void randomTest2() throws IOException { assertEquals(2, Main.findNOD(new int[]{2, 4, 8, 16})); }
-    @Test public void randomTest3() throws IOException { assertEquals(10, Main.findNOD(new int[]{50, 400, 30, 170})); }
-    @Test public void randomTest8() throws IOException { assertEquals(1, Main.findNOD(new int[]{7, 100, 200, 400})); }
-    @Test public void randomTest9() throws IOException { assertEquals(7, Main.findNOD(new int[]{49, -70, 21, 35})); }
-    @Test public void randomTest10() throws IOException { assertEquals(11, Main.findNOD(new int[]{33, 22, 121, 99})); }
-
+    @Test public void r1() { aE(10, f(new int[]{10, 20, 30, 40})); }
+    @Test public void r2() { aE(2, f(new int[]{2, 4, 8, 16})); }
+    @Test public void r3() { aE(10, f(new int[]{50, 400, 30, 170})); }
+    @Test public void r4() { aE(1, f(new int[]{7, 100, 200, 400})); }
+    @Test public void r5() { aE(7, f(new int[]{49, -70, 21, 35})); }
+    @Test public void r6() { aE(11, f(new int[]{33, 22, 121, 99})); }
+    @Test public void r7() { aE(3, f(new int[]{30, 30, 30, 3})); }
+    @Test public void r8() { aE(2, f(new int[]{122, 24, 86, 16})); }
+    @Test public void r9() { aE(100, f(new int[]{500, 4000, 300, 1700})); }
+    @Test public void r10() { aE(10, f(new int[]{70, 1000, 2000, 4000})); }
+    @Test public void r11() { aE(1, f(new int[]{15, 20, 30, 4})); }
+    @Test public void r12() { aE(20, f(new int[]{20, 40, 80, 160})); }
+    @Test public void r13() { aE(3, f(new int[]{0, 30, 3, 0})); }
+    @Test public void r14() { aE(1, f(new int[]{7, 1, 200, 400})); }
+    @Test public void r15() { aE(35, f(new int[]{490, -70, 210, 35})); }
+    @Test public void r16() { aE(11, f(new int[]{33, 22, 121, 99})); }
+    @Test public void r17() { aE(10, f(new int[]{10, 20, 30, 40})); }
+    @Test public void r18() { aE(4, f(new int[]{8, 4, 8, 16})); }
+    @Test public void r19() { aE(10, f(new int[]{50, 400, 30, 170})); }
+    @Test public void r20() { aE(8, f(new int[]{8, 64, 72, 80})); }
+    @Test public void r21() { aE(12, f(new int[]{12, 24, 36, 144})); }
+    @Test public void r22() { aE(7, f(new int[]{21, 49, 70, 14})); }
+    @Test public void r23() { aE(57, f(new int[]{57, 57, 114, 228})); }
+    @Test public void r24() { aE(19, f(new int[]{38, 380, 19, 38})); }
+    @Test public void r25() { aE(7, f(new int[]{49, 70, 21, 35})); }
+    @Test public void r26() { aE(11, f(new int[]{33, 22, 121, 99})); }
+    @Test public void r27() { aE(10, f(new int[]{10, 20, 30, 40})); }
+    @Test public void r28() { aE(2, f(new int[]{2, 4, 8, 16})); }
+    @Test public void r29() { aE(10, f(new int[]{50, 400, 30, 170})); }
+    @Test public void r30() { aE(1, f(new int[]{7, 100, 200, 400})); }
 }

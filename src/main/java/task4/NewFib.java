@@ -10,13 +10,13 @@ public class NewFib {
         System.out.print("Введите порядковый номер необходимого числа Фибоначчи: ");
         try {
             int fibDigit = Integer.parseInt(br.readLine());
-            System.out.println(fib(fibDigit));
+            System.out.println(f(fibDigit));
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public static BigInteger fib(int n) {
+    public static BigInteger f(int n) {
         BigInteger temp;
         BigInteger a = new BigInteger("0");
         BigInteger b = new BigInteger("1");
@@ -28,11 +28,10 @@ public class NewFib {
             temp = b;
             b = a.add(b);
             a = temp;
-            if(i%10000==0) System.out.println(i);
         }
         if (n < 0) {
             System.out.print("Вы ввели отрицателый номер числа Фибоначчи, вот его значение: ");
-            if(n % 2 == 0) return b.multiply(new BigInteger("-1"));
+            if (n % 2 == 0) return b.multiply(new BigInteger("-1"));
         }
         return b;
     }

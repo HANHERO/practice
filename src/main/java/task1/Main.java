@@ -11,11 +11,11 @@ public class Main {
         int a = Integer.parseInt(br.readLine());
         System.out.print("Введите число B: ");
         int b = Integer.parseInt(br.readLine());
-        System.out.println(swap(a, b));
+        System.out.println(s(a, b));
 
     }
 
-    public static String swap(int a, int b) {
+    public static String s(int a, int b) {
         a = a + b; // 5 + 3 = 8
         b = a - b; // 8 - 5 = 3
         a = a - b; // 8 - 3 = 5
