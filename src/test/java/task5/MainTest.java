@@ -26,21 +26,13 @@ public class MainTest {
     @Test public void mM8() { aE(vs, f(7, 31, 12)); }
     //////////////////////////////////2. Классы эквивалентности
     //////////////////////////////////2.1 Границы классов эквивалентности
-    @Test public void wFD(){ aE(pn, f(1,8,1)); }
-    @Test public void wLD(){ aE(vs, f(1,14,1)); }
-
-    @Test public void mFD(){ aE(ch, f(1,1,2)); }
-    @Test public void mLD(){ aE(sr, f(1,28,2)); }
+    @Test public void fD(){ aE(pt, f(1,2,3)); }
+    @Test public void lD(){ aE(pt, f(1,30,3)); }
     //////////////////////////////////2.2 Впритык слева и справа от границы
-    @Test public void wBFD(){ aE(vs, f(1,7,1)); }
-    @Test public void wAFD(){ aE(vt, f(1,9,1)); }
-    @Test public void wBLD(){ aE(sb, f(1,13,1)); }
-    @Test public void wALD(){ aE(pn, f(1,15,1)); }
-
-    @Test public void mBFD(){ aE(sr, f(1,31,1)); }
-    @Test public void mAFD(){ aE(pt, f(1,2,2)); }
-    @Test public void mBLD(){ aE(vt, f(1,27,2)); }
-    @Test public void mALD(){ aE(ch, f(1,1,3)); }
+    @Test public void wBFD(){ aE(ch, f(1,1,3)); }
+    @Test public void wAFD(){ aE(pt, f(1,9,3)); }
+    @Test public void wBLD(){ aE(pt, f(1,23,3)); }
+    @Test public void wALD(){ aE(sb, f(1,31,3)); }
     //////////////////////////////////2.3 Внутри класса эквивалентности
     @Test public void wRDOW1(){ aE(sr, f(1,10,1)); }
     @Test public void wRDOW2(){ aE(ch, f(1,11,1)); }

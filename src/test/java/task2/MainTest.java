@@ -29,10 +29,10 @@ public class MainTest {
     @Test public void mM14() { aE("1 этаж, 1 подъезд.", d(max, max, (max/2))); }
     @Test public void mM16() { aE("1 этаж, 1 подъезд.", d((max/2), max, max)); }
     @Test public void mM17() { aE("1 этаж, 1 подъезд.", d(min, max, (max/2))); }
-    @Test public void mM18() { aE("3 этаж, 1 подъезд.", d(max, max/2, max)); }
-    @Test public void mM19() { aE("1 этаж, 3 подъезд.", d(max, max/2, min)); }
-    @Test public void mM20() { aE("1 этаж, 1 подъезд.", d(min, max/2, min)); }
-    @Test public void mM21() { aE("1 этаж, 1 подъезд.", d(min, max/2, max)); }
+    @Test public void mM18() { aE("3 этаж, 1 подъезд.", d(max, (max/2), max)); }
+    @Test public void mM19() { aE("1 этаж, 3 подъезд.", d(max, (max/2), min)); }
+    @Test public void mM20() { aE("1 этаж, 1 подъезд.", d(min, (max/2), min)); }
+    @Test public void mM21() { aE("1 этаж, 1 подъезд.", d(min, (max/2), max)); }
     ////////////////////////////////////////2 Классы эквивалентности
     ////////////////////////////////////////2.1 Границы классов эквивалентности
     @Test public void fCFAAF() { aE("2 этаж, 1 подъезд.", d(11, 10, 10));}
@@ -72,6 +72,7 @@ public class MainTest {
     @Test public void e3() { aE("1 этаж, 3 подъезд.", d(44, 4, 5)); }
     @Test public void e4() { aE("5 этаж, 2 подъезд.", d(56, 4, 9)); }
     @Test public void e5() { aE("9 этаж, 9 подъезд.", d(322, 4, 9)); }
+    @Test public void e6() { aE("9 этаж, 2 подъезд.", d(108, 6, 9)); }
     ////////////////////////////////////////4. Реализация
     @Test public void o1() { aE("Введены не корректные данные.", d(0, 1, 1)); }
     @Test public void o2() { aE("Введены не корректные данные.", d(1, 0, 1)); }
@@ -79,7 +80,6 @@ public class MainTest {
     @Test public void o4() { aE("Введены не корректные данные.", d(-1, 1, 1)); }
     @Test public void o5() { aE("Введены не корректные данные.", d(1, -1, 1)); }
     @Test public void o6() { aE("Введены не корректные данные.", d(1, 1, -1)); }
-
     ///////////////////////////////////////5. Случайные значения
     @Test public void r1() { aE("2 этаж, 1 подъезд.", d(12, 6, 5)); }
     @Test public void r2() { aE("1 этаж, 2 подъезд.", d(40, 4, 9)); }

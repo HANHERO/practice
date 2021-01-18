@@ -113,9 +113,9 @@ public class MainTest {
     @Test public void s39() { aE(new BigInteger("-2584"), f(-18));aE(o.toString()); }
     @Test public void s40() { aE(new BigInteger("4181"), f(-19));aE(o.toString()); }
     @Test public void s41() { aE(new BigInteger("-6765"), f(-20));aE(o.toString()); }
-    ///////////////////////////////////////////////////////4. Реализация
+    /////////////////////////////////////////////////////4. Реализация
 
-    /////////////////////////////////////////////////////5.Случайные значения
+    /////////////////////////////////////////////////////5. Случайные значения
     @Test public void r1() { aE(new BigInteger("4052739537881"), f(62)); }
     @Test public void r2() { aE(new BigInteger("-1304969544928657"), f(-74)); aE(o.toString()); }
     @Test public void r3() { aE(new BigInteger("679891637638612258"), f(87)); }
