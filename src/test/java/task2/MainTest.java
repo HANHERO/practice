@@ -12,7 +12,7 @@ public class MainTest {
     private void aE(String e, String a){
         assertEquals(e, a);
     }
-    ///////////////////////////////////////1 Минимальное/максимальное значение аргументов
+    ///////////////////////////////////////1 Граничные значения области определения.
     @Test public void mM1() { aE("1 этаж, 1 подъезд.", d(min, min, min)); }
     @Test public void mM2() { aE("1 этаж, 1 подъезд.", d(min, min, max)); }
     @Test public void mM3() { aE("1 этаж, 1 подъезд.", d(min, max, min)); }
@@ -21,6 +21,18 @@ public class MainTest {
     @Test public void mM6() { aE("2147483647 этаж, 1 подъезд.", d(max, min, max)); }
     @Test public void mM7() { aE("1 этаж, 1 подъезд.", d(max, max, min)); }
     @Test public void mM8() { aE("1 этаж, 1 подъезд.", d(max, max, max)); }
+    @Test public void mM9() { aE("1 этаж, 1073741823 подъезд.", d((max/2), min, min)); }
+    @Test public void mM10() { aE("1 этаж, 3 подъезд.", d(max, min, (max/2))); }
+    @Test public void mM11() { aE("1073741823 этаж, 1 подъезд.", d((max/2), min, max)); }
+    @Test public void mM12() { aE("1 этаж, 1 подъезд.", d(min, min, (max/2))); }
+    @Test public void mM13() { aE("1 этаж, 1 подъезд.", d((max/2), max, min)); }
+    @Test public void mM14() { aE("1 этаж, 1 подъезд.", d(max, max, (max/2))); }
+    @Test public void mM16() { aE("1 этаж, 1 подъезд.", d((max/2), max, max)); }
+    @Test public void mM17() { aE("1 этаж, 1 подъезд.", d(min, max, (max/2))); }
+    @Test public void mM18() { aE("3 этаж, 1 подъезд.", d(max, max/2, max)); }
+    @Test public void mM19() { aE("1 этаж, 3 подъезд.", d(max, max/2, min)); }
+    @Test public void mM20() { aE("1 этаж, 1 подъезд.", d(min, max/2, min)); }
+    @Test public void mM21() { aE("1 этаж, 1 подъезд.", d(min, max/2, max)); }
     ////////////////////////////////////////2 Классы эквивалентности
     ////////////////////////////////////////2.1 Границы классов эквивалентности
     @Test public void fCFAAF() { aE("2 этаж, 1 подъезд.", d(11, 10, 10));}
@@ -67,12 +79,7 @@ public class MainTest {
     @Test public void o4() { aE("Введены не корректные данные.", d(-1, 1, 1)); }
     @Test public void o5() { aE("Введены не корректные данные.", d(1, -1, 1)); }
     @Test public void o6() { aE("Введены не корректные данные.", d(1, 1, -1)); }
-    @Test(expected = Exception.class) public void iI1() { d(Integer.parseInt("hfgvy62%S@^"), 1,1); }
-    @Test(expected = Exception.class) public void iI2() { d(1, Integer.parseInt("hfgvy62%S@^"),1); }
-    @Test(expected = Exception.class) public void iI3() { d(1, 1,Integer.parseInt("hfgvy62%S@^")); }
-    @Test(expected = Exception.class) public void iI4() { d(Integer.parseInt("99999999999999"), 1,1); }
-    @Test(expected = Exception.class) public void iI5() { d(1, Integer.parseInt("99999999999999"),1); }
-    @Test(expected = Exception.class) public void iI6() { d(1, 1,Integer.parseInt("99999999999999")); }
+
     ///////////////////////////////////////5. Случайные значения
     @Test public void r1() { aE("2 этаж, 1 подъезд.", d(12, 6, 5)); }
     @Test public void r2() { aE("1 этаж, 2 подъезд.", d(40, 4, 9)); }

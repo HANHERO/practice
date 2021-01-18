@@ -54,7 +54,7 @@ public class MainTest {
     private void aE(String a){
         assertEquals("Вы ввели отрицателый номер числа Фибоначчи, вот его значение: ", a);
     }
-    /////////////////////////////////////////////////1. Максимальное/минимальное значения
+    /////////////////////////////////////////////////1. Граничные значения области определения.
     @Test public void min() { assertEquals(BigInteger.class, f(-2000000).getClass()); }
     @Test public void max() { assertEquals(BigInteger.class, f(2000000).getClass()); }
     /////////////////////////////////////////////////2. Классы эквивалентности
@@ -115,7 +115,6 @@ public class MainTest {
     @Test public void s41() { aE(new BigInteger("-6765"), f(-20));aE(o.toString()); }
     ///////////////////////////////////////////////////////4. Реализация
 
-    @Test(expected = Exception.class) public void incorrectInput(){ f(Integer.parseInt("hfuvn3737")); }
     /////////////////////////////////////////////////////5.Случайные значения
     @Test public void r1() { aE(new BigInteger("4052739537881"), f(62)); }
     @Test public void r2() { aE(new BigInteger("-1304969544928657"), f(-74)); aE(o.toString()); }

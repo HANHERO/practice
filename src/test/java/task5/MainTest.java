@@ -14,10 +14,8 @@ public class MainTest {
     private final String sb = "Суббота";
     private final String vs = "Воскресенье";
 
-    private void aE(String e, String a){
-        assertEquals(e, a);
-    }
-    //////////////////////////////////1. Минмальные/максимальные аргументы
+    private void aE(String e, String a){ assertEquals(e, a); }
+    //////////////////////////////////1. Граничные значения области определения
     @Test public void mM1() { aE(pn, f(1, 1, 1)); }
     @Test public void mM2() { aE(sb, f(1, 1, 12)); }
     @Test public void mM3() { aE(sr, f(1, 31, 1)); }
@@ -100,7 +98,6 @@ public class MainTest {
     @Test public void fD5(){ aE(pt, f(5,1,1)); }
     @Test public void fD6(){ aE(sb, f(6,1,1)); }
     @Test public void fD7(){ aE(vs, f(7,1,1)); }
-
     @Test public void fL2(){ aE(vt, f(2,1,1)); }
     @Test public void fL3(){ aE(sr, f(3,1,1)); }
     @Test public void fL4(){ aE(ch, f(4,1,1)); }
