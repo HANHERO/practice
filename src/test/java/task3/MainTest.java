@@ -13,11 +13,8 @@ public class MainTest {
     private void aE(int e, int a){
         assertEquals(e, a);
     }
-    private int iP(String s){
-        return Integer.parseInt(s);
-    }
 
-    //////////////////////////////1. Минимальные/максимальные значения аргументов
+    //////////////////////////////1. Граничные значения области определения
     @Test public void mM1() { aE(max, f(new int[]{min, min, min, min})); }
     @Test public void mM2() { aE(max, f(new int[]{min, min, min, max})); }
     @Test public void mM3() { aE(max, f(new int[]{min, min, max, min})); }
@@ -37,17 +34,11 @@ public class MainTest {
 
     //////////////////////////////2. Классы эквивалентности
     //////////////////////////////2.1 Границы классов эквивалентности
-    @Test public void lB() { aE(2147483647, f(new int[]{-2147483647, -2147483647, -2147483647, -2147483647})); }
-    @Test public void rB() { aE(2147483647, f(new int[]{2147483647, 2147483647, 2147483647, 2147483647})); }
+
     //////////////////////////////2.2 Впритык слева и справа от границы
-    @Test public void lBRS() { aE(2147483646, f(new int[]{-2147483646, -2147483646, -2147483646, -2147483646})); }
-    @Test(expected = NumberFormatException.class) public void rBRS() { f(new int[]{iP("2147483648"), iP("2147483648"), iP("2147483648"), iP("2147483648")});}
-    @Test public void rBLS() { aE(2147483646, f(new int[]{2147483646, 2147483646, 2147483646, 2147483646}));}
+
     //////////////////////////////2.3 Внутри класса эквивалентности
-    @Test public void i1() { aE(12, f(new int[]{48, 24, 120, 12})); }
-    @Test public void i2() { aE(17, f(new int[]{-34, -68, 17, -170})); }
-    @Test public void i3() { aE(42, f(new int[]{84, 42, 168, 42})); }
-    @Test public void i4() { aE(15, f(new int[]{150, 30, -45, 6000})); }
+
     //////////////////////////////3. Предметная область
     @Test public void e1() {aE(2, f(new int[]{4,6,8,24}));}
     @Test public void e2() {aE(3, f(new int[]{9,18,24,54}));}
@@ -60,14 +51,6 @@ public class MainTest {
     @Test public void iZ3() {aE(10, f(new int[]{30,20,0,10}));}
     @Test public void iZ4() {aE(6, f(new int[]{24,6,12,0}));}
     @Test public void iZ5() {aE (Integer.MAX_VALUE, f(new int[]{0,0,0,0}));}
-    @Test(expected = Exception.class) public void iI1() { f(new int[]{iP("hfy7e72"),1,1,1});}
-    @Test(expected = Exception.class) public void iI2() { f(new int[]{1,iP("hfy7e72"),1,1});}
-    @Test(expected = Exception.class) public void iI3() { f(new int[]{1,1,iP("hfy7e72"),1});}
-    @Test(expected = Exception.class) public void iI4() { f(new int[]{1,1,1,iP("hfy7e72")});}
-    @Test(expected = Exception.class) public void iI5() { f(new int[]{iP("9999999999"),1,1,1});}
-    @Test(expected = Exception.class) public void iI6() { f(new int[]{1,iP("9999999999"),1,1});}
-    @Test(expected = Exception.class) public void iI7() { f(new int[]{1,1,iP("9999999999"),1});}
-    @Test(expected = Exception.class) public void iI8() { f(new int[]{1,1,1,iP("9999999999")});}
     //////////////////////////////5. Случайные значения
     @Test public void r1() { aE(10, f(new int[]{10, 20, 30, 40})); }
     @Test public void r2() { aE(2, f(new int[]{2, 4, 8, 16})); }
