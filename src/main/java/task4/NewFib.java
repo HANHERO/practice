@@ -30,7 +30,6 @@ public class NewFib {
             a = temp;
         }
         if (n < 0) {
-            System.out.print("Вы ввели отрицателый номер числа Фибоначчи, вот его значение: ");
             if (n % 2 == 0) return b.multiply(new BigInteger("-1"));
         }
         return b;

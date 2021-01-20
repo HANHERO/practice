@@ -12,7 +12,6 @@ public class Main {
         System.out.print("Введите число B: ");
         int b = Integer.parseInt(br.readLine());
         System.out.println(s(a, b));
-
     }
 
     public static String s(int a, int b) {
