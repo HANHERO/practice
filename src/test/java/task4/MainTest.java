@@ -90,6 +90,7 @@ public class MainTest {
         a(founded10K, f(10000));
         a(new BigInteger("1"), f(1));
     }
+
     /////////////////////////////////////////////////2.2 Впритык слева и справа от границы
     @Test public void rightLeftSteps(){
         a(foundedMinus9999, f(-9999));
