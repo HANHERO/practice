@@ -76,10 +76,10 @@ public class MainTest {
     private void a(BigInteger e, BigInteger a){ assertEquals(e, a); }
     /////////////////////////////////////////////////1. Граничные значения области определения.
     @Test public void minMax() {
-        //assertEquals(BigInteger.class, f(-2000000).getClass());
-        assertEquals(((f(-1999998).multiply(new BigInteger("-1"))).add(f(-1999999))).multiply(new BigInteger("-1")), f(2000000));
-        //assertEquals(BigInteger.class, f(2000000).getClass());
-        //assertEquals(f(1999998).add(f(1999999)), f(2000000));
+        assertEquals(BigInteger.class, f(-2000000).getClass());
+        assertEquals(((f(-1999998).multiply(new BigInteger("-1"))).add(f(-1999999))).multiply(new BigInteger("-1")), f(-2000000));
+        assertEquals(BigInteger.class, f(2000000).getClass());
+        assertEquals(f(1999998).add(f(1999999)), f(2000000));
     }
     /////////////////////////////////////////////////2. Классы эквивалентности
     /////////////////////////////////////////////////2.1 Границы классов эквивалентности
