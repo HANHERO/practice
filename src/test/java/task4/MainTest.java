@@ -85,21 +85,21 @@ public class MainTest {
     /////////////////////////////////////////////////2.1 Границы классов эквивалентности
     @Test public void classes(){
         a(foundedMinus10K, f(-10000));
-        a(new BigInteger("1"), f(-1));
+        a(new BigInteger("-1"), f(-2));
 
         a(founded10K, f(10000));
-        a(new BigInteger("1"), f(1));
+        a(new BigInteger("1"), f(2));
     }
 
     /////////////////////////////////////////////////2.2 Впритык слева и справа от границы
     @Test public void rightLeftSteps(){
         a(foundedMinus9999, f(-9999));
-        a(new BigInteger("-1"), f(-2));
-        a(new BigInteger("0"), f(0));
+        a(new BigInteger("2"), f(-3));
+        a(new BigInteger("1"), f(-1));
 
         a(founded9999, f(9999));
-        a(new BigInteger("1"), f(2));
-        a(new BigInteger("0"), f(0));
+        a(new BigInteger("2"), f(3));
+        a(new BigInteger("1"), f(1));
     }
     /////////////////////////////////////////////////2.3 Внутри класса эквивалентности
     @Test public void internal(){
