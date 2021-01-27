@@ -1027,9 +1027,9 @@ public class NewMainTest {
         s(100, -234444);
         s(-33231, 0);
         s(0, -132333);
-        s(12333, 4124);
+        s(-12333, 0);
         s(22221, 0);
-        s(123231, 0);
+        s(-123231, 0);
         s(-3323234, 0);
         s(0, -223213);
     }
@@ -1044,7 +1044,7 @@ public class NewMainTest {
             assertEquals("A = " + tS.b + ", B = " + tS.a, Main.s(tS.a, tS.b));
 
         }
-        //System.out.println(testScenarios.size());
+        System.out.println(testScenarios.size());
     }
 }
 
