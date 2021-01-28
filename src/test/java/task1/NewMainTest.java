@@ -7,11 +7,11 @@ import java.util.ArrayList;
 import static org.junit.Assert.assertEquals;
 
 public class NewMainTest {
-    private final int min = Integer.MIN_VALUE;
-    private final int max = Integer.MAX_VALUE;
     private final ArrayList<TestScenario> testScenarios = new ArrayList<>();
 
     private void setUpScenarios(){
+        final int min = Integer.MIN_VALUE;
+        final int max = Integer.MAX_VALUE;
         ////////////////////////////////1. Граничные значения области определения
         s(min, min);
         s(max, max);
@@ -21,6 +21,22 @@ public class NewMainTest {
         s(0, max);
         s(max, 0);
         s(min, 0);
+        s(1, min);
+        s(1, max);
+        s(max, 1);
+        s(min, 1);
+        s(-1, min);
+        s(-1, max);
+        s(max, -1);
+        s(min, -1);
+        s(2, min);
+        s(2, max);
+        s(max, 2);
+        s(min, 2);
+        s(-2, min);
+        s(-2, max);
+        s(max, -2);
+        s(min, -2);
         s(min, min+1);
         s(max, max-1);
         s(max, min+1);
@@ -1032,6 +1048,26 @@ public class NewMainTest {
         s(-123231, 0);
         s(-3323234, 0);
         s(0, -223213);
+        s(0,-1576677447);
+        s(41535566,0);
+        s(-2073131192,0);
+        s(0,697683551);
+        s(1074938597,0);
+        s(0,-904435649);
+        s(156029958,0);
+        s(0,-878556399);
+        s(564889286,0);
+        s(0,-1846597513);
+        s(0,934164059);
+        s(-1223415006,0);
+        s(-242122782,0);
+        s(0,1468906274);
+        s(1738567487,0);
+        s(0,-768783820);
+        s(-574977584,0);
+        s(-1919919100,0);
+        s(0,1527273239);
+        s(1757662595,0);
     }
 
     private void s(int a, int b){
@@ -1044,7 +1080,7 @@ public class NewMainTest {
             assertEquals("A = " + tS.b + ", B = " + tS.a, Main.s(tS.a, tS.b));
 
         }
-        System.out.println(testScenarios.size());
+        //System.out.println(testScenarios.size());
     }
 }
 

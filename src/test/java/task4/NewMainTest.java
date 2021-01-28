@@ -5,12 +5,11 @@ import java.math.BigInteger;
 import java.util.ArrayList;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 import static task4.NewFib.f;
 
 public class NewMainTest {
     private final ArrayList<TestScenario> testScenarios = new ArrayList<>();
-    private void s(String f, int i) { testScenarios.add(new task4.TestScenario(f, i)); }
-    private void s(int i) { testScenarios.add(new task4.TestScenario(i)); }
 
     private void setUpScenarios() {
         /////////////////////////////////////////////////1. Граничные значения области определения.
@@ -47,11 +46,11 @@ public class NewMainTest {
         s(56643);
         s(121223);
         s(-32123);
-        s(-32313);
+        s(-32312);
         s(32123);
         s(-234251);
         s(122123);
-        s(-923423);
+        s(-923422);
         s(53324);
         /////////////////////////////////////////////////3. Предметная область
         s("1", 1);
@@ -145,6 +144,14 @@ public class NewMainTest {
                 "5968443200049142162026786442532920379446726515204634885706164205681145256603655105720131107650831412" +
                 "8768459375836750947669770735108670470808442189249827445844279870426125617655210279736900243974859043" +
                 "07720194812221212329752", -2514);
+        s("66668955990143927535739787037825200568705642472004620850078423063984223925447303213964094201854901177412" +
+                "86328238160845982538224710784106896065758826169066090567289636924573734500394122103253417088277608366" +
+                "24973245833026011429821107570414160825111785788501815656562015849899442186146801139478738529469015442" +
+                "071575682484261163550270040419807056855463", 1666);
+        s("-66668955990143927535739787037825200568705642472004620850078423063984223925447303213964094201854901177412" +
+                "86328238160845982538224710784106896065758826169066090567289636924573734500394122103253417088277608366" +
+                "24973245833026011429821107570414160825111785788501815656562015849899442186146801139478738529469015442" +
+                "071575682484261163550270040419807056855463", -1666);
         s(50000);
         s(-50000);
         s(654323);
@@ -218,27 +225,35 @@ public class NewMainTest {
                 "271197133252763631939606902895650288268608362241082050562430701794976171121233066073310059947366875", 10000);
 
     }
+    private void s(String f, int i) { testScenarios.add(new task4.TestScenario(f, i)); }
+    private void s(int i) { testScenarios.add(new task4.TestScenario(i)); }
 
     @Test
     public void start() {
         setUpScenarios();
         for (TestScenario tS : testScenarios) {
+
+            BigInteger fib = f(tS.index);
+            BigInteger fib1 = f(tS.index-1);
+            BigInteger fib2 = f(tS.index-2);
+
             if(tS.index <= 10000 && tS.index >= -10000){
-                assertEquals(new BigInteger(tS.fib), f(tS.index));
+                assertEquals(new BigInteger(tS.fib), fib);
             }
             if (tS.index > 10000) {
-                assertEquals(f(tS.index - 2).add(f(tS.index - 1)), f(tS.index));
+                assertEquals(fib2.add(fib1), fib);
+                assertTrue((fib1.compareTo(fib2)) > 0);
             }
             if (tS.index < -10000 && tS.index % 2 == 0) {
-                assertEquals(f(tS.index - 2).add((f(tS.index - 1)).abs()), f(tS.index));
+                assertTrue(fib1.compareTo(fib2) > 0);
+                assertEquals(fib2.add((fib1).abs()), fib);
+
             }
             if (tS.index < -10000 && tS.index % 2 == -1) {
-                assertEquals((f(tS.index - 2).abs().add(f(tS.index - 1))), f(tS.index));
+                assertTrue(fib1.abs().compareTo(fib2) < 0);
+                assertEquals(fib2.abs().add(fib1), fib);
             }
-
         }
-        System.out.println(testScenarios.size());
+        //System.out.println(testScenarios.size());
     }
-
-
 }

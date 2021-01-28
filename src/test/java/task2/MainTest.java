@@ -3,6 +3,7 @@ package task2;
 
 import org.junit.Test;
 
+
 import static org.junit.Assert.assertEquals;
 import static task2.Main.d;
 
@@ -13,7 +14,8 @@ public class MainTest {
         assertEquals(e, a);
     }
     ///////////////////////////////////////1 Граничные значения области определения.
-    @Test public void minMax() { a("1 этаж, 1 подъезд.", d(min, min, min));
+    @Test public void minMax() {
+        a("1 этаж, 1 подъезд.", d(min, min, min));
         a("1 этаж, 1 подъезд.", d(min, min, max));
         a("1 этаж, 1 подъезд.", d(min, max, min));
         a("1 этаж, 1 подъезд.", d(min, max, max));
@@ -21,18 +23,72 @@ public class MainTest {
         a("2147483647 этаж, 1 подъезд.", d(max, min, max));
         a("1 этаж, 1 подъезд.", d(max, max, min));
         a("1 этаж, 1 подъезд.", d(max, max, max));
-        a("1 этаж, 1073741823 подъезд.", d((max/2), min, min));
-        a("1 этаж, 3 подъезд.", d(max, min, (max/2)));
-        a("1073741823 этаж, 1 подъезд.", d((max/2), min, max));
-        a("1 этаж, 1 подъезд.", d(min, min, (max/2)));
-        a("1 этаж, 1 подъезд.", d((max/2), max, min));
-        a("1 этаж, 1 подъезд.", d(max, max, (max/2)));
-        a("1 этаж, 1 подъезд.", d((max/2), max, max));
-        a("1 этаж, 1 подъезд.", d(min, max, (max/2)));
-        a("3 этаж, 1 подъезд.", d(max, (max/2), max));
-        a("1 этаж, 3 подъезд.", d(max, (max/2), min));
-        a("1 этаж, 1 подъезд.", d(min, (max/2), min));
-        a("1 этаж, 1 подъезд.", d(min, (max/2), max));
+
+        d(min+1, min, min);
+        d(min, min+1, min);
+        d(min, min, min+1);
+
+        d(min+1, min, max);
+        d(min, min+1, max);
+        d(min, min, max-1);
+
+        d(min+1, max, min);
+        d(min, max-1, min);
+        d(min, max, min+1);
+
+        d(min+1, max, max);
+        d(min, max-1, max);
+        d(min, max, max-1);
+
+        d(max-1, min, min);
+        d(max, min+1, min);
+        d(max, min, min+1);
+
+        d(max-1, min, max);
+        d(max, min+1, max);
+        d(max, min, max-1);
+
+        d(max-1, max, min);
+        d(max, max-1, min);
+        d(max, max, min+1);
+
+        d(max-1, max, max);
+        d(max, max-1, max);
+        d(max, max, max-1);
+
+
+
+        d(min+1, min+1, min);
+        d(min, min+1, min+1);
+        d(min+1, min, min+1);
+
+        d(min+1, min+1, max);
+        d(min, min+1, max-1);
+        d(min+1, min, max-1);
+
+        d(min+1, max-1, min);
+        d(min, max-1, min+1);
+        d(min+1, max, min+1);
+
+        d(min+1, max-1, max);
+        d(min, max-1, max-1);
+        d(min+1, max, max-1);
+
+        d(max-1, min+1, min);
+        d(max, min+1, min+1);
+        d(max-1, min, min+1);
+
+        d(max-1, min+1, max);
+        d(max, min+1, max-1);
+        d(max-1, min, max-1);
+
+        d(max-1, max-1, min);
+        d(max, max-1, min+1);
+        d(max-1, max, min+1);
+
+        d(max-1, max-1, max);
+        d(max, max-1, max-1);
+        d(max-1, max, max-1);
     }
     ////////////////////////////////////////2 Классы эквивалентности
     ////////////////////////////////////////2.1 Границы классов эквивалентности

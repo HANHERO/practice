@@ -8,6 +8,7 @@ public class TestScenario {
         index = i;
     }
     TestScenario(int i){
+        fib = "";
         index = i;
     }
 }
