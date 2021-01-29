@@ -15,28 +15,23 @@ public class Main {
             int numberOfFloors = Integer.parseInt(br.readLine());
             System.out.println(d(appNumber, numberOfApOnFloor, numberOfFloors));
         } catch (Exception e) {
-            System.out.println("Введены не корректные данные");
+            System.out.println("Введены не корректные данные.");
         }
     }
-
     public static String d(int apNum, int apps, int floors) {
+        int entrance = 1;
+        int floor = 1;
         if (apNum <= 0 || apps <= 0 || floors <= 0) {
             return "Введены не корректные данные.";
         }
-
-        int entrance = 1;
-        int floor = 1;
-
         while (apNum - apps > 0) {
             apNum -= apps;
             floor++;
         }
-
         while (floor - floors > 0) {
             floor -= floors;
             entrance++;
         }
-
         return floor + " этаж, " + entrance + " подъезд.";
     }
 }
