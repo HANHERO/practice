@@ -9,6 +9,7 @@ import static task2.Main.d;
 
 public class AppTest {
     private final ArrayList<TestScenario> testScenarios = new ArrayList<>();
+
     private void setUpScenarios() {
         final int min = 1;
         final int max = Integer.MAX_VALUE;
@@ -63,12 +64,12 @@ public class AppTest {
         s("1073741823 этаж, 1 подъезд.", max - 1, min + 1, max);
         s("1073741824 этаж, 1 подъезд.", max, min + 1, max - 1);
         s("2147483646 этаж, 1 подъезд.", max - 1, min, max - 1);
-        s("1 этаж, 1 подъезд.",max-1, max-1, min);
-        s("2 этаж, 1 подъезд.",max, max-1, min+1);
-        s("1 этаж, 1 подъезд.",max-1, max, min+1);
-        s("1 этаж, 1 подъезд.",max-1, max-1, max);
-        s("2 этаж, 1 подъезд.",max, max-1, max-1);
-        s("1 этаж, 1 подъезд.",max-1, max, max-1);
+        s("1 этаж, 1 подъезд.", max - 1, max - 1, min);
+        s("2 этаж, 1 подъезд.", max, max - 1, min + 1);
+        s("1 этаж, 1 подъезд.", max - 1, max, min + 1);
+        s("1 этаж, 1 подъезд.", max - 1, max - 1, max);
+        s("2 этаж, 1 подъезд.", max, max - 1, max - 1);
+        s("1 этаж, 1 подъезд.", max - 1, max, max - 1);
         ////////////////////////////////////////2 Классы эквивалентности
         ////////////////////////////////////////2.1 Границы классов эквивалентности
         s("3 этаж, 2 подъезд.", 36, 5, 5);
@@ -222,7 +223,8 @@ public class AppTest {
         s("9 этаж, 9 подъезд.", 322, 4, 9);
         s("9 этаж, 2 подъезд.", 108, 6, 9);
         ////////////////////////////////////////4. Реализация
-
+        s("1 этаж, 1 подъезд.", max, max, max);
+        s("1 этаж, 1 подъезд.", min, min, min);
         ///////////////////////////////////////5. Случайные значения
         s("1 этаж, 10 подъезд.", 30, 3, 1);
         s("1 этаж, 6 подъезд.", 44, 4, 2);
@@ -245,16 +247,18 @@ public class AppTest {
         s("3 этаж, 1 подъезд.", 32, 11, 19);
         s("6 этаж, 1 подъезд.", 76, 13, 8);
         s("2 этаж, 1 подъезд.", 12, 6, 5);
-        s("1 этаж, 2 подъезд.",40, 4, 9);
-        s("3 этаж, 1 подъезд.",15, 5, 10);
-        s("2 этаж, 4 подъезд.",24, 3, 2);
-        s("4 этаж, 1 подъезд.",16, 4, 4);
+        s("1 этаж, 2 подъезд.", 40, 4, 9);
+        s("3 этаж, 1 подъезд.", 15, 5, 10);
+        s("2 этаж, 4 подъезд.", 24, 3, 2);
+        s("4 этаж, 1 подъезд.", 16, 4, 4);
         ///////////////////////////////////////6. Другие особые значения
         s("2 этаж, 25 подъезд.", 99, 2, 2);
         s("2 этаж, 49 подъезд.", 98, 1, 2);
     }
 
-    private void s(String e, int a, int b, int c) { testScenarios.add(new TestScenario(e, a, b, c)); }
+    private void s(String e, int a, int b, int c) {
+        testScenarios.add(new TestScenario(e, a, b, c));
+    }
 
     @Test
     public void start() {
@@ -262,5 +266,6 @@ public class AppTest {
         for (TestScenario tS : testScenarios) {
             assertEquals(tS.e, d(tS.apNum, tS.apps, tS.floors));
         }
+        //System.out.println(testScenarios.size());
     }
 }
