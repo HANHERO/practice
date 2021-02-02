@@ -241,13 +241,12 @@ public class NewMainTest {
                 assertEquals(new BigInteger(tS.fib), fib);
             }
             if (tS.index > 10000) {
-                assertEquals(fib2.add(fib1), fib);
                 assertTrue((fib1.compareTo(fib2)) > 0);
+                assertEquals(fib2.add(fib1), fib);
             }
             if (tS.index < -10000 && tS.index % 2 == 0) {
                 assertTrue(fib1.compareTo(fib2) > 0);
                 assertEquals(fib2.add((fib1).abs()), fib);
-
             }
             if (tS.index < -10000 && tS.index % 2 == -1) {
                 assertTrue(fib1.abs().compareTo(fib2) < 0);
