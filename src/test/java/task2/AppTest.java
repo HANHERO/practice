@@ -77,28 +77,28 @@ public class AppTest {
         s(3, 2, 40, 5, 5);
         s(1, 2, 26, 5, 5);
         s(5, 2, 50, 5, 5);
-        //6
+        //2
         s(1, 1, min, min, min);
         s(1, 2147483647, max, min, min);
-        //7
+        //3
         s(1, 1, min, max, max);
         s(1, 1, max, max, max);
-        //8
+        //4
         s(1, 1, min, max, min);
         s(1, 1, max, max, min);
-        //9
+        //5
         s(1, 1, min, min, max);
         s(2147483647, 1, max, min, max);
-        //2
+        //6
         s(1, 1, min, max - 1, min + 1);
         s(1, 1, max - 1, max - 1, min + 1);
-        //3
+        //7
         s(1, 1, min, min + 1, max - 1);
         s(1, 1, min + 1, min + 1, max - 1);
-        //4
+        //8
         s(1, 1, min, max - 1, max - 1);
         s(1, 1, max - 1, max - 1, max - 1);
-        //5
+        //9
         s(1, 1, min, min + 1, min + 1);
         s(1, 1, min + 1, min + 1, min + 1);
         s(2, 1, min + 3, min + 1, min + 1);
@@ -327,7 +327,6 @@ public class AppTest {
         s(1, 3, 44, 4, 5);
         s(5, 2, 56, 4, 9);
         s(9, 9, 322, 4, 9);
-        s(9, 2, 108, 6, 9);
         ////////////////////////////////////////4. Реализация
         s(1, 1, max, max, max);
         s(1, 1, min, min, min);

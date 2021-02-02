@@ -8,7 +8,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static task4.NewFib.f;
 
-public class NewMainTest {
+public class FibTest {
     private final ArrayList<TestScenario> testScenarios = new ArrayList<>();
 
     private void setUpScenarios() {

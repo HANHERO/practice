@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 import static org.junit.Assert.assertEquals;
 
-public class NewMainTest {
+public class SwapTest {
     private final ArrayList<TestScenario> testScenarios = new ArrayList<>();
 
     private void setUpScenarios(){
