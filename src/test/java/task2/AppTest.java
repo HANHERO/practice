@@ -361,8 +361,8 @@ public class AppTest {
         s(2, 49, 98, 1, 2);
     }
 
-    private void s(int et, int pod, int a, int b, int c) {
-        testScenarios.add(new TestScenario(et + " этаж, " + pod + " подъезд.", a, b, c));
+    private void s(int et, int pod, int n, int nA, int p) {
+        testScenarios.add(new TestScenario(et + " этаж, " + pod + " подъезд.", n, nA, p));
     }
 
     @Test
