@@ -5,7 +5,7 @@ import org.junit.Test;
 import java.util.ArrayList;
 
 import static org.junit.Assert.assertEquals;
-import static task2.Main.d;
+import static task2.App.d;
 
 public class AppTest {
     private final ArrayList<TestScenario> testScenarios = new ArrayList<>();

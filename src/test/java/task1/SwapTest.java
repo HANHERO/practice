@@ -1101,7 +1101,7 @@ public class SwapTest {
     public void start(){
         setUpScenarios();
         for (TestScenario tS : testScenarios) {
-            assertEquals("A = " + tS.b + ", B = " + tS.a, Main.s(tS.a, tS.b));
+            assertEquals("A = " + tS.b + ", B = " + tS.a, Swap.s(tS.a, tS.b));
         }
         //System.out.println(testScenarios.size());
     }

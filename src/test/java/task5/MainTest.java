@@ -3,7 +3,7 @@ package task5;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
-import static task5.Main.f;
+import static task5.Year.f;
 
 public class MainTest {
     private final String pn = "Понедельник";

@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
-import static task4.NewFib.f;
+import static task4.Fib.f;
 
 public class FibTest {
     private final ArrayList<TestScenario> testScenarios = new ArrayList<>();
@@ -251,7 +251,7 @@ public class FibTest {
                 assertEquals(new BigInteger(tS.fib), fib);
             }
             if (tS.index > 10000) {
-                assertTrue((fib1.compareTo(fib2)) > 0);
+                assertTrue(fib1.compareTo(fib2) > 0);
                 assertEquals(fib2.add(fib1), fib);
             }
             if (tS.index < -10000) {
