@@ -325,7 +325,6 @@ public class SwapTest {
         s(-1, -3);
         s(-3, -1);
 
-
         s(max, max-1);
         s(max-1, max);
         s(max-1, max-1);
