@@ -14,28 +14,27 @@ public class GCD {
             int b = Integer.parseInt(br.readLine());
             int c = Integer.parseInt(br.readLine());
             int d = Integer.parseInt(br.readLine());
-            System.out.print("НОД = " + f(a,b,c,d));
+            System.out.print("НОД = " + f(a, b, c, d));
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    public static int f(int a, int b, int c, int d)  {
+    public static int f(int a, int b, int c, int d) {
         boolean isFounded = false;
-        int [] mass = new int[] {a,b,c,d};
+        int[] mass = new int[]{a, b, c, d};
         int nod = 0;
         int min = findMinABSNotZeroElement(mass);
-            for (int i = min; i >= 1; i--) {
-                for (int k : mass) {
-                    isFounded = k % i == 0;
-                    if (!isFounded) break;
-                }
-                if (isFounded) {
-                    nod = i;
-                    break;
-                }
+        for (int i = min; i >= 1; i--) {
+            for (int k : mass) {
+                isFounded = k % i == 0;
+                if (!isFounded) break;
             }
-
+            if (isFounded) {
+                nod = i;
+                break;
+            }
+        }
         return nod;
     }
 
