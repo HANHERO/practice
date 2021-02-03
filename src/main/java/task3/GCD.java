@@ -10,26 +10,21 @@ public class GCD {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         System.out.println("Введите 4 числа через энтер: ");
         try {
-            int[] mass = {Integer.parseInt(br.readLine()), Integer.parseInt(br.readLine()),
-                    Integer.parseInt(br.readLine()), Integer.parseInt(br.readLine())};
-            System.out.print("НОД = " + f(mass));
+            int a = Integer.parseInt(br.readLine());
+            int b = Integer.parseInt(br.readLine());
+            int c = Integer.parseInt(br.readLine());
+            int d = Integer.parseInt(br.readLine());
+            System.out.print("НОД = " + f(a,b,c,d));
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    public static int f(int[] mass)  {
+    public static int f(int a, int b, int c, int d)  {
         boolean isFounded = false;
+        int [] mass = new int[] {a,b,c,d};
         int nod = 0;
         int min = findMinABSNotZeroElement(mass);
-        if (min == -1) {
-            try {
-                throw new IOException();
-            }catch (Exception e){
-
-            }
-
-        } else {
             for (int i = min; i >= 1; i--) {
                 for (int k : mass) {
                     isFounded = k % i == 0;
@@ -40,16 +35,13 @@ public class GCD {
                     break;
                 }
             }
-        }
+
         return nod;
     }
 
     private static int findMinABSNotZeroElement(int[] mass) {
         int min = Integer.MAX_VALUE;
         for (int j : mass) {
-            if (j == Integer.MIN_VALUE) {
-                return -1;
-            }
             if (min > Math.abs(j) && j != 0) {
                 min = Math.abs(j);
             }

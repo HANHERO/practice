@@ -13,8 +13,44 @@ public class GCDTest {
     private void setUpScenarios() {
         final int min = -2147483647;
         final int max = 2147483647;
+
         //////////////////////////////1. Граничные значения области определения
         s(max, min, min, min, min);
+        s(max, min, min, min, max);
+        s(max, min, min, max, min);
+        s(max, min, min, max, max);
+        s(max, min, max, min, min);
+        s(max, min, max, min, max);
+        s(max, min, max, max, min);
+        s(max, min, max, max, max);
+        s(max, max, min, min, min);
+        s(max, max, min, min, max);
+        s(max, max, min, max, min);
+        s(max, max, min, max, max);
+        s(max, max, max, min, min);
+        s(max, max, max, min, max);
+        s(max, max, max, max, min);
+        s(max, max, max, max, max);
+        //////////////////////////////2. Классы эквивалентности
+        //////////////////////////////2.1 Границы классов эквивалентности
+        s(max, min, min, min, min);
+        s(max, min, min, min, max);
+        s(max, min, min, max, min);
+        s(max, min, min, max, max);
+        s(max, min, max, min, min);
+        s(max, min, max, min, max);
+        s(max, min, max, max, min);
+        s(max, min, max, max, max);
+        s(max, max, min, min, min);
+        s(max, max, min, min, max);
+        s(max, max, min, max, min);
+        s(max, max, min, max, max);
+        s(max, max, max, min, min);
+        s(max, max, max, min, max);
+        s(max, max, max, max, min);
+        s(max, max, max, max, max);
+
+      //////////////////////////////2.2 Впритык слева и справа от границы
         s(1, min, min, min, min + 1);
         s(1, min, min, min + 1, min);
         s(1, min, min, min + 1, min + 1);
@@ -29,8 +65,8 @@ public class GCDTest {
         s(1, min + 1, min + 1, min, min);
         s(1, min + 1, min + 1, min, min + 1);
         s(1, min + 1, min + 1, min + 1, min);
+        s(max - 1, min + 1, min + 1, min + 1, min + 1);
 
-        s(max, min, min, min, max);
         s(1, min, min, min, max - 1);
         s(1, min, min, min + 1, max);
         s(1, min, min, min + 1, max - 1);
@@ -45,8 +81,8 @@ public class GCDTest {
         s(1, min + 1, min + 1, min, max);
         s(1, min + 1, min + 1, min, max - 1);
         s(1, min + 1, min + 1, min + 1, max);
+        s(max - 1, min + 1, min + 1, min + 1, max - 1);
 
-        s(max, min, min, max, min);
         s(1, min, min, max, min + 1);
         s(1, min, min, max - 1, min);
         s(1, min, min, max - 1, min + 1);
@@ -61,8 +97,8 @@ public class GCDTest {
         s(1, min + 1, min + 1, max, min);
         s(1, min + 1, min + 1, max, min + 1);
         s(1, min + 1, min + 1, max - 1, min);
+        s(max - 1, min + 1, min + 1, max - 1, min + 1);
 
-        s(max, min, min, max, max);
         s(1, min, min, max, max - 1);
         s(1, min, min, max - 1, max);
         s(1, min, min, max - 1, max - 1);
@@ -77,8 +113,8 @@ public class GCDTest {
         s(1, min + 1, min + 1, max, max);
         s(1, min + 1, min + 1, max, max - 1);
         s(1, min + 1, min + 1, max - 1, max);
+        s(max - 1, min + 1, min + 1, max - 1, max - 1);
 
-        s(max, min, max, min, min);
         s(1, min, max, min, min + 1);
         s(1, min, max, min + 1, min);
         s(1, min, max, min + 1, min + 1);
@@ -93,8 +129,8 @@ public class GCDTest {
         s(1, min + 1, max - 1, min, min);
         s(1, min + 1, max - 1, min, min + 1);
         s(1, min + 1, max - 1, min + 1, min);
+        s(max - 1, min + 1, max - 1, min + 1, min + 1);
 
-        s(max, min, max, min, max);
         s(1, min, max, min, max - 1);
         s(1, min, max, min + 1, max);
         s(1, min, max, min + 1, max - 1);
@@ -109,8 +145,8 @@ public class GCDTest {
         s(1, min + 1, max - 1, min, max);
         s(1, min + 1, max - 1, min, max - 1);
         s(1, min + 1, max - 1, min + 1, max);
+        s(max - 1, min + 1, max - 1, min + 1, max - 1);
 
-        s(max, min, max, max, min);
         s(1, min, max, max, min + 1);
         s(1, min, max, max - 1, min);
         s(1, min, max, max - 1, min + 1);
@@ -125,8 +161,8 @@ public class GCDTest {
         s(1, min + 1, max - 1, max, min);
         s(1, min + 1, max - 1, max, min + 1);
         s(1, min + 1, max - 1, max - 1, min);
+        s(max - 1, min + 1, max - 1, max - 1, min + 1);
 
-        s(max, min, max, max, max);
         s(1, min, max, max, max - 1);
         s(1, min, max, max - 1, max);
         s(1, min, max, max - 1, max - 1);
@@ -141,8 +177,8 @@ public class GCDTest {
         s(1, min + 1, max - 1, max, max);
         s(1, min + 1, max - 1, max, max - 1);
         s(1, min + 1, max - 1, max - 1, max);
+        s(max - 1, min + 1, max - 1, max - 1, max - 1);
 
-        s(max, max, min, min, min);
         s(1, max, min, min, min + 1);
         s(1, max, min, min + 1, min);
         s(1, max, min, min + 1, min + 1);
@@ -157,8 +193,8 @@ public class GCDTest {
         s(1, max - 1, min + 1, min, min);
         s(1, max - 1, min + 1, min, min + 1);
         s(1, max - 1, min + 1, min + 1, min);
+        s(max - 1, max - 1, min + 1, min + 1, min + 1);
 
-        s(max, max, min, min, max);
         s(1, max, min, min, max - 1);
         s(1, max, min, min + 1, max);
         s(1, max, min, min + 1, max - 1);
@@ -173,8 +209,8 @@ public class GCDTest {
         s(1, max - 1, min + 1, min, max);
         s(1, max - 1, min + 1, min, max - 1);
         s(1, max - 1, min + 1, min + 1, max);
+        s(max - 1, max - 1, min + 1, min + 1, max - 1);
 
-        s(max, max, min, max, min);
         s(1, max, min, max, min + 1);
         s(1, max, min, max - 1, min);
         s(1, max, min, max - 1, min + 1);
@@ -189,8 +225,8 @@ public class GCDTest {
         s(1, max - 1, min + 1, max, min);
         s(1, max - 1, min + 1, max, min + 1);
         s(1, max - 1, min + 1, max - 1, min);
+        s(max - 1, max - 1, min + 1, max - 1, min + 1);
 
-        s(max, max, min, max, max);
         s(1, max, min, max, max - 1);
         s(1, max, min, max - 1, max);
         s(1, max, min, max - 1, max - 1);
@@ -205,8 +241,8 @@ public class GCDTest {
         s(1, max - 1, min + 1, max, max);
         s(1, max - 1, min + 1, max, max - 1);
         s(1, max - 1, min + 1, max - 1, max);
+        s(max - 1, max - 1, min + 1, max - 1, max - 1);
 
-        s(max, max, max, min, min);
         s(1, max, max, min, min + 1);
         s(1, max, max, min + 1, min);
         s(1, max, max, min + 1, min + 1);
@@ -221,73 +257,96 @@ public class GCDTest {
         s(1, max - 1, max - 1, min, min);
         s(1, max - 1, max - 1, min, min + 1);
         s(1, max - 1, max - 1, min + 1, min);
+        s(max - 1, max - 1, max - 1, min + 1, min + 1);
 
-        s(max, max, max, min, max);
-        s(1, max, max, min, max-1);
-        s(1, max, max, min+1, max);
-        s(1, max, max, min+1, max-1);
-        s(1, max, max-1, min, max);
-        s(1, max, max-1, min, max-1);
-        s(1, max, max-1, min+1, max);
-        s(1, max, max-1, min+1, max-1);
-        s(1, max-1, max, min, max);
-        s(1, max-1, max, min, max-1);
-        s(1, max-1, max, min+1, max);
-        s(1, max-1, max, min+1, max-1);
-        s(1, max-1, max-1, min, max);
-        s(1, max-1, max-1, min, max-1);
-        s(1, max-1, max-1, min+1, max);
+        s(1, max, max, min, max - 1);
+        s(1, max, max, min + 1, max);
+        s(1, max, max, min + 1, max - 1);
+        s(1, max, max - 1, min, max);
+        s(1, max, max - 1, min, max - 1);
+        s(1, max, max - 1, min + 1, max);
+        s(1, max, max - 1, min + 1, max - 1);
+        s(1, max - 1, max, min, max);
+        s(1, max - 1, max, min, max - 1);
+        s(1, max - 1, max, min + 1, max);
+        s(1, max - 1, max, min + 1, max - 1);
+        s(1, max - 1, max - 1, min, max);
+        s(1, max - 1, max - 1, min, max - 1);
+        s(1, max - 1, max - 1, min + 1, max);
+        s(max - 1, max - 1, max - 1, min + 1, max - 1);
 
-        s(max, max, max, max, min);
-        s(1, max, max, max, min+1);
-        s(1, max, max, max-1, min);
-        s(1, max, max, max-1, min+1);
-        s(1, max, max-1, max, min);
-        s(1, max, max-1, max, min+1);
-        s(1, max, max-1, max-1, min);
-        s(1, max, max-1, max-1, min+1);
-        s(1, max-1, max, max, min);
-        s(1, max-1, max, max, min+1);
-        s(1, max-1, max, max-1, min);
-        s(1, max-1, max, max-1, min+1);
-        s(1, max-1, max-1, max, min);
-        s(1, max-1, max-1, max, min+1);
-        s(1, max-1, max-1, max-1, min);
+        s(1, max, max, max, min + 1);
+        s(1, max, max, max - 1, min);
+        s(1, max, max, max - 1, min + 1);
+        s(1, max, max - 1, max, min);
+        s(1, max, max - 1, max, min + 1);
+        s(1, max, max - 1, max - 1, min);
+        s(1, max, max - 1, max - 1, min + 1);
+        s(1, max - 1, max, max, min);
+        s(1, max - 1, max, max, min + 1);
+        s(1, max - 1, max, max - 1, min);
+        s(1, max - 1, max, max - 1, min + 1);
+        s(1, max - 1, max - 1, max, min);
+        s(1, max - 1, max - 1, max, min + 1);
+        s(1, max - 1, max - 1, max - 1, min);
+        s(max - 1, max - 1, max - 1, max - 1, min + 1);
 
-        s(max, max, max, max, max);
-        s(1, max, max, max, max-1);
-        s(1, max, max, max-1, max);
-        s(1, max, max, max-1, max-1);
-        s(1, max, max-1, max, max);
-        s(1, max, max-1, max, max-1);
-        s(1, max, max-1, max-1, max);
-        s(1, max, max-1, max-1, max-1);
-        s(1, max-1, max, max, max);
-        s(1, max-1, max, max, max-1);
-        s(1, max-1, max, max-1, max);
-        s(1, max-1, max, max-1, max-1);
-        s(1, max-1, max-1, max, max);
-        s(1, max-1, max-1, max, max-1);
-        s(1, max-1, max-1, max-1, max);
-        //////////////////////////////2. Классы эквивалентности
-        //////////////////////////////2.1 Границы классов эквивалентности
-
-        //////////////////////////////2.2 Впритык слева и справа от границы
-
-        //////////////////////////////2.3 Внутри класса эквивалентности
-
+        s(1, max, max, max, max - 1);
+        s(1, max, max, max - 1, max);
+        s(1, max, max, max - 1, max - 1);
+        s(1, max, max - 1, max, max);
+        s(1, max, max - 1, max, max - 1);
+        s(1, max, max - 1, max - 1, max);
+        s(1, max, max - 1, max - 1, max - 1);
+        s(1, max - 1, max, max, max);
+        s(1, max - 1, max, max, max - 1);
+        s(1, max - 1, max, max - 1, max);
+        s(1, max - 1, max, max - 1, max - 1);
+        s(1, max - 1, max - 1, max, max);
+        s(1, max - 1, max - 1, max, max - 1);
+        s(1, max - 1, max - 1, max - 1, max);
+        s(max - 1, max - 1, max - 1, max - 1, max - 1);
+      ////////////////////////////////2.3 Внутри класса эквивалентности
+        s(max - 1, min + 1, min + 1, min + 1, min + 1);
+        s(max - 1, min + 1, min + 1, min + 1, max - 1);
+        s(max - 1, min + 1, min + 1, max - 1, min + 1);
+        s(max - 1, min + 1, min + 1, max - 1, max - 1);
+        s(max - 1, min + 1, max - 1, min + 1, min + 1);
+        s(max - 1, min + 1, max - 1, min + 1, max - 1);
+        s(max - 1, min + 1, max - 1, max - 1, min + 1);
+        s(max - 1, min + 1, max - 1, max - 1, max - 1);
+        s(max - 1, max - 1, min + 1, min + 1, min + 1);
+        s(max - 1, max - 1, min + 1, min + 1, max - 1);
+        s(max - 1, max - 1, min + 1, max - 1, min + 1);
+        s(max - 1, max - 1, min + 1, max - 1, max - 1);
+        s(max - 1, max - 1, max - 1, min + 1, min + 1);
+        s(max - 1, max - 1, max - 1, min + 1, max - 1);
+        s(max - 1, max - 1, max - 1, max - 1, min + 1);
+        s(max - 1, max - 1, max - 1, max - 1, max - 1);
         //////////////////////////////3. Предметная область
         s(2, 4, 6, 8, 24);
         s(3, 9, 18, 24, 54);
         s(5, 25, 15, 100, 30);
         s(7, 14, 49, 28, 56);
         s(9, 81, 90, 144, 162);
+        s(64, 64, 256, 128, 512);
         //////////////////////////////4. Реализация
-        s(8, 0, 8, 8, 88);
-        s(4, 4, 0, 8, 12);
-        s(10, 30, 20, 0, 10);
-        s(6, 24, 6, 12, 0);
+        s(9, 81, 27, 18, 0);
+        s(9, 81, 27, 0, 45);
+        s(27, 81, 27, 0, 0);
+        s(9, 81, 0, 18, 45);
+        s(9, 81, 0, 18, 0);
+        s(9, 81, 0, 0, 45);
+        s(81, 81, 0, 0, 0);
+        s(9, 0, 27, 18, 45);
+        s(9, 0, 27, 18, 0);
+        s(9, 0, 27, 0, 45);
+        s(27, 0, 27, 0, 0);
+        s(9, 0, 0, 18, 45);
+        s(18, 0, 0, 18, 0);
+        s(45, 0, 0, 0, 45);
         s(max, 0, 0, 0, 0);
+
         //////////////////////////////5. Случайные значения
         s(10, 10, 20, 30, 40);
         s(2, 2, 4, 8, 16);
@@ -332,7 +391,7 @@ public class GCDTest {
     public void start() {
         setUpScenarios();
         for (TestScenario tS : testScenarios) {
-            assertEquals(tS.gcd, f(new int[]{tS.a, tS.b, tS.c, tS.d}));
+            assertEquals(tS.gcd, f(tS.a, tS.b, tS.c, tS.d));
         }
         System.out.println(testScenarios.size());
     }
