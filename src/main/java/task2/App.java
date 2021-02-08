@@ -18,20 +18,15 @@ public class App {
             System.out.println("Введены не корректные данные.");
         }
     }
+
     public static String d(int apNum, int apps, int floors) {
-        int entrance = 1;
-        int floor = 1;
         if (apNum <= 0 || apps <= 0 || floors <= 0) {
             return "Введены не корректные данные.";
         }
-        while (apNum - apps > 0) {
-            apNum -= apps;
-            floor++;
-        }
-        while (floor - floors > 0) {
-            floor -= floors;
-            entrance++;
-        }
+        int appInEntrance = apps * floors;
+        int entrance = ((apNum - 1) / appInEntrance) + 1;
+        int floor = (((apNum - 1) % appInEntrance) / apps) + 1;
+
         return floor + " этаж, " + entrance + " подъезд.";
     }
 }

@@ -5,106 +5,34 @@ import org.junit.Test;
 import java.util.ArrayList;
 
 import static org.junit.Assert.assertEquals;
-import static task2.App.d;
 
 public class AppTest {
     private final ArrayList<TestScenario> testScenarios = new ArrayList<>();
 
     private void setUpScenarios() {
-    //    final int min = 1;
-    //    final int max = Integer.MAX_VALUE;
+        int min = 1;
+        int max = Integer.MAX_VALUE;
         ///////////////////////////////////////1 Граничные значения области определения.
-    //    s(1, 1, min, min, min);
-    //    s(1, 1, min, min, max);
-    //    s(1, 1, min, max, min);
-    //    s(1, 1, min, max, max);
-    //    s(1, 2147483647, max, min, min);
-    //    s(2147483647, 1, max, min, max);
-    //    s(1, 1, max, max, min);
-    //    s(1, 1, max, max, max);
-    //    s(1, 2, min + 1, min, min);
-    //    s(1, 1, min, min + 1, min);
-    //    s(1, 1, min, min, min + 1);
-    //    s(2, 1, min + 1, min, max);
-    //    s(1, 1, min, min + 1, max);
-    //    s(1, 1, min, min, max - 1);
-    //    s(1, 1, min + 1, max, min);
-    //    s(1, 1, min, max - 1, min);
-    //    s(1, 1, min, max, min + 1);
-    //    s(1, 1, min + 1, max, max);
-    //    s(1, 1, min, max - 1, max);
-    //    s(1, 1, min, max, max - 1);
-    //    s(1, 2147483646, max - 1, min, min);
-    //    s(1, 1073741824, max, min + 1, min);
-    //    s(1, 1073741824, max, min, min + 1);
-    //    s(2147483646, 1, max - 1, min, max);
-    //    s(1073741824, 1, max, min + 1, max);
-    //    s(1, 2, max, min, max - 1);
-    //    s(1, 1, max - 1, max, min);
-    //    s(1, 2, max, max - 1, min);
-    //    s(1, 1, max, max, min + 1);
-    //    s(1, 1, max - 1, max, max);
-    //    s(2, 1, max, max - 1, max);
-    //    s(1, 1, max, max, max - 1);
-    //    s(1, 1, min + 1, min + 1, min);
-    //    s(1, 1, min, min + 1, min + 1);
-    //    s(2, 1, min + 1, min, min + 1);
-    //    s(1, 1, min + 1, min + 1, max);
-    //    s(1, 1, min, min + 1, max - 1);
-    //    s(2, 1, min + 1, min, max - 1);
-    //    s(1, 1, min + 1, max - 1, min);
-    //    s(1, 1, min, max - 1, min + 1);
-    //    s(1, 1, min + 1, max, min + 1);
-    //    s(1, 1, min + 1, max - 1, max);
-    //    s(1, 1, min, max - 1, max - 1);
-    //    s(1, 1, min + 1, max, max - 1);
-    //    s(1, 1073741823, max - 1, min + 1, min);
-    //    s(2, 536870912, max, min + 1, min + 1);//
-    //    s(2, 1073741823, max - 1, min, min + 1);//
-    //    s(1073741823, 1, max - 1, min + 1, max);
-    //    s(1073741824, 1, max, min + 1, max - 1);
-    //    s(2147483646, 1, max - 1, min, max - 1);
-    //    s(1, 1, max - 1, max - 1, min);
-    //    s(2, 1, max, max - 1, min + 1);
-    //    s(1, 1, max - 1, max, min + 1);
-    //    s(1, 1, max - 1, max - 1, max);
-    //    s(2, 1, max, max - 1, max - 1);
-    //    s(1, 1, max - 1, max, max - 1);
+        s(1, 1, min, max, min);
+        s(1, 1, min, 46341, 46340);
+        s(1, 1, min, min + 1, min);
+        s(1, 1, min, min, min);
+        s(1, 1, min, min, min + 1);
+        s(1, 1, min, 46340, 46341);
+        s(1, 1, min, min, max);
+
+
         ////////////////////////////////////////2 Классы эквивалентности
         ////////////////////////////////////////2.1 Границы классов эквивалентности
-        //1
+
         s(3, 2, 36, 5, 5);
         s(3, 2, 40, 5, 5);
         s(1, 2, 26, 5, 5);
         s(5, 2, 50, 5, 5);
-        //2
-    //    s(1, 1, min, min, min);
-    //    s(1, 2147483647, max, min, min);
-        //3
-    //    s(1, 1, min, max, max);
-    //    s(1, 1, max, max, max);
-        //4
-    //    s(1, 1, min, max, min);
-    //    s(1, 1, max, max, min);
-        //5
-    //    s(1, 1, min, min, max);
-    //    s(2147483647, 1, max, min, max);
-        //6
-    //    s(1, 1, min, max - 1, min + 1);
-    //    s(1, 1, max - 1, max - 1, min + 1);
-        //7
-    //    s(1, 1, min, min + 1, max - 1);
-    //    s(1, 1, min + 1, min + 1, max - 1);
-        //8
-    //    s(1, 1, min, max - 1, max - 1);
-    //    s(1, 1, max - 1, max - 1, max - 1);
-        //9
-    //    s(1, 1, min, min + 1, min + 1);
-    //    s(1, 1, min + 1, min + 1, min + 1);
-    //    s(2, 1, min + 3, min + 1, min + 1);
+
 
         ////////////////////////////////////////2.2 Впритык слева и справа от грацницы
-        //1
+
         s(2, 2, 35, 5, 5);
         s(3, 2, 37, 5, 5);
         s(3, 2, 39, 5, 5);
@@ -114,37 +42,8 @@ public class AppTest {
         s(1, 2, 27, 5, 5);
         s(5, 2, 50, 5, 5);
         s(1, 3, 51, 5, 5);
-        //2
-    //    s(1, 2, min + 1, min, min);
-    //    s(1, 2147483646, max - 1, min, min);
-        //3
-    //    s(1, 1, min+1, max, max);
-    //    s(1, 1, max-1, max, max);
-        //4
-    //    s(1, 1, min+1, max, min);
-    //    s(1, 1, max-1, max, min);
-        //5
-    //    s(2, 1, min+1, min, max);
-    //    s(2147483646, 1, max-1, min, max);
-        //6
-    //    s(1, 1, min + 1, max - 1, min + 1);
-    //    s(1, 1, max - 2, max - 1, min + 1);
-    //    s(2, 1, max, max - 1, min + 1);
-        //7
-    //    s(1, 1, min + 1, min + 1, max - 1);
-    //    s(2, 1, min + 2, min + 1, max - 1);
-        //8
-    //    s(1, 1, min + 1, max - 1, max - 1);
-    //    s(1, 1, max - 2, max - 1, max - 1);
-    //    s(2, 1, max, max - 1, max - 1);
-        //9
-    //    s(1, 1, min + 1, min + 1, min + 1);
-    //    s(2, 1, min + 2, min + 1, min + 1);
-    //    s(1, 2, min + 4, min + 1, min + 1);
-
 
         ////////////////////////////////////////2.3 Внутри класса эквивалентности
-        //1
         s(3, 2, 37, 5, 5);
         s(3, 2, 38, 5, 5);
         s(3, 2, 39, 5, 5);
@@ -161,57 +60,6 @@ public class AppTest {
         s(2, 2, 34, 5, 5);
         s(2, 2, 35, 5, 5);
         s(5, 2, 49, 5, 5);
-        //2
-    //    s(1, 64453, 64453, min, min);
-    //    s(1, 657334, 657334, min, min);
-    //    s(1, 7543, 7543, min, min);
-    //    s(1, 2355655, 2355655, min, min);
-    //    s(1, 23231241, 23231241, min, min);
-    //    s(1, 214748364, 214748364, min, min);
-        //3
-    //    s(1, 1, 52344233, max, max);
-    //    s(1, 1, 234252345, max, max);
-    //    s(1, 1, 34234232, max, max);
-    //    s(1, 1, 334335678, max, max);
-    //    s(1, 1, 87665455, max, max);
-    //    s(1, 1, 454353667, max, max);
-        //4
-    //    s(1, 1, 65433445, max, min);
-    //    s(1, 1, 234234235, max, min);
-    //    s(1, 1, 323123456, max, min);
-    //    s(1, 1, 46456345, max, min);
-    //    s(1, 1, 322234343, max, min);
-    //    s(1, 1, 344223343, max, min);
-        //5
-    //    s(2, 1, 2, min, max);
-    //    s(54234234, 1, 54234234, min, max);
-    //    s(323154435, 1, 323154435, min, max);
-    //    s(13213543, 1, 13213543, min, max);
-    //    s(232312422, 1, 232312422, min, max);
-    //    s(87678678, 1, 87678678, min, max);
-        //6
-    //    s(1, 1, 2, max - 1, min + 1);
-    //    s(1, 1, 4, max - 1, min + 1);
-    //    s(1, 1, 543, max - 1, min + 1);
-    //    s(1, 1, 12211, max - 1, min + 1);
-    //    s(1, 1, 545345, max - 1, min + 1);
-    //    s(1, 1, 2000000000, max - 1, min + 1);
-        //7
-    //    s(1, 1, min, min + 1, max - 1);
-    //    s(1, 1, min + 1, min + 1, max - 1);
-        //8
-    //    s(1, 1, 2321, max - 1, max - 1);
-    //    s(1, 1, 323124, max - 1, max - 1);
-    //    s(1, 1, 22344, max - 1, max - 1);
-    //    s(1, 1, 12345, max - 1, max - 1);
-    //    s(1, 1, 222322322, max - 1, max - 1);
-    //    s(1, 1, 1234112211, max - 1, max - 1);
-        //9
-    //    s(1, 1, min, min + 1, min + 1);
-    //    s(1, 1, min + 1, min + 1, min + 1);
-
-    //    s(2, 1, min + 2, min + 1, min + 1);
-    //    s(2, 1, min + 3, min + 1, min + 1);
 
         ////////////////////////////////////////3. Предметная область
         s(1, 1, 1, 6, 9);
@@ -328,8 +176,7 @@ public class AppTest {
         s(5, 2, 56, 4, 9);
         s(9, 9, 322, 4, 9);
         ////////////////////////////////////////4. Реализация
-    //    s(1, 1, max, max, max);
-    //    s(1, 1, min, min, min);
+
         ///////////////////////////////////////5. Случайные значения
         s(1, 10, 30, 3, 1);
         s(1, 6, 44, 4, 2);
@@ -369,7 +216,7 @@ public class AppTest {
     public void start() {
         setUpScenarios();
         for (TestScenario tS : testScenarios) {
-            assertEquals(tS.e, NewApp.d(tS.apNum, tS.apps, tS.floors));
+            assertEquals(tS.e, App.d(tS.apNum, tS.apps, tS.floors));
         }
         //System.out.println(testScenarios.size());
     }
