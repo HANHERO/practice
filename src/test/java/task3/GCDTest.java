@@ -45,7 +45,6 @@ public class GCDTest {
         s(1, min + 1, min + 1, min, max);
         s(1, min + 1, min + 1, min, max - 1);
         s(1, min + 1, min + 1, min + 1, max);
-        s(max - 1, min + 1, min + 1, min + 1, max - 1);
 
         s(max, min, min, max, min);
         s(1, min, min, max, min + 1);
@@ -545,6 +544,7 @@ public class GCDTest {
         s(1, max - 1, max - 1, max, max - 1);
         s(1, max - 1, max - 1, max - 1, max);
         s(max - 1, max - 1, max - 1, max - 1, max - 1);
+
       ////////////////////////////////2.3 Внутри класса эквивалентности
         s(max - 1, min + 1, min + 1, min + 1, min + 1);
         s(2,-2434, -764, -20, -80002);
