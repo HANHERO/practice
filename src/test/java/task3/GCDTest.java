@@ -271,320 +271,51 @@ public class GCDTest {
         s(1, max - 1, max - 1, max - 1, max);
         //////////////////////////////2. Классы эквивалентности
         //////////////////////////////2.1 Границы классов эквивалентности
-        s(max, min, min, min, min);
-        s(max, min, min, min, max);
-        s(max, min, min, max, min);
-        s(max, min, min, max, max);
-        s(max, min, max, min, min);
-        s(max, min, max, min, max);
-        s(max, min, max, max, min);
-        s(max, min, max, max, max);
-        s(max, max, min, min, min);
-        s(max, max, min, min, max);
-        s(max, max, min, max, min);
-        s(max, max, min, max, max);
-        s(max, max, max, min, min);
-        s(max, max, max, min, max);
-        s(max, max, max, max, min);
+        s(12, 12, 12, 12, -2147483640);
+        s(12, 12, 12, 12, 2147483640);
+
+        s(12, 12, 12, -2147483640, 12);
+        s(12, 12, 12, 2147483640, 12);
+
+        s(12, 12, -2147483640, 12, 12);
+        s(12, 12, 2147483640, 12, 12);
+
+        s(12, -2147483640, 12, 12, 12);
+        s(12, 2147483640, 12, 12, 12);
+
+        //////////////////////////////2.2 Впритык слева и справа от границы
+        s(12, 12, 12, 12, -2147483628);
+        s(12, 12, 12, 12, 2147483628);
+
+        s(12, 12, 12, -2147483628, 12);
+        s(12, 12, 12, 2147483628, 12);
+
+        s(12, 12, -2147483628, 12, 12);
+        s(12, 12, 2147483628, 12, 12);
+
+        s(12, -2147483628, 12, 12, 12);
+        s(12, 2147483628, 12, 12, 12);
+
+        //////////////////////////////2.3 Внутри класса эквивалентности
         s(max, max, max, max, max);
+        s(max, min, min, min, min);
 
-      //////////////////////////////2.2 Впритык слева и справа от границы
-        s(1, min, min, min, min + 1);
-        s(1, min, min, min + 1, min);
-        s(1, min, min, min + 1, min + 1);
-        s(1, min, min + 1, min, min);
-        s(1, min, min + 1, min, min + 1);
-        s(1, min, min + 1, min + 1, min);
-        s(1, min, min + 1, min + 1, min + 1);
-        s(1, min + 1, min, min, min);
-        s(1, min + 1, min, min, min + 1);
-        s(1, min + 1, min, min + 1, min);
-        s(1, min + 1, min, min + 1, min + 1);
-        s(1, min + 1, min + 1, min, min);
-        s(1, min + 1, min + 1, min, min + 1);
-        s(1, min + 1, min + 1, min + 1, min);
-        s(max - 1, min + 1, min + 1, min + 1, min + 1);
+        s(12, 12, 12, 12, 48);
 
-        s(1, min, min, min, max - 1);
-        s(1, min, min, min + 1, max);
-        s(1, min, min, min + 1, max - 1);
-        s(1, min, min + 1, min, max);
-        s(1, min, min + 1, min, max - 1);
-        s(1, min, min + 1, min + 1, max);
-        s(1, min, min + 1, min + 1, max - 1);
-        s(1, min + 1, min, min, max);
-        s(1, min + 1, min, min, max - 1);
-        s(1, min + 1, min, min + 1, max);
-        s(1, min + 1, min, min + 1, max - 1);
-        s(1, min + 1, min + 1, min, max);
-        s(1, min + 1, min + 1, min, max - 1);
-        s(1, min + 1, min + 1, min + 1, max);
-        s(max - 1, min + 1, min + 1, min + 1, max - 1);
+        s(12, 12, 12, 48, 12);
 
-        s(1, min, min, max, min + 1);
-        s(1, min, min, max - 1, min);
-        s(1, min, min, max - 1, min + 1);
-        s(1, min, min + 1, max, min);
-        s(1, min, min + 1, max, min + 1);
-        s(1, min, min + 1, max - 1, min);
-        s(1, min, min + 1, max - 1, min + 1);
-        s(1, min + 1, min, max, min);
-        s(1, min + 1, min, max, min + 1);
-        s(1, min + 1, min, max - 1, min);
-        s(1, min + 1, min, max - 1, min + 1);
-        s(1, min + 1, min + 1, max, min);
-        s(1, min + 1, min + 1, max, min + 1);
-        s(1, min + 1, min + 1, max - 1, min);
-        s(max - 1, min + 1, min + 1, max - 1, min + 1);
+        s(12, 12, 48, 12, 12);
 
-        s(1, min, min, max, max - 1);
-        s(1, min, min, max - 1, max);
-        s(1, min, min, max - 1, max - 1);
-        s(1, min, min + 1, max, max);
-        s(1, min, min + 1, max, max - 1);
-        s(1, min, min + 1, max - 1, max);
-        s(1, min, min + 1, max - 1, max - 1);
-        s(1, min + 1, min, max, max);
-        s(1, min + 1, min, max, max - 1);
-        s(1, min + 1, min, max - 1, max);
-        s(1, min + 1, min, max - 1, max - 1);
-        s(1, min + 1, min + 1, max, max);
-        s(1, min + 1, min + 1, max, max - 1);
-        s(1, min + 1, min + 1, max - 1, max);
-        s(max - 1, min + 1, min + 1, max - 1, max - 1);
+        s(12, 48, 12, 12, 12);
 
-        s(1, min, max, min, min + 1);
-        s(1, min, max, min + 1, min);
-        s(1, min, max, min + 1, min + 1);
-        s(1, min, max - 1, min, min);
-        s(1, min, max - 1, min, min + 1);
-        s(1, min, max - 1, min + 1, min);
-        s(1, min, max - 1, min + 1, min + 1);
-        s(1, min + 1, max, min, min);
-        s(1, min + 1, max, min, min + 1);
-        s(1, min + 1, max, min + 1, min);
-        s(1, min + 1, max, min + 1, min + 1);
-        s(1, min + 1, max - 1, min, min);
-        s(1, min + 1, max - 1, min, min + 1);
-        s(1, min + 1, max - 1, min + 1, min);
-        s(max - 1, min + 1, max - 1, min + 1, min + 1);
-
-        s(1, min, max, min, max - 1);
-        s(1, min, max, min + 1, max);
-        s(1, min, max, min + 1, max - 1);
-        s(1, min, max - 1, min, max);
-        s(1, min, max - 1, min, max - 1);
-        s(1, min, max - 1, min + 1, max);
-        s(1, min, max - 1, min + 1, max - 1);
-        s(1, min + 1, max, min, max);
-        s(1, min + 1, max, min, max - 1);
-        s(1, min + 1, max, min + 1, max);
-        s(1, min + 1, max, min + 1, max - 1);
-        s(1, min + 1, max - 1, min, max);
-        s(1, min + 1, max - 1, min, max - 1);
-        s(1, min + 1, max - 1, min + 1, max);
-        s(max - 1, min + 1, max - 1, min + 1, max - 1);
-
-        s(1, min, max, max, min + 1);
-        s(1, min, max, max - 1, min);
-        s(1, min, max, max - 1, min + 1);
-        s(1, min, max - 1, max, min);
-        s(1, min, max - 1, max, min + 1);
-        s(1, min, max - 1, max - 1, min);
-        s(1, min, max - 1, max - 1, min + 1);
-        s(1, min + 1, max, max, min);
-        s(1, min + 1, max, max, min + 1);
-        s(1, min + 1, max, max - 1, min);
-        s(1, min + 1, max, max - 1, min + 1);
-        s(1, min + 1, max - 1, max, min);
-        s(1, min + 1, max - 1, max, min + 1);
-        s(1, min + 1, max - 1, max - 1, min);
-        s(max - 1, min + 1, max - 1, max - 1, min + 1);
-
-        s(1, min, max, max, max - 1);
-        s(1, min, max, max - 1, max);
-        s(1, min, max, max - 1, max - 1);
-        s(1, min, max - 1, max, max);
-        s(1, min, max - 1, max, max - 1);
-        s(1, min, max - 1, max - 1, max);
-        s(1, min, max - 1, max - 1, max - 1);
-        s(1, min + 1, max, max, max);
-        s(1, min + 1, max, max, max - 1);
-        s(1, min + 1, max, max - 1, max);
-        s(1, min + 1, max, max - 1, max - 1);
-        s(1, min + 1, max - 1, max, max);
-        s(1, min + 1, max - 1, max, max - 1);
-        s(1, min + 1, max - 1, max - 1, max);
-        s(max - 1, min + 1, max - 1, max - 1, max - 1);
-
-        s(1, max, min, min, min + 1);
-        s(1, max, min, min + 1, min);
-        s(1, max, min, min + 1, min + 1);
-        s(1, max, min + 1, min, min);
-        s(1, max, min + 1, min, min + 1);
-        s(1, max, min + 1, min + 1, min);
-        s(1, max, min + 1, min + 1, min + 1);
-        s(1, max - 1, min, min, min);
-        s(1, max - 1, min, min, min + 1);
-        s(1, max - 1, min, min + 1, min);
-        s(1, max - 1, min, min + 1, min + 1);
-        s(1, max - 1, min + 1, min, min);
-        s(1, max - 1, min + 1, min, min + 1);
-        s(1, max - 1, min + 1, min + 1, min);
-        s(max - 1, max - 1, min + 1, min + 1, min + 1);
-
-        s(1, max, min, min, max - 1);
-        s(1, max, min, min + 1, max);
-        s(1, max, min, min + 1, max - 1);
-        s(1, max, min + 1, min, max);
-        s(1, max, min + 1, min, max - 1);
-        s(1, max, min + 1, min + 1, max);
-        s(1, max, min + 1, min + 1, max - 1);
-        s(1, max - 1, min, min, max);
-        s(1, max - 1, min, min, max - 1);
-        s(1, max - 1, min, min + 1, max);
-        s(1, max - 1, min, min + 1, max - 1);
-        s(1, max - 1, min + 1, min, max);
-        s(1, max - 1, min + 1, min, max - 1);
-        s(1, max - 1, min + 1, min + 1, max);
-        s(max - 1, max - 1, min + 1, min + 1, max - 1);
-
-        s(1, max, min, max, min + 1);
-        s(1, max, min, max - 1, min);
-        s(1, max, min, max - 1, min + 1);
-        s(1, max, min + 1, max, min);
-        s(1, max, min + 1, max, min + 1);
-        s(1, max, min + 1, max - 1, min);
-        s(1, max, min + 1, max - 1, min + 1);
-        s(1, max - 1, min, max, min);
-        s(1, max - 1, min, max, min + 1);
-        s(1, max - 1, min, max - 1, min);
-        s(1, max - 1, min, max - 1, min + 1);
-        s(1, max - 1, min + 1, max, min);
-        s(1, max - 1, min + 1, max, min + 1);
-        s(1, max - 1, min + 1, max - 1, min);
-        s(max - 1, max - 1, min + 1, max - 1, min + 1);
-
-        s(1, max, min, max, max - 1);
-        s(1, max, min, max - 1, max);
-        s(1, max, min, max - 1, max - 1);
-        s(1, max, min + 1, max, max);
-        s(1, max, min + 1, max, max - 1);
-        s(1, max, min + 1, max - 1, max);
-        s(1, max, min + 1, max - 1, max - 1);
-        s(1, max - 1, min, max, max);
-        s(1, max - 1, min, max, max - 1);
-        s(1, max - 1, min, max - 1, max);
-        s(1, max - 1, min, max - 1, max - 1);
-        s(1, max - 1, min + 1, max, max);
-        s(1, max - 1, min + 1, max, max - 1);
-        s(1, max - 1, min + 1, max - 1, max);
-        s(max - 1, max - 1, min + 1, max - 1, max - 1);
-
-        s(1, max, max, min, min + 1);
-        s(1, max, max, min + 1, min);
-        s(1, max, max, min + 1, min + 1);
-        s(1, max, max - 1, min, min);
-        s(1, max, max - 1, min, min + 1);
-        s(1, max, max - 1, min + 1, min);
-        s(1, max, max - 1, min + 1, min + 1);
-        s(1, max - 1, max, min, min);
-        s(1, max - 1, max, min, min + 1);
-        s(1, max - 1, max, min + 1, min);
-        s(1, max - 1, max, min + 1, min + 1);
-        s(1, max - 1, max - 1, min, min);
-        s(1, max - 1, max - 1, min, min + 1);
-        s(1, max - 1, max - 1, min + 1, min);
-        s(max - 1, max - 1, max - 1, min + 1, min + 1);
-
-        s(1, max, max, min, max - 1);
-        s(1, max, max, min + 1, max);
-        s(1, max, max, min + 1, max - 1);
-        s(1, max, max - 1, min, max);
-        s(1, max, max - 1, min, max - 1);
-        s(1, max, max - 1, min + 1, max);
-        s(1, max, max - 1, min + 1, max - 1);
-        s(1, max - 1, max, min, max);
-        s(1, max - 1, max, min, max - 1);
-        s(1, max - 1, max, min + 1, max);
-        s(1, max - 1, max, min + 1, max - 1);
-        s(1, max - 1, max - 1, min, max);
-        s(1, max - 1, max - 1, min, max - 1);
-        s(1, max - 1, max - 1, min + 1, max);
-        s(max - 1, max - 1, max - 1, min + 1, max - 1);
-
-        s(1, max, max, max, min + 1);
-        s(1, max, max, max - 1, min);
-        s(1, max, max, max - 1, min + 1);
-        s(1, max, max - 1, max, min);
-        s(1, max, max - 1, max, min + 1);
-        s(1, max, max - 1, max - 1, min);
-        s(1, max, max - 1, max - 1, min + 1);
-        s(1, max - 1, max, max, min);
-        s(1, max - 1, max, max, min + 1);
-        s(1, max - 1, max, max - 1, min);
-        s(1, max - 1, max, max - 1, min + 1);
-        s(1, max - 1, max - 1, max, min);
-        s(1, max - 1, max - 1, max, min + 1);
-        s(1, max - 1, max - 1, max - 1, min);
-        s(max - 1, max - 1, max - 1, max - 1, min + 1);
-
-        s(1, max, max, max, max - 1);
-        s(1, max, max, max - 1, max);
-        s(1, max, max, max - 1, max - 1);
-        s(1, max, max - 1, max, max);
-        s(1, max, max - 1, max, max - 1);
-        s(1, max, max - 1, max - 1, max);
-        s(1, max, max - 1, max - 1, max - 1);
-        s(1, max - 1, max, max, max);
-        s(1, max - 1, max, max, max - 1);
-        s(1, max - 1, max, max - 1, max);
-        s(1, max - 1, max, max - 1, max - 1);
-        s(1, max - 1, max - 1, max, max);
-        s(1, max - 1, max - 1, max, max - 1);
-        s(1, max - 1, max - 1, max - 1, max);
-        s(max - 1, max - 1, max - 1, max - 1, max - 1);
-
-      ////////////////////////////////2.3 Внутри класса эквивалентности
-        s(max - 1, min + 1, min + 1, min + 1, min + 1);
-        s(2,-2434, -764, -20, -80002);
-        s(max - 1, min + 1, min + 1, min + 1, max - 1);
-        s(9, -189, -81, -801, 5499);
-        s(max - 1, min + 1, min + 1, max - 1, min + 1);
-        s(3, -66,-861, 861, -522);
-        s(max - 1, min + 1, min + 1, max - 1, max - 1);
-        s(5, -535, -9830, 95, 100);
-        s(max - 1, min + 1, max - 1, min + 1, min + 1);
-        s(6, -12, 24, -54, -48);
-        s(max - 1, min + 1, max - 1, min + 1, max - 1);
-        s(7, -49, 49, -70, 70);
-        s(max - 1, min + 1, max - 1, max - 1, min + 1);
-        s(1, -631, 200, 5342, -4871);
-        s(max - 1, min + 1, max - 1, max - 1, max - 1);
-        s(4, -444, 444, 20, 80);
-        s(max - 1, max - 1, min + 1, min + 1, min + 1);
-        s(8, 72, -64, -128, -16);
-        s(max - 1, max - 1, min + 1, min + 1, max - 1);
-        s(10, 8750, -42310, -10, 6850);
-        s(max - 1, max - 1, min + 1, max - 1, min + 1);
-        s(11, 11, -22, 33, 44);
-        s(max - 1, max - 1, min + 1, max - 1, max - 1);
-        s(12, 144, -120, 132, 24);
-        s(max - 1, max - 1, max - 1, min + 1, min + 1);
-        s(13, 169, 78, -117, -156);
-        s(max - 1, max - 1, max - 1, min + 1, max - 1);
-        s(14, 196, 84, -210, 98);
-        s(max - 1, max - 1, max - 1, max - 1, min + 1);
-        s(15, 225, 135, 180, -165);
-        s(max - 1, max - 1, max - 1, max - 1, max - 1);
-        s(16, 256, 1024, 144, 320);
         //////////////////////////////3. Предметная область
-        s(2, 4, 6, 8, 24);
-        s(3, 9, 18, 24, 54);
-        s(5, 25, 15, 100, 30);
-        s(7, 14, 49, 28, 56);
-        s(9, 81, 90, 144, 162);
-        s(64, 64, 256, 128, 512);
+        s(2, 4, 6, 8, 10);
+        s(3, 6, 9, 12, 15);
+        s(5, 10, 15, 20, 25);
+        s(7, 14, 21, 28, 35);
+        s(9, 18, 27, 36, 45);
+        s(64, 128, 192, 256, 320);
+
         //////////////////////////////4. Реализация
         s(9, 81, 27, 18, 0);
         s(9, 81, 27, 0, 45);
@@ -633,6 +364,7 @@ public class GCDTest {
         s(2, 2, 4, 8, 16);
         s(10, 50, 400, 30, 170);
         s(1, 7, 100, 200, 400);
+
         //////////////////////////////6. Другие особые значения
         s(5, 5, 5, 5, 5);
         s(5, 5, 5, 5, -5);
