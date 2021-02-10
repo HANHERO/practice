@@ -20,7 +20,7 @@ public class App {
     }
 
     public static String d(int apNum, int apps, int floors) {
-        if (apNum <= 0 || apps <= 0 || floors <= 0) {
+        if ((long) apps * floors > Integer.MAX_VALUE || apNum <= 0 || apps <= 0 || floors <= 0) {
             return "Введены не корректные данные.";
         }
         int appInEntrance = apps * floors;

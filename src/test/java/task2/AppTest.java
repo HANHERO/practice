@@ -277,7 +277,6 @@ public class AppTest {
 
         s(1, 1, min, max, min);
         s(1, 1, min + 1, max, min);
-        s(1, 1, min, max, min + 1);
         s(1, 1, min, max - 1, min);
 
         s(1, 1, min, min, 10);
@@ -555,6 +554,14 @@ public class AppTest {
         s(1, 1, max, max, min);
         s(1, 1, min, min, max);
         s(max, 1, max, min, max);
+        s(min, max, min + 1);
+        s(max, min + 1, max);
+        s(min, max, max);
+        s(max, max, max);
+        s(min, min, 0);
+        s(min, 0, min);
+        s(0, min, min);
+        s(min, 46341, 46341);
         ///////////////////////////////////////5. Случайные значения
         s(1, 10, 30, 3, 1);
         s(1, 6, 44, 4, 2);
@@ -694,6 +701,10 @@ public class AppTest {
 
     private void s(int et, int pod, int n, int nA, int p) {
         testScenarios.add(new TestScenario(et + " этаж, " + pod + " подъезд.", n, nA, p));
+    }
+
+    private void s(int n, int nA, int p) {
+        testScenarios.add(new TestScenario("Введены не корректные данные.", n, nA, p));
     }
 
     @Test
