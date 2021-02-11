@@ -5,12 +5,10 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import static task3.GCD.f;
 
-import java.util.ArrayList;
-
 public class GCDTest {
-    private final ArrayList<TestScenario> testScenarios = new ArrayList<>();
 
-    private void setUpScenarios() {
+    @Test
+    public void setUpScenarios() {
         final int min = -2147483647;
         final int max = 2147483647;
 
@@ -387,17 +385,7 @@ public class GCDTest {
         s(5, -5, -5, -5, -5);
 
     }
-
     private void s(int gcd, int a, int b, int c, int d) {
-        testScenarios.add(new TestScenario(gcd, a, b, c, d));
-    }
-
-    @Test
-    public void start() {
-        setUpScenarios();
-        for (TestScenario tS : testScenarios) {
-            assertEquals(tS.gcd, f(tS.a, tS.b, tS.c, tS.d));
-        }
-        System.out.println(testScenarios.size());
+        assertEquals(gcd, f(a, b, c, d));
     }
 }

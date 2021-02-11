@@ -2,14 +2,12 @@ package task2;
 
 import org.junit.Test;
 
-import java.util.ArrayList;
-
 import static org.junit.Assert.assertEquals;
+import static task2.App.d;
 
 public class AppTest {
-    private final ArrayList<TestScenario> testScenarios = new ArrayList<>();
-
-    private void setUpScenarios() {
+    @Test
+    public void startScenarios() {
         int min = 1;
         int max = Integer.MAX_VALUE;
         ///////////////////////////////////////1 Граничные значения области определения.
@@ -731,21 +729,10 @@ public class AppTest {
         s(9, 2, 107, 6, 9);
         s(9, 2, 108, 6, 9);
     }
-
     private void s(int et, int pod, int n, int nA, int p) {
-        testScenarios.add(new TestScenario(et + " этаж, " + pod + " подъезд.", n, nA, p));
+        assertEquals(et + " этаж, " + pod + " подъезд.", d(n, nA, p));
     }
-
     private void s(int n, int nA, int p) {
-        testScenarios.add(new TestScenario("Введены не корректные данные.", n, nA, p));
-    }
-
-    @Test
-    public void start() {
-        setUpScenarios();
-        for (TestScenario tS : testScenarios) {
-            assertEquals(tS.e, App.d(tS.apNum, tS.apps, tS.floors));
-        }
-        System.out.println(testScenarios.size());
+        assertEquals("Введены не корректные данные.", d(n, nA, p));
     }
 }

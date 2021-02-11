@@ -2,14 +2,12 @@ package task1;
 
 import org.junit.Test;
 
-import java.util.ArrayList;
-
 import static org.junit.Assert.assertEquals;
 
 public class SwapTest {
-    private final ArrayList<TestScenario> testScenarios = new ArrayList<>();
 
-    private void setUpScenarios(){
+    @Test
+    public void startScenarios(){
         final int min = Integer.MIN_VALUE;
         final int max = Integer.MAX_VALUE;
         ////////////////////////////////1. Граничные значения области определения
@@ -1094,15 +1092,7 @@ public class SwapTest {
         s(1757662595,0);
     }
 
-    private void s(int a, int b){
-        testScenarios.add(new TestScenario(a,b));
-    }
-    @Test
-    public void start(){
-        setUpScenarios();
-        for (TestScenario tS : testScenarios) {
-            assertEquals("A = " + tS.b + ", B = " + tS.a, Swap.s(tS.a, tS.b));
-        }
-        //System.out.println(testScenarios.size());
+    public void s(int a, int b){
+        assertEquals("A = " + b + ", B = " + a, Swap.s(a, b));
     }
 }

@@ -2,15 +2,13 @@ package task5;
 
 import org.junit.Test;
 
-import java.util.ArrayList;
-
 import static org.junit.Assert.assertEquals;
 import static task5.Year.f;
 
 public class YearTest {
-    private final ArrayList<TestScenario> testScenarios = new ArrayList<>();
 
-    private void setUpScenarios() {
+    @Test
+    public void setUpScenarios() {
         String pn = "Понедельник";
         String vt = "Вторник";
         String sr = "Среда";
@@ -749,15 +747,6 @@ public class YearTest {
     }
 
     private void s(String s, int a, int b, int c) {
-        testScenarios.add(new task5.TestScenario(s, a, b, c));
-    }
-
-    @Test
-    public void start() {
-        setUpScenarios();
-        for (TestScenario tS : testScenarios) {
-            assertEquals(tS.s, f(tS.a, tS.b, tS.c));
-        }
-        System.out.println(testScenarios.size());
+        assertEquals(s, f(a, b, c));
     }
 }
