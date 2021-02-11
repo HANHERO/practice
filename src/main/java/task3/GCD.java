@@ -41,6 +41,7 @@ public class GCD {
     private static int findMinABSNotZeroElement(int[] mass) {
         int min = Integer.MAX_VALUE;
         for (int j : mass) {
+            if (j == Integer.MIN_VALUE) continue;
             if (min > Math.abs(j) && j != 0) {
                 min = Math.abs(j);
             }
