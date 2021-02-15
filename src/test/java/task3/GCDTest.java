@@ -9,8 +9,8 @@ public class GCDTest {
 
     @Test
     public void setUpScenarios() {
-        final int min = -2147483648;
-        final int max = 2147483647;
+        final int min = Integer.MIN_VALUE;
+        final int max = Integer.MAX_VALUE;
 
         ////////////////////////////1. Граничные значения области определения
         s(1073741824, min, min, min, min);
