@@ -609,20 +609,20 @@ public class AppTest {
         s(1, 2, 47, 5, 9);
         s(2, 2, 42, 4, 9);
         ////////////////////////////////////////4. Реализация
-        s(1, 1, min, min, min);
-        s(1, max, max, min, min);
-        s(1, 1, min, max, min);
-        s(1, 1, max, max, min);
-        s(1, 1, min, min, max);
-        s(max, 1, max, min, max);
         s(min, max, min + 1);
         s(max, min + 1, max);
+
         s(min, max, max);
         s(max, max, max);
+
         s(min, min, 0);
         s(min, 0, min);
         s(0, min, min);
-        s(min, 46341, 46341);
+
+        s(max, max, 0);
+        s(max, 0, max);
+        s(0, max, max);
+
         ///////////////////////////////////////5. Случайные значения
         s(1, 10, 30, 3, 1);
         s(1, 6, 44, 4, 2);
@@ -760,11 +760,7 @@ public class AppTest {
         s(9, 2, 108, 6, 9);
     }
 
-    private void s(int et, int pod, int n, int nA, int p) {
-        assertEquals(et + " этаж, " + pod + " подъезд.", d(n, nA, p));
-    }
+    private void s(int et, int pod, int n, int nA, int p) { assertEquals(et + " этаж, " + pod + " подъезд.", d(n, nA, p)); }
 
-    private void s(int n, int nA, int p) {
-        assertEquals("Введены не корректные данные.", d(n, nA, p));
-    }
+    private void s(int n, int nA, int p) { assertEquals("Введены не корректные данные.", d(n, nA, p)); }
 }
