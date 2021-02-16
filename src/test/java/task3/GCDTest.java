@@ -12,467 +12,340 @@ public class GCDTest {
         final int min = Integer.MIN_VALUE;
         final int max = Integer.MAX_VALUE;
 
-        ////////////////////////////1. Граничные значения области определения
-        s(1073741824, min, min, min, min);
-        s(1, min, min, min, min + 1);
-        s(1, min, min, min + 1, min);
-        s(1, min, min, min + 1, min + 1);
-        s(1, min, min + 1, min, min);
-        s(1, min, min + 1, min, min + 1);
-        s(1, min, min + 1, min + 1, min);
-        s(1, min, min + 1, min + 1, min + 1);
-        s(1, min + 1, min, min, min);
-        s(1, min + 1, min, min, min + 1);
-        s(1, min + 1, min, min + 1, min);
-        s(1, min + 1, min, min + 1, min + 1);
-        s(1, min + 1, min + 1, min, min);
-        s(1, min + 1, min + 1, min, min + 1);
-        s(1, min + 1, min + 1, min + 1, min);
-
-        s(max, min, min, min, max);
-        s(1, min, min, min + 1, max);
-        s(1, min, min, min + 1, max - 1);
-        s(1, min, min + 1, min, max);
-        s(1, min, min + 1, min, max - 1);
-        s(1, min, min + 1, min + 1, max);
-        s(1, min, min + 1, min + 1, max - 1);
-        s(1, min + 1, min, min, max);
-        s(1, min + 1, min, min, max - 1);
-        s(1, min + 1, min, min + 1, max);
-        s(1, min + 1, min, min + 1, max - 1);
-        s(1, min + 1, min + 1, min, max);
-        s(1, min + 1, min + 1, min, max - 1);
-        s(1, min + 1, min + 1, min + 1, max);
-
-        s(max, min, min, max, min);
-        s(1, min, min, max, min + 1);
-        s(1, min, min, max - 1, min);
-        s(1, min, min, max - 1, min + 1);
-        s(1, min, min + 1, max, min);
-        s(1, min, min + 1, max, min + 1);
-        s(1, min, min + 1, max - 1, min);
-        s(1, min, min + 1, max - 1, min + 1);
-        s(1, min + 1, min, max, min);
-        s(1, min + 1, min, max, min + 1);
-        s(1, min + 1, min, max - 1, min);
-        s(1, min + 1, min, max - 1, min + 1);
-        s(1, min + 1, min + 1, max, min);
-        s(1, min + 1, min + 1, max, min + 1);
-        s(1, min + 1, min + 1, max - 1, min);
-
-        s(max, min, min, max, max);
-        s(1, min, min, max, max - 1);
-        s(1, min, min, max - 1, max);
-        s(1, min, min, max - 1, max - 1);
-        s(1, min, min + 1, max, max);
-        s(1, min, min + 1, max, max - 1);
-        s(1, min, min + 1, max - 1, max);
-        s(1, min, min + 1, max - 1, max - 1);
-        s(1, min + 1, min, max, max);
-        s(1, min + 1, min, max, max - 1);
-        s(1, min + 1, min, max - 1, max);
-        s(1, min + 1, min, max - 1, max - 1);
-        s(1, min + 1, min + 1, max, max);
-        s(1, min + 1, min + 1, max, max - 1);
-        s(1, min + 1, min + 1, max - 1, max);
-
-        s(max, min, max, min, min);
-        s(1, min, max, min, min + 1);
-        s(1, min, max, min + 1, min);
-        s(1, min, max, min + 1, min + 1);
-        s(1, min, max - 1, min, min);
-        s(1, min, max - 1, min, min + 1);
-        s(1, min, max - 1, min + 1, min);
-        s(1, min, max - 1, min + 1, min + 1);
-        s(1, min + 1, max, min, min);
-        s(1, min + 1, max, min, min + 1);
-        s(1, min + 1, max, min + 1, min);
-        s(1, min + 1, max, min + 1, min + 1);
-        s(1, min + 1, max - 1, min, min);
-        s(1, min + 1, max - 1, min, min + 1);
-        s(1, min + 1, max - 1, min + 1, min);
-
-        s(max, min, max, min, max);
-        s(1, min, max, min, max - 1);
-        s(1, min, max, min + 1, max);
-        s(1, min, max, min + 1, max - 1);
-        s(1, min, max - 1, min, max);
-        s(1, min, max - 1, min, max - 1);
-        s(1, min, max - 1, min + 1, max);
-        s(1, min, max - 1, min + 1, max - 1);
-        s(1, min + 1, max, min, max);
-        s(1, min + 1, max, min, max - 1);
-        s(1, min + 1, max, min + 1, max);
-        s(1, min + 1, max, min + 1, max - 1);
-        s(1, min + 1, max - 1, min, max);
-        s(1, min + 1, max - 1, min, max - 1);
-        s(1, min + 1, max - 1, min + 1, max);
-
-        s(max, min, max, max, min);
-        s(1, min, max, max, min + 1);
-        s(1, min, max, max - 1, min);
-        s(1, min, max, max - 1, min + 1);
-        s(1, min, max - 1, max, min);
-        s(1, min, max - 1, max, min + 1);
-        s(1, min, max - 1, max - 1, min);
-        s(1, min, max - 1, max - 1, min + 1);
-        s(1, min + 1, max, max, min);
-        s(1, min + 1, max, max, min + 1);
-        s(1, min + 1, max, max - 1, min);
-        s(1, min + 1, max, max - 1, min + 1);
-        s(1, min + 1, max - 1, max, min);
-        s(1, min + 1, max - 1, max, min + 1);
-        s(1, min + 1, max - 1, max - 1, min);
-
-        s(max, min, max, max, max);
-        s(1, min, max, max, max - 1);
-        s(1, min, max, max - 1, max);
-        s(1, min, max, max - 1, max - 1);
-        s(1, min, max - 1, max, max);
-        s(1, min, max - 1, max, max - 1);
-        s(1, min, max - 1, max - 1, max);
-        s(1, min, max - 1, max - 1, max - 1);
-        s(1, min + 1, max, max, max);
-        s(1, min + 1, max, max, max - 1);
-        s(1, min + 1, max, max - 1, max);
-        s(1, min + 1, max, max - 1, max - 1);
-        s(1, min + 1, max - 1, max, max);
-        s(1, min + 1, max - 1, max, max - 1);
-        s(1, min + 1, max - 1, max - 1, max);
-
-        s(max, max, min, min, min);
-        s(1, max, min, min, min + 1);
-        s(1, max, min, min + 1, min);
-        s(1, max, min, min + 1, min + 1);
-        s(1, max, min + 1, min, min);
-        s(1, max, min + 1, min, min + 1);
-        s(1, max, min + 1, min + 1, min);
-        s(1, max, min + 1, min + 1, min + 1);
-        s(1, max - 1, min, min, min);
-        s(1, max - 1, min, min, min + 1);
-        s(1, max - 1, min, min + 1, min);
-        s(1, max - 1, min, min + 1, min + 1);
-        s(1, max - 1, min + 1, min, min);
-        s(1, max - 1, min + 1, min, min + 1);
-        s(1, max - 1, min + 1, min + 1, min);
-
-        s(max, max, min, min, max);
-        s(1, max, min, min, max - 1);
-        s(1, max, min, min + 1, max);
-        s(1, max, min, min + 1, max - 1);
-        s(1, max, min + 1, min, max);
-        s(1, max, min + 1, min, max - 1);
-        s(1, max, min + 1, min + 1, max);
-        s(1, max, min + 1, min + 1, max - 1);
-        s(1, max - 1, min, min, max);
-        s(1, max - 1, min, min, max - 1);
-        s(1, max - 1, min, min + 1, max);
-        s(1, max - 1, min, min + 1, max - 1);
-        s(1, max - 1, min + 1, min, max);
-        s(1, max - 1, min + 1, min, max - 1);
-        s(1, max - 1, min + 1, min + 1, max);
-
-        s(max, max, min, max, min);
-        s(1, max, min, max, min + 1);
-        s(1, max, min, max - 1, min);
-        s(1, max, min, max - 1, min + 1);
-        s(1, max, min + 1, max, min);
-        s(1, max, min + 1, max, min + 1);
-        s(1, max, min + 1, max - 1, min);
-        s(1, max, min + 1, max - 1, min + 1);
-        s(1, max - 1, min, max, min);
-        s(1, max - 1, min, max, min + 1);
-        s(1, max - 1, min, max - 1, min);
-        s(1, max - 1, min, max - 1, min + 1);
-        s(1, max - 1, min + 1, max, min);
-        s(1, max - 1, min + 1, max, min + 1);
-        s(1, max - 1, min + 1, max - 1, min);
-
-        s(max, max, min, max, max);
-        s(1, max, min, max, max - 1);
-        s(1, max, min, max - 1, max);
-        s(1, max, min, max - 1, max - 1);
-        s(1, max, min + 1, max, max);
-        s(1, max, min + 1, max, max - 1);
-        s(1, max, min + 1, max - 1, max);
-        s(1, max, min + 1, max - 1, max - 1);
-        s(1, max - 1, min, max, max);
-        s(1, max - 1, min, max, max - 1);
-        s(1, max - 1, min, max - 1, max);
-        s(1, max - 1, min, max - 1, max - 1);
-        s(1, max - 1, min + 1, max, max);
-        s(1, max - 1, min + 1, max, max - 1);
-        s(1, max - 1, min + 1, max - 1, max);
-
-        s(max, max, max, min, min);
-        s(1, max, max, min, min + 1);
-        s(1, max, max, min + 1, min);
-        s(1, max, max, min + 1, min + 1);
-        s(1, max, max - 1, min, min);
-        s(1, max, max - 1, min, min + 1);
-        s(1, max, max - 1, min + 1, min);
-        s(1, max, max - 1, min + 1, min + 1);
-        s(1, max - 1, max, min, min);
-        s(1, max - 1, max, min, min + 1);
-        s(1, max - 1, max, min + 1, min);
-        s(1, max - 1, max, min + 1, min + 1);
-        s(1, max - 1, max - 1, min, min);
-        s(1, max - 1, max - 1, min, min + 1);
-        s(1, max - 1, max - 1, min + 1, min);
-
-        s(max, max, max, min, max);
-        s(1, max, max, min, max - 1);
-        s(1, max, max, min + 1, max);
-        s(1, max, max, min + 1, max - 1);
-        s(1, max, max - 1, min, max);
-        s(1, max, max - 1, min, max - 1);
-        s(1, max, max - 1, min + 1, max);
-        s(1, max, max - 1, min + 1, max - 1);
-        s(1, max - 1, max, min, max);
-        s(1, max - 1, max, min, max - 1);
-        s(1, max - 1, max, min + 1, max);
-        s(1, max - 1, max, min + 1, max - 1);
-        s(1, max - 1, max - 1, min, max);
-        s(1, max - 1, max - 1, min, max - 1);
-        s(1, max - 1, max - 1, min + 1, max);
-
-        s(max, max, max, max, min);
-        s(1, max, max, max, min + 1);
-        s(1, max, max, max - 1, min);
-        s(1, max, max, max - 1, min + 1);
-        s(1, max, max - 1, max, min);
-        s(1, max, max - 1, max, min + 1);
-        s(1, max, max - 1, max - 1, min);
-        s(1, max, max - 1, max - 1, min + 1);
-        s(1, max - 1, max, max, min);
-        s(1, max - 1, max, max, min + 1);
-        s(1, max - 1, max, max - 1, min);
-        s(1, max - 1, max, max - 1, min + 1);
-        s(1, max - 1, max - 1, max, min);
-        s(1, max - 1, max - 1, max, min + 1);
-        s(1, max - 1, max - 1, max - 1, min);
-
-        s(max, max, max, max, max);
-        s(1, max, max, max, max - 1);
-        s(1, max, max, max - 1, max);
-        s(1, max, max, max - 1, max - 1);
-        s(1, max, max - 1, max, max);
-        s(1, max, max - 1, max, max - 1);
-        s(1, max, max - 1, max - 1, max);
-        s(1, max, max - 1, max - 1, max - 1);
-        s(1, max - 1, max, max, max);
-        s(1, max - 1, max, max, max - 1);
-        s(1, max - 1, max, max - 1, max);
-        s(1, max - 1, max, max - 1, max - 1);
-        s(1, max - 1, max - 1, max, max);
-        s(1, max - 1, max - 1, max, max - 1);
-        s(1, max - 1, max - 1, max - 1, max);
-        //////////////////////////////2. Классы эквивалентности
-        //////////////////////////////2.1 Границы классов эквивалентности
-        s(max, max, max, max, max);
-
-        s(1073741824, min, min, min, min);
-
-        s(1073741824, min, min, min, 1073741824);
-        s(1073741824, min, min, 1073741824, min);
-        s(1073741824, min, 1073741824, min, min);
-        s(1073741824, 1073741824, min, min, min);
-
+        //////////////////////////////1. Граничные значения области определения
+        //s(1073741824, min, min, min, min);
+        //s(1, min, min, min, min + 1);
+        //s(1, min, min, min + 1, min);
+        //s(1, min, min, min + 1, min + 1);
+        //s(1, min, min + 1, min, min);
+        //s(1, min, min + 1, min, min + 1);
+        //s(1, min, min + 1, min + 1, min);
+        //s(1, min, min + 1, min + 1, min + 1);
+        //s(1, min + 1, min, min, min);
+        //s(1, min + 1, min, min, min + 1);
+        //s(1, min + 1, min, min + 1, min);
+        //s(1, min + 1, min, min + 1, min + 1);
+        //s(1, min + 1, min + 1, min, min);
+        //s(1, min + 1, min + 1, min, min + 1);
+        //s(1, min + 1, min + 1, min + 1, min);
+//
+        //s(max, min, min, min, max);
+        //s(1, min, min, min + 1, max);
+        //s(1, min, min, min + 1, max - 1);
+        //s(1, min, min + 1, min, max);
+        //s(1, min, min + 1, min, max - 1);
+        //s(1, min, min + 1, min + 1, max);
+        //s(1, min, min + 1, min + 1, max - 1);
+        //s(1, min + 1, min, min, max);
+        //s(1, min + 1, min, min, max - 1);
+        //s(1, min + 1, min, min + 1, max);
+        //s(1, min + 1, min, min + 1, max - 1);
+        //s(1, min + 1, min + 1, min, max);
+        //s(1, min + 1, min + 1, min, max - 1);
+        //s(1, min + 1, min + 1, min + 1, max);
+//
+        //s(max, min, min, max, min);
+        //s(1, min, min, max, min + 1);
+        //s(1, min, min, max - 1, min);
+        //s(1, min, min, max - 1, min + 1);
+        //s(1, min, min + 1, max, min);
+        //s(1, min, min + 1, max, min + 1);
+        //s(1, min, min + 1, max - 1, min);
+        //s(1, min, min + 1, max - 1, min + 1);
+        //s(1, min + 1, min, max, min);
+        //s(1, min + 1, min, max, min + 1);
+        //s(1, min + 1, min, max - 1, min);
+        //s(1, min + 1, min, max - 1, min + 1);
+        //s(1, min + 1, min + 1, max, min);
+        //s(1, min + 1, min + 1, max, min + 1);
+        //s(1, min + 1, min + 1, max - 1, min);
+//
+        //s(max, min, min, max, max);
+        //s(1, min, min, max, max - 1);
+        //s(1, min, min, max - 1, max);
+        //s(1, min, min, max - 1, max - 1);
+        //s(1, min, min + 1, max, max);
+        //s(1, min, min + 1, max, max - 1);
+        //s(1, min, min + 1, max - 1, max);
+        //s(1, min, min + 1, max - 1, max - 1);
+        //s(1, min + 1, min, max, max);
+        //s(1, min + 1, min, max, max - 1);
+        //s(1, min + 1, min, max - 1, max);
+        //s(1, min + 1, min, max - 1, max - 1);
+        //s(1, min + 1, min + 1, max, max);
+        //s(1, min + 1, min + 1, max, max - 1);
+        //s(1, min + 1, min + 1, max - 1, max);
+//
+        //s(max, min, max, min, min);
+        //s(1, min, max, min, min + 1);
+        //s(1, min, max, min + 1, min);
+        //s(1, min, max, min + 1, min + 1);
+        //s(1, min, max - 1, min, min);
+        //s(1, min, max - 1, min, min + 1);
+        //s(1, min, max - 1, min + 1, min);
+        //s(1, min, max - 1, min + 1, min + 1);
+        //s(1, min + 1, max, min, min);
+        //s(1, min + 1, max, min, min + 1);
+        //s(1, min + 1, max, min + 1, min);
+        //s(1, min + 1, max, min + 1, min + 1);
+        //s(1, min + 1, max - 1, min, min);
+        //s(1, min + 1, max - 1, min, min + 1);
+        //s(1, min + 1, max - 1, min + 1, min);
+//
+        //s(max, min, max, min, max);
+        //s(1, min, max, min, max - 1);
+        //s(1, min, max, min + 1, max);
+        //s(1, min, max, min + 1, max - 1);
+        //s(1, min, max - 1, min, max);
+        //s(1, min, max - 1, min, max - 1);
+        //s(1, min, max - 1, min + 1, max);
+        //s(1, min, max - 1, min + 1, max - 1);
+        //s(1, min + 1, max, min, max);
+        //s(1, min + 1, max, min, max - 1);
+        //s(1, min + 1, max, min + 1, max);
+        //s(1, min + 1, max, min + 1, max - 1);
+        //s(1, min + 1, max - 1, min, max);
+        //s(1, min + 1, max - 1, min, max - 1);
+        //s(1, min + 1, max - 1, min + 1, max);
+//
+        //s(max, min, max, max, min);
+        //s(1, min, max, max, min + 1);
+        //s(1, min, max, max - 1, min);
+        //s(1, min, max, max - 1, min + 1);
+        //s(1, min, max - 1, max, min);
+        //s(1, min, max - 1, max, min + 1);
+        //s(1, min, max - 1, max - 1, min);
+        //s(1, min, max - 1, max - 1, min + 1);
+        //s(1, min + 1, max, max, min);
+        //s(1, min + 1, max, max, min + 1);
+        //s(1, min + 1, max, max - 1, min);
+        //s(1, min + 1, max, max - 1, min + 1);
+        //s(1, min + 1, max - 1, max, min);
+        //s(1, min + 1, max - 1, max, min + 1);
+        //s(1, min + 1, max - 1, max - 1, min);
+//
+        //s(max, min, max, max, max);
+        //s(1, min, max, max, max - 1);
+        //s(1, min, max, max - 1, max);
+        //s(1, min, max, max - 1, max - 1);
+        //s(1, min, max - 1, max, max);
+        //s(1, min, max - 1, max, max - 1);
+        //s(1, min, max - 1, max - 1, max);
+        //s(1, min, max - 1, max - 1, max - 1);
+        //s(1, min + 1, max, max, max);
+        //s(1, min + 1, max, max, max - 1);
+        //s(1, min + 1, max, max - 1, max);
+        //s(1, min + 1, max, max - 1, max - 1);
+        //s(1, min + 1, max - 1, max, max);
+        //s(1, min + 1, max - 1, max, max - 1);
+        //s(1, min + 1, max - 1, max - 1, max);
+//
+        //s(max, max, min, min, min);
+        //s(1, max, min, min, min + 1);
+        //s(1, max, min, min + 1, min);
+        //s(1, max, min, min + 1, min + 1);
+        //s(1, max, min + 1, min, min);
+        //s(1, max, min + 1, min, min + 1);
+        //s(1, max, min + 1, min + 1, min);
+        //s(1, max, min + 1, min + 1, min + 1);
+        //s(1, max - 1, min, min, min);
+        //s(1, max - 1, min, min, min + 1);
+        //s(1, max - 1, min, min + 1, min);
+        //s(1, max - 1, min, min + 1, min + 1);
+        //s(1, max - 1, min + 1, min, min);
+        //s(1, max - 1, min + 1, min, min + 1);
+        //s(1, max - 1, min + 1, min + 1, min);
+//
+        //s(max, max, min, min, max);
+        //s(1, max, min, min, max - 1);
+        //s(1, max, min, min + 1, max);
+        //s(1, max, min, min + 1, max - 1);
+        //s(1, max, min + 1, min, max);
+        //s(1, max, min + 1, min, max - 1);
+        //s(1, max, min + 1, min + 1, max);
+        //s(1, max, min + 1, min + 1, max - 1);
+        //s(1, max - 1, min, min, max);
+        //s(1, max - 1, min, min, max - 1);
+        //s(1, max - 1, min, min + 1, max);
+        //s(1, max - 1, min, min + 1, max - 1);
+        //s(1, max - 1, min + 1, min, max);
+        //s(1, max - 1, min + 1, min, max - 1);
+        //s(1, max - 1, min + 1, min + 1, max);
+//
+        //s(max, max, min, max, min);
+        //s(1, max, min, max, min + 1);
+        //s(1, max, min, max - 1, min);
+        //s(1, max, min, max - 1, min + 1);
+        //s(1, max, min + 1, max, min);
+        //s(1, max, min + 1, max, min + 1);
+        //s(1, max, min + 1, max - 1, min);
+        //s(1, max, min + 1, max - 1, min + 1);
+        //s(1, max - 1, min, max, min);
+        //s(1, max - 1, min, max, min + 1);
+        //s(1, max - 1, min, max - 1, min);
+        //s(1, max - 1, min, max - 1, min + 1);
+        //s(1, max - 1, min + 1, max, min);
+        //s(1, max - 1, min + 1, max, min + 1);
+        //s(1, max - 1, min + 1, max - 1, min);
+//
+        //s(max, max, min, max, max);
+        //s(1, max, min, max, max - 1);
+        //s(1, max, min, max - 1, max);
+        //s(1, max, min, max - 1, max - 1);
+        //s(1, max, min + 1, max, max);
+        //s(1, max, min + 1, max, max - 1);
+        //s(1, max, min + 1, max - 1, max);
+        //s(1, max, min + 1, max - 1, max - 1);
+        //s(1, max - 1, min, max, max);
+        //s(1, max - 1, min, max, max - 1);
+        //s(1, max - 1, min, max - 1, max);
+        //s(1, max - 1, min, max - 1, max - 1);
+        //s(1, max - 1, min + 1, max, max);
+        //s(1, max - 1, min + 1, max, max - 1);
+        //s(1, max - 1, min + 1, max - 1, max);
+//
+        //s(max, max, max, min, min);
+        //s(1, max, max, min, min + 1);
+        //s(1, max, max, min + 1, min);
+        //s(1, max, max, min + 1, min + 1);
+        //s(1, max, max - 1, min, min);
+        //s(1, max, max - 1, min, min + 1);
+        //s(1, max, max - 1, min + 1, min);
+        //s(1, max, max - 1, min + 1, min + 1);
+        //s(1, max - 1, max, min, min);
+        //s(1, max - 1, max, min, min + 1);
+        //s(1, max - 1, max, min + 1, min);
+        //s(1, max - 1, max, min + 1, min + 1);
+        //s(1, max - 1, max - 1, min, min);
+        //s(1, max - 1, max - 1, min, min + 1);
+        //s(1, max - 1, max - 1, min + 1, min);
+//
+        //s(max, max, max, min, max);
+        //s(1, max, max, min, max - 1);
+        //s(1, max, max, min + 1, max);
+        //s(1, max, max, min + 1, max - 1);
+        //s(1, max, max - 1, min, max);
+        //s(1, max, max - 1, min, max - 1);
+        //s(1, max, max - 1, min + 1, max);
+        //s(1, max, max - 1, min + 1, max - 1);
+        //s(1, max - 1, max, min, max);
+        //s(1, max - 1, max, min, max - 1);
+        //s(1, max - 1, max, min + 1, max);
+        //s(1, max - 1, max, min + 1, max - 1);
+        //s(1, max - 1, max - 1, min, max);
+        //s(1, max - 1, max - 1, min, max - 1);
+        //s(1, max - 1, max - 1, min + 1, max);
+//
+        //s(max, max, max, max, min);
+        //s(1, max, max, max, min + 1);
+        //s(1, max, max, max - 1, min);
+        //s(1, max, max, max - 1, min + 1);
+        //s(1, max, max - 1, max, min);
+        //s(1, max, max - 1, max, min + 1);
+        //s(1, max, max - 1, max - 1, min);
+        //s(1, max, max - 1, max - 1, min + 1);
+        //s(1, max - 1, max, max, min);
+        //s(1, max - 1, max, max, min + 1);
+        //s(1, max - 1, max, max - 1, min);
+        //s(1, max - 1, max, max - 1, min + 1);
+        //s(1, max - 1, max - 1, max, min);
+        //s(1, max - 1, max - 1, max, min + 1);
+        //s(1, max - 1, max - 1, max - 1, min);
+//
+        //s(max, max, max, max, max);
+        //s(1, max, max, max, max - 1);
+        //s(1, max, max, max - 1, max);
+        //s(1, max, max, max - 1, max - 1);
+        //s(1, max, max - 1, max, max);
+        //s(1, max, max - 1, max, max - 1);
+        //s(1, max, max - 1, max - 1, max);
+        //s(1, max, max - 1, max - 1, max - 1);
+        //s(1, max - 1, max, max, max);
+        //s(1, max - 1, max, max, max - 1);
+        //s(1, max - 1, max, max - 1, max);
+        //s(1, max - 1, max, max - 1, max - 1);
+        //s(1, max - 1, max - 1, max, max);
+        //s(1, max - 1, max - 1, max, max - 1);
+        //s(1, max - 1, max - 1, max - 1, max);
+        ////////////////////////////////2. Классы эквивалентности
+        ////////////////////////////////2.1 Границы классов эквивалентности
+        //s(max, max, max, max, max);
+//
+        //s(1073741824, min, min, min, min);
+//
+        //s(1073741824, min, min, min, 1073741824);
 
         s(12, 12, 12, 12, -2147483640);
         s(12, 12, 12, 12, 2147483640);
 
-        s(12, 12, 12, -2147483640, 12);
-        s(12, 12, 12, 2147483640, 12);
-
-        s(12, 12, -2147483640, 12, 12);
-        s(12, 12, 2147483640, 12, 12);
-
-        s(12, -2147483640, 12, 12, 12);
-        s(12, 2147483640, 12, 12, 12);
-
-
         s(6, 12, 12, 12, -2147483646);
         s(6, 12, 12, 12, 2147483646);
-
-        s(6, 12, 12, -2147483646, 12);
-        s(6, 12, 12, 2147483646, 12);
-
-        s(6, 12, -2147483646, 12, 12);
-        s(6, 12, 2147483646, 12, 12);
-
-        s(6, -2147483646, 12, 12, 12);
-        s(6, 2147483646, 12, 12, 12);
-
 
         s(4, 12, 12, 12, -2147483648);
         s(4, 12, 12, 12, 2147483644);
 
-        s(4, 12, 12, -2147483648, 12);
-        s(4, 12, 12, 2147483644, 12);
-
-        s(4, 12, -2147483648, 12, 12);
-        s(4, 12, 2147483644, 12, 12);
-
-        s(4, -2147483648, 12, 12, 12);
-        s(4, 2147483644, 12, 12, 12);
-
-
         s(3, 12, 12, 12, -2147483643);
         s(3, 12, 12, 12, 2147483643);
-
-        s(3, 12, 12, -2147483643, 12);
-        s(3, 12, 12, 2147483643, 12);
-
-        s(3, 12, -2147483643, 12, 12);
-        s(3, 12, 2147483643, 12, 12);
-
-        s(3, -2147483643, 12, 12, 12);
-        s(3, 2147483643, 12, 12, 12);
-
 
         s(2, 12, 12, 12, -2147483638);
         s(2, 12, 12, 12, 2147483638);
 
-        s(2, 12, 12, -2147483638, 12);
-        s(2, 12, 12, 2147483638, 12);
-
-        s(2, 12, -2147483638, 12, 12);
-        s(2, 12, 2147483638, 12, 12);
-
-        s(2, -2147483638, 12, 12, 12);
-        s(2, 2147483638, 12, 12, 12);
-
-
-        s(1, 12, 12, 12, min + 1);
-        s(1, 12, 12, 12, max);
-
-        s(1, 12, 12, min + 1, 12);
-        s(1, 12, 12, max, 12);
-
-        s(1, 12, min + 1, 12, 12);
-        s(1, 12, max, 12, 12);
-
-        s(1, min + 1, 12, 12, 12);
-        s(1, max, 12, 12, 12);
-
+        s(1, 12, 12, 12, -2147483647);
+        s(1, 12, 12, 12, 2147483647);
 
         //////////////////////////////2.2 Впритык слева и справа от границы
-        s(12, 12, 12, 12, -2147483628);
-        s(12, 12, 12, 12, 2147483628);
-
-        s(12, 12, 12, -2147483628, 12);
-        s(12, 12, 12, 2147483628, 12);
-
-        s(12, 12, -2147483628, 12, 12);
-        s(12, 12, 2147483628, 12, 12);
-
-        s(12, -2147483628, 12, 12, 12);
-        s(12, 2147483628, 12, 12, 12);
-
-
-        s(6, 12, 12, 12, -2147483634);
-        s(6, 12, 12, 12, 2147483634);
-
-        s(6, 12, 12, -2147483634, 12);
-        s(6, 12, 12, 2147483634, 12);
-
-        s(6, 12, -2147483634, 12, 12);
-        s(6, 12, 2147483634, 12, 12);
-
-        s(6, -2147483634, 12, 12, 12);
-        s(6, 2147483634, 12, 12, 12);
-
-
-        s(4, 12, 12, 12, -2147483636);
-        s(4, 12, 12, 12, 2147483632);
-
-        s(4, 12, 12, -2147483636, 12);
-        s(4, 12, 12, 2147483632, 12);
-
-        s(4, 12, -2147483636, 12, 12);
-        s(4, 12, 2147483632, 12, 12);
-
-        s(4, -2147483636, 12, 12, 12);
-        s(4, 2147483632, 12, 12, 12);
-
-
+        s(1, 12, 12, 12, -2147483647);
+        s(6, 12, 12, 12, -2147483646);
+        s(1, 12, 12, 12, -2147483645);
+        s(4, 12, 12, 12, -2147483644);
+        s(3, 12, 12, 12, -2147483643);
+        s(2, 12, 12, 12, -2147483642);
+        s(1, 12, 12, 12, -2147483641);
+        s(12, 12, 12, 12, -2147483640);
+        s(1, 12, 12, 12, -2147483639);
+        s(2, 12, 12, 12, -2147483638);
         s(3, 12, 12, 12, -2147483637);
+        s(4, 12, 12, 12, -2147483636);
+        s(1, 12, 12, 12, -2147483635);
+        s(6, 12, 12, 12, -2147483634);
+        s(1, 12, 12, 12, -2147483633);
+        s(4, 12, 12, 12, -2147483632);
+        s(3, 12, 12, 12, -2147483631);
+        s(2, 12, 12, 12, -2147483630);
+        s(1, 12, 12, 12, -2147483629);
+        s(12, 12, 12, 12, -2147483628);
+
+        s(12, 12, 12, 12, 2147483628);
+        s(1, 12, 12, 12, 2147483629);
+        s(2, 12, 12, 12, 2147483630);
+        s(3, 12, 12, 12, 2147483631);
+        s(4, 12, 12, 12, 2147483632);
+        s(1, 12, 12, 12, 2147483633);
+        s(6, 12, 12, 12, 2147483634);
+        s(1, 12, 12, 12, 2147483635);
+        s(4, 12, 12, 12, 2147483636);
         s(3, 12, 12, 12, 2147483637);
-
-        s(3, 12, 12, -2147483637, 12);
-        s(3, 12, 12, 2147483637, 12);
-
-        s(3, 12, -2147483637, 12, 12);
-        s(3, 12, 2147483637, 12, 12);
-
-        s(3, -2147483637, 12, 12, 12);
-        s(3, 2147483637, 12, 12, 12);
-
-
-        s(2, 12, 12, 12, -2147483626);
-        s(2, 12, 12, 12, 2147483626);
-
-        s(2, 12, 12, -2147483626, 12);
-        s(2, 12, 12, 2147483626, 12);
-
-        s(2, 12, -2147483626, 12, 12);
-        s(2, 12, 2147483626, 12, 12);
-
-        s(2, -2147483626, 12, 12, 12);
-        s(2, 2147483626, 12, 12, 12);
-
-
-        s(1, 12, 12, 12, min + 3);
-        s(1, 12, 12, 12, max - 2);
-
-        s(1, 12, 12, min + 3, 12);
-        s(1, 12, 12, max - 2, 12);
-
-        s(1, 12, min + 3, 12, 12);
-        s(1, 12, max - 2, 12, 12);
-
-        s(1, min + 3, 12, 12, 12);
-        s(1, max - 2, 12, 12, 12);
+        s(2, 12, 12, 12, 2147483638);
+        s(1, 12, 12, 12, 2147483639);
+        s(12, 12, 12, 12, 2147483640);
+        s(1, 12, 12, 12, 2147483641);
+        s(2, 12, 12, 12, 2147483642);
+        s(3, 12, 12, 12, 2147483643);
+        s(4, 12, 12, 12, 2147483644);
+        s(1, 12, 12, 12, 2147483645);
+        s(6, 12, 12, 12, 2147483646);
+        s(1, 12, 12, 12, 2147483647);
 
         //////////////////////////////2.3 Внутри класса эквивалентности
         s(max, max, max, max, max);
         s(1073741824, min, min, min, min);
-
         s(1073741824, min, min, min, -1073741824);
-        s(1073741824, min, min, -1073741824, min);
-        s(1073741824, min, -1073741824, min, min);
-        s(1073741824, -1073741824, min, min, min);
-
         s(12, 12, 12, 12, 48);
-        s(12, 12, 12, 48, 12);
-        s(12, 12, 48, 12, 12);
-        s(12, 48, 12, 12, 12);
-
         s(6, 12, 12, 12, 6);
-        s(6, 12, 12, 6, 12);
-        s(6, 12, 6, 12, 12);
-        s(6, 6, 12, 12, 12);
-
         s(4, 12, 12, 12, 4);
-        s(4, 12, 12, 4, 12);
-        s(4, 12, 4, 12, 12);
-        s(4, 4, 12, 12, 12);
-
-        s(3, 12, 12, 12, 3);
-        s(3, 12, 12, 3, 12);
-        s(3, 12, 3, 12, 12);
-        s(3, 3, 12, 12, 12);
-
+        s(3, 12, 12, 12, 3);;
         s(2, 12, 12, 12, 2);
-        s(2, 12, 12, 2, 12);
-        s(2, 12, 2, 12, 12);
-        s(2, 2, 12, 12, 12);
-
         s(1, 12, 12, 12, 1);
-        s(1, 12, 12, 1, 12);
-        s(1, 12, 1, 12, 12);
-        s(1, 1, 12, 12, 12);
 
         //////////////////////////////3. Предметная область
         s(1, 61, 57, 33, 15);
