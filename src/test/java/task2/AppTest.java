@@ -763,7 +763,11 @@ public class AppTest {
         s(9, 2, 108, 6, 9);
     }
 
-    private void s(int et, int pod, int n, int nA, int p) { assertEquals(et + " этаж, " + pod + " подъезд.", d(n, nA, p)); }
+    private void s(int et, int pod, int n, int nA, int p) {
+        assertEquals(et + " этаж, " + pod + " подъезд.", d(n, nA, p));
+    }
 
-    private void s(int n, int nA, int p) { assertEquals("Введены не корректные данные.", d(n, nA, p)); }
+    private void s(int n, int nA, int p) {
+        assertEquals("Введены не корректные данные.", d(n, nA, p));
+    }
 }
