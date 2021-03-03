@@ -1299,6 +1299,11 @@ public class AppTest {
         s(1, 6, 76, 3, 5);
 
         ////////////////////////////////////////4. Реализация
+        s(-1, -1, -1);
+        s(-1, min, max);
+        s(max, max, -1);
+        s(max, -1, max);
+
         s(min, max, min + 1);
         s(max, min + 1, max);
 
