@@ -1,11 +1,18 @@
 package task2;
 
+import org.junit.Assert;
 import org.junit.Test;
+
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 
 import static org.junit.Assert.assertEquals;
 import static task2.App.d;
+import static task2.App.main;
 
 public class AppTest {
+
+
     @Test
     public void startScenarios() {
         int min = 1;
@@ -1856,11 +1863,26 @@ public class AppTest {
         s(2, 143165577, max, 5, 3);
     }
 
-    private void s(int et, int pod, int n, int nA, int p) {
+    /*private void s(int et, int pod, int n, int nA, int p) {
         assertEquals(et + " этаж, " + pod + " подъезд.", d(n, nA, p));
     }
 
     private void s(int n, int nA, int p) {
         assertEquals("Введены не корректные данные.", d(n, nA, p));
+    }*/
+
+
+    private void s(int et, int pod, int n, int nA, int p) {
+        ByteArrayOutputStream output = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(output));
+        main(new String[]{n + "", nA + "", p + ""});
+        assertEquals(et + " этаж, " + pod + " подъезд.", output.toString());
+    }
+
+    private void s(int n, int nA, int p) {
+        ByteArrayOutputStream output = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(output));
+        main(new String[]{n + "", nA + "", p + ""});
+        assertEquals("Введены не корректные данные.", output.toString());
     }
 }
