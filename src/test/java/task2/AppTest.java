@@ -1669,6 +1669,8 @@ public class AppTest {
         s("sdfgjuy", "dsdfhjk", "1");
         s("rwfewf", "khjfiv", "gthteed");
 
+        moreThenOneSpace(1, 1, 1);
+
         s();
         s(min);
         s(max);
@@ -1959,4 +1961,12 @@ public class AppTest {
                 "Введены не корректные данные.", output.toString());
     }
 
+    private void moreThenOneSpace(int n, int nA, int p) {
+        ByteArrayOutputStream output = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(output));
+        System.setIn(new ByteArrayInputStream((n + "  " + nA + "  " + p).getBytes()));
+        main(new String[]{});
+        assertEquals("Введите номер квартиры, количество квартир на этаже и количество этажей через пробел: " +
+                "Введены не корректные данные.", output.toString());
+    }
 }
