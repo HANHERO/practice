@@ -1930,7 +1930,7 @@ public class AppTest {
     private void s(int n) {
         ByteArrayOutputStream output = new ByteArrayOutputStream();
         System.setOut(new PrintStream(output));
-        System.setIn(new ByteArrayInputStream((n + "").getBytes()));
+        System.setIn(new ByteArrayInputStream(String.valueOf(n).getBytes()));
         main(new String[]{});
         assertEquals(incorrectInput, output.toString());
     }
@@ -1938,7 +1938,7 @@ public class AppTest {
     private void s() {
         ByteArrayOutputStream output = new ByteArrayOutputStream();
         System.setOut(new PrintStream(output));
-        System.setIn(new ByteArrayInputStream(("").getBytes()));
+        System.setIn(new ByteArrayInputStream("".getBytes()));
         main(new String[]{});
         assertEquals(incorrectInput, output.toString());
     }
