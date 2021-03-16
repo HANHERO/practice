@@ -11,7 +11,7 @@ public class App {
             String input = br.readLine();
             String[] inputArray = input.split(" ");
             if (inputArray.length == 3) {
-                System.out.println(d(Integer.parseInt(inputArray[0]), Integer.parseInt(inputArray[1]), Integer.parseInt(inputArray[2])));
+                System.out.print(d(Integer.parseInt(inputArray[0]), Integer.parseInt(inputArray[1]), Integer.parseInt(inputArray[2])));
             }else {
                 throw new Exception();
             }
