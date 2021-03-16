@@ -24,10 +24,10 @@ public class App {
         if ((long) apps * floors > Integer.MAX_VALUE || apNum < 1 || apps < 1 || floors < 1) {
             return "Введены не корректные данные.";
         }
-        int appInEntrance = apps * floors;
-        int entrance = ((apNum - 1) / appInEntrance) + 1;
-        int floor = (((apNum - 1) % appInEntrance) / apps) + 1;
+        int appInPod = apps * floors;
+        int pod = ((apNum - 1) / appInPod) + 1;
+        int et = (((apNum - 1) % appInPod) / apps) + 1;
 
-        return floor + " этаж, " + entrance + " подъезд.";
+        return et + " этаж, " + pod + " подъезд.";
     }
 }
