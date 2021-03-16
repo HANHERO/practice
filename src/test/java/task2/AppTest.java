@@ -1,15 +1,12 @@
 package task2;
 
-import org.junit.Assert;
 import org.junit.Test;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
-import java.io.InputStream;
 import java.io.PrintStream;
 
 import static org.junit.Assert.assertEquals;
-import static task2.App.d;
 import static task2.App.main;
 
 public class AppTest {
@@ -1669,7 +1666,8 @@ public class AppTest {
         s("sdfgjuy", "dsdfhjk", "1");
         s("rwfewf", "khjfiv", "gthteed");
 
-        moreThenOneSpace(1, 1, 1);
+        moreThenOneSpace(min, min, min);
+        moreThenOneSpace(max, max, max);
 
         s();
         s(min);
