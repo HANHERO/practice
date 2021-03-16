@@ -1859,7 +1859,8 @@ public class AppTest {
         System.setOut(new PrintStream(output));
         System.setIn(new ByteArrayInputStream((n + " " + nA + " " + p).getBytes()));
         main(new String[]{});
-        assertEquals("Введите номер квартиры, количество квартир на этаже и количество этажей через пробел: " + et + " этаж, " + pod + " подъезд.\r\n", output.toString());
+        assertEquals("Введите номер квартиры, количество квартир на этаже и количество этажей через пробел: "
+                + et + " этаж, " + pod + " подъезд.\r\n", output.toString());
     }
 
     private void s(int n, int nA, int p) {
@@ -1867,7 +1868,8 @@ public class AppTest {
         System.setOut(new PrintStream(output));
         System.setIn(new ByteArrayInputStream((n + " " + nA + " " + p).getBytes()));
         main(new String[]{});
-        assertEquals("Введите номер квартиры, количество квартир на этаже и количество этажей через пробел: Введены не корректные данные.\r\n", output.toString());
+        assertEquals("Введите номер квартиры, количество квартир на этаже и количество этажей через пробел: " +
+                "Введены не корректные данные.\r\n", output.toString());
     }
 
 }
