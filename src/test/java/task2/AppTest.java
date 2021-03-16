@@ -1660,6 +1660,30 @@ public class AppTest {
         s(min, 46341, 46341);
         s(max, 46341, 46341);
 
+        s();
+        s(min);
+        s(max);
+        s(min, min);
+        s(max, max);
+        s(min, max);
+        s(max, min);
+        s(min,min,min,min);
+        s(min,min,min,max);
+        s(min,min,max,min);
+        s(min,min,max,max);
+        s(min,max,min,min);
+        s(min,max,min,max);
+        s(min,max,max,min);
+        s(min,max,max,max);
+        s(max,min,min,min);
+        s(max,min,min,max);
+        s(max,min,max,min);
+        s(max,min,max,max);
+        s(max,max,min,min);
+        s(max,max,min,max);
+        s(max,max,max,min);
+        s(max,max,max,max);
+
         ///////////////////////////////////////5. Случайные значения
         s(1, 10, 30, 3, 1);
         s(1, 6, 44, 4, 2);
@@ -1870,6 +1894,42 @@ public class AppTest {
         main(new String[]{});
         assertEquals("Введите номер квартиры, количество квартир на этаже и количество этажей через пробел: " +
                 "Введены не корректные данные.\r\n", output.toString());
+    }
+
+    private void s(int n, int nA, int p, int a) {
+        ByteArrayOutputStream output = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(output));
+        System.setIn(new ByteArrayInputStream((n + " " + nA + " " + p + " " + a).getBytes()));
+        main(new String[]{});
+        assertEquals("Введите номер квартиры, количество квартир на этаже и количество этажей через пробел: " +
+                "Введены не корректные данные.", output.toString());
+    }
+
+    private void s(int n, int nA) {
+        ByteArrayOutputStream output = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(output));
+        System.setIn(new ByteArrayInputStream((n + " " + nA).getBytes()));
+        main(new String[]{});
+        assertEquals("Введите номер квартиры, количество квартир на этаже и количество этажей через пробел: " +
+                "Введены не корректные данные.", output.toString());
+    }
+
+    private void s(int n) {
+        ByteArrayOutputStream output = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(output));
+        System.setIn(new ByteArrayInputStream((n + "").getBytes()));
+        main(new String[]{});
+        assertEquals("Введите номер квартиры, количество квартир на этаже и количество этажей через пробел: " +
+                "Введены не корректные данные.", output.toString());
+    }
+
+    private void s() {
+        ByteArrayOutputStream output = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(output));
+        System.setIn(new ByteArrayInputStream(("").getBytes()));
+        main(new String[]{});
+        assertEquals("Введите номер квартиры, количество квартир на этаже и количество этажей через пробел: " +
+                "Введены не корректные данные.", output.toString());
     }
 
 }

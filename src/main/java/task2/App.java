@@ -10,7 +10,11 @@ public class App {
             System.out.print("Введите номер квартиры, количество квартир на этаже и количество этажей через пробел: ");
             String input = br.readLine();
             String[] inputArray = input.split(" ");
-            System.out.println(d(Integer.parseInt(inputArray[0]), Integer.parseInt(inputArray[1]), Integer.parseInt(inputArray[2])));
+            if (inputArray.length == 3) {
+                System.out.println(d(Integer.parseInt(inputArray[0]), Integer.parseInt(inputArray[1]), Integer.parseInt(inputArray[2])));
+            }else {
+                throw new Exception();
+            }
         } catch (Exception e) {
             System.out.print("Введены не корректные данные.");
         }
