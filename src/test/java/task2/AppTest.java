@@ -1657,7 +1657,6 @@ public class AppTest {
         s(min, 46341, 46341);
         s(max, 46341, 46341);
 
-        s(1, 1, "1", "1", "1");
         s("1", "1", "fersef");
         s("1", "gfdhjyr", "1");
         s("1", "ytrffee", "defrhgfd");
@@ -1901,17 +1900,7 @@ public class AppTest {
         System.setOut(new PrintStream(output));
         System.setIn(new ByteArrayInputStream((n + " " + nA + " " + p).getBytes()));
         main(new String[]{});
-        assertEquals("Введите номер квартиры, количество квартир на этаже и количество этажей через пробел: " +
-                "Введены не корректные данные.", output.toString());
-    }
-
-    private void s(int et, int pod, String n, String nA, String p) {
-        ByteArrayOutputStream output = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(output));
-        System.setIn(new ByteArrayInputStream((n + " " + nA + " " + p).getBytes()));
-        main(new String[]{});
-        assertEquals("Введите номер квартиры, количество квартир на этаже и количество этажей через пробел: "
-                + et + " этаж, " + pod + " подъезд.", output.toString());
+        assertEquals(incorrectInput, output.toString());
     }
 
     private void s(String n, String nA, String p) {
@@ -1919,8 +1908,7 @@ public class AppTest {
         System.setOut(new PrintStream(output));
         System.setIn(new ByteArrayInputStream((n + " " + nA + " " + p).getBytes()));
         main(new String[]{});
-        assertEquals("Введите номер квартиры, количество квартир на этаже и количество этажей через пробел: " +
-                "Введены не корректные данные.", output.toString());
+        assertEquals(incorrectInput, output.toString());
     }
 
     private void s(int n, int nA, int p, int a) {
@@ -1928,8 +1916,7 @@ public class AppTest {
         System.setOut(new PrintStream(output));
         System.setIn(new ByteArrayInputStream((n + " " + nA + " " + p + " " + a).getBytes()));
         main(new String[]{});
-        assertEquals("Введите номер квартиры, количество квартир на этаже и количество этажей через пробел: " +
-                "Введены не корректные данные.", output.toString());
+        assertEquals(incorrectInput, output.toString());
     }
 
     private void s(int n, int nA) {
@@ -1937,8 +1924,7 @@ public class AppTest {
         System.setOut(new PrintStream(output));
         System.setIn(new ByteArrayInputStream((n + " " + nA).getBytes()));
         main(new String[]{});
-        assertEquals("Введите номер квартиры, количество квартир на этаже и количество этажей через пробел: " +
-                "Введены не корректные данные.", output.toString());
+        assertEquals(incorrectInput, output.toString());
     }
 
     private void s(int n) {
@@ -1946,8 +1932,7 @@ public class AppTest {
         System.setOut(new PrintStream(output));
         System.setIn(new ByteArrayInputStream((n + "").getBytes()));
         main(new String[]{});
-        assertEquals("Введите номер квартиры, количество квартир на этаже и количество этажей через пробел: " +
-                "Введены не корректные данные.", output.toString());
+        assertEquals(incorrectInput, output.toString());
     }
 
     private void s() {
@@ -1955,8 +1940,7 @@ public class AppTest {
         System.setOut(new PrintStream(output));
         System.setIn(new ByteArrayInputStream(("").getBytes()));
         main(new String[]{});
-        assertEquals("Введите номер квартиры, количество квартир на этаже и количество этажей через пробел: " +
-                "Введены не корректные данные.", output.toString());
+        assertEquals(incorrectInput, output.toString());
     }
 
     private void moreThenOneSpace(int n, int nA, int p) {
@@ -1964,7 +1948,8 @@ public class AppTest {
         System.setOut(new PrintStream(output));
         System.setIn(new ByteArrayInputStream((n + "  " + nA + "  " + p).getBytes()));
         main(new String[]{});
-        assertEquals("Введите номер квартиры, количество квартир на этаже и количество этажей через пробел: " +
-                "Введены не корректные данные.", output.toString());
+        assertEquals(incorrectInput, output.toString());
     }
+    private final String incorrectInput = "Введите номер квартиры, количество квартир на этаже и количество этажей через пробел: " +
+            "Введены не корректные данные.";
 }
