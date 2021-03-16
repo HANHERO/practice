@@ -1868,27 +1868,4 @@ public class AppTest {
         assertEquals("Введены не корректные данные.", output.toString());
     }
 
-    /*private void s(int et, int pod, int n, int nA, int p) {
-        String strN = Integer.toString(n);
-        String strNA = Integer.toString(nA);
-        String strP = Integer.toString(p);
-        ByteArrayOutputStream output = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(output));
-        main(new String[]{n + "", nA + "", p + ""});
-        ByteArrayInputStream one = new ByteArrayInputStream(strN.getBytes());
-        ByteArrayInputStream two = new ByteArrayInputStream(strNA.getBytes());
-        ByteArrayInputStream three = new ByteArrayInputStream(strP.getBytes());
-        System.setIn(one);
-        System.setIn(two);
-        System.setIn(three);
-        assertEquals(et + " этаж, " + pod + " подъезд.", output.toString());
-    }
-
-    private void s(int n, int nA, int p) {
-        ByteArrayOutputStream output = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(output));
-        main(new String[]{n + "", nA + "", p + ""});
-        assertEquals("Введены не корректные данные.", output.toString());
-    }*/
-
 }
