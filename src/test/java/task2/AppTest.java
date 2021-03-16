@@ -1857,15 +1857,17 @@ public class AppTest {
     private void s(int et, int pod, int n, int nA, int p) {
         ByteArrayOutputStream output = new ByteArrayOutputStream();
         System.setOut(new PrintStream(output));
-        main(new String[]{String.valueOf(n), String.valueOf(nA), String.valueOf(p)});
-        assertEquals(et + " этаж, " + pod + " подъезд.", output.toString());
+        System.setIn(new ByteArrayInputStream((n + " " + nA + " " + p).getBytes()));
+        main(new String[]{});
+        assertEquals("Введите номер квартиры, количество квартир на этаже и количество этажей через пробел: " + et + " этаж, " + pod + " подъезд.\r\n", output.toString());
     }
 
     private void s(int n, int nA, int p) {
         ByteArrayOutputStream output = new ByteArrayOutputStream();
         System.setOut(new PrintStream(output));
-        main(new String[]{String.valueOf(n), String.valueOf(nA), String.valueOf(p)});
-        assertEquals("Введены не корректные данные.", output.toString());
+        System.setIn(new ByteArrayInputStream((n + " " + nA + " " + p).getBytes()));
+        main(new String[]{});
+        assertEquals("Введите номер квартиры, количество квартир на этаже и количество этажей через пробел: Введены не корректные данные.\r\n", output.toString());
     }
 
 }
