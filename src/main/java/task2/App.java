@@ -1,6 +1,7 @@
 package task2;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class App {
@@ -13,7 +14,7 @@ public class App {
             if (inputArray.length == 3) {
                 System.out.print(d(Integer.parseInt(inputArray[0]), Integer.parseInt(inputArray[1]), Integer.parseInt(inputArray[2])));
             }else {
-                throw new Exception();
+                throw new IOException();
             }
         } catch (Exception e) {
             System.out.print("Введены не корректные данные.");
