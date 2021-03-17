@@ -1675,22 +1675,22 @@ public class AppTest {
         s(max, max);
         s(min, max);
         s(max, min);
-        s(min,min,min,min);
-        s(min,min,min,max);
-        s(min,min,max,min);
-        s(min,min,max,max);
-        s(min,max,min,min);
-        s(min,max,min,max);
-        s(min,max,max,min);
-        s(min,max,max,max);
-        s(max,min,min,min);
-        s(max,min,min,max);
-        s(max,min,max,min);
-        s(max,min,max,max);
-        s(max,max,min,min);
-        s(max,max,min,max);
-        s(max,max,max,min);
-        s(max,max,max,max);
+        s(min, min, min, min);
+        s(min, min, min, max);
+        s(min, min, max, min);
+        s(min, min, max, max);
+        s(min, max, min, min);
+        s(min, max, min, max);
+        s(min, max, max, min);
+        s(min, max, max, max);
+        s(max, min, min, min);
+        s(max, min, min, max);
+        s(max, min, max, min);
+        s(max, min, max, max);
+        s(max, max, min, min);
+        s(max, max, min, max);
+        s(max, max, max, min);
+        s(max, max, max, max);
 
         ///////////////////////////////////////5. Случайные значения
         s(1, 10, 30, 3, 1);
@@ -1950,6 +1950,7 @@ public class AppTest {
         main(new String[]{});
         assertEquals(incorrectInput, output.toString());
     }
+
     private final String incorrectInput = "Введите номер квартиры, количество квартир на этаже и количество этажей через пробел: " +
             "Введены не корректные данные.";
 }
