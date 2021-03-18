@@ -18,8 +18,8 @@ public class Fib {
 
     public static BigInteger findFib(int n) {
         BigInteger temp;
-        BigInteger a = new BigInteger("0");
-        BigInteger b = new BigInteger("1");
+        BigInteger a = BigInteger.valueOf(0);
+        BigInteger b = BigInteger.valueOf(1);
         int nABS = Math.abs(n);
         if (n == 0) {
             return a;
@@ -30,7 +30,7 @@ public class Fib {
             a = temp;
         }
         if (n < 0 && n % 2 == 0) {
-            return b.multiply(new BigInteger("-1"));
+            return b.multiply(BigInteger.valueOf(-1));
         }else return b;
     }
 }

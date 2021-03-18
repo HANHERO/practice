@@ -1,4 +1,5 @@
 package task4;
+
 import org.junit.Test;
 
 import java.math.BigInteger;
@@ -10,7 +11,7 @@ import static task4.Fib.findFib;
 public class FibTest {
 
     @Test
-    public void setUpScenarios() {
+    public void runScenarios() {
         /////////////////////////////////////////////////1. Граничные значения области определения.
         s(2000000);
         s(-2000000);

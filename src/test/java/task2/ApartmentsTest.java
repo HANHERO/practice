@@ -13,7 +13,7 @@ public class ApartmentsTest {
 
 
     @Test
-    public void startScenarios() {
+    public void runScenarios() {
         int min = 1;
         int max = Integer.MAX_VALUE;
         /////////////////////////////////////1 Граничные значения области определения.

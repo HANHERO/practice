@@ -2,6 +2,7 @@ package task1;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 
 public class Swap {
 
@@ -11,13 +12,13 @@ public class Swap {
         int a = Integer.parseInt(br.readLine());
         System.out.print("Введите число B: ");
         int b = Integer.parseInt(br.readLine());
-        System.out.println(swap(a, b));
+        System.out.println(Arrays.toString(swap(a, b)));
     }
 
-    public static String swap(int a, int b) {
+    public static int[] swap(int a, int b) {
         a = a + b;
         b = a - b;
         a = a - b;
-        return "A = " + a + ", B = " + b;
+        return new int[]{a, b};
     }
 }

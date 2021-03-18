@@ -8,7 +8,7 @@ import static task3.GCD.calculateGCD;
 public class GCDTest {
 
     @Test
-    public void setUpScenarios() {
+    public void runScenarios() {
         final int min = Integer.MIN_VALUE;
         final int max = Integer.MAX_VALUE;
 

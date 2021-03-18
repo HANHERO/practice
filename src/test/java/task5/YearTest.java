@@ -8,7 +8,7 @@ import static task5.Year.findDay;
 public class YearTest {
 
     @Test
-    public void setUpScenarios() {
+    public void runScenarios() {
         String pn = "Понедельник";
         String vt = "Вторник";
         String sr = "Среда";
