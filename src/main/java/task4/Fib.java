@@ -21,16 +21,17 @@ public class Fib {
         BigInteger a = BigInteger.valueOf(0);
         BigInteger b = BigInteger.valueOf(1);
         int nABS = Math.abs(n);
-        if (n == 0) {
-            return a;
-        }
+
         for (int i = 1; i < nABS; i++) {
             temp = b;
             b = a.add(b);
             a = temp;
         }
         if (n < 0 && n % 2 == 0) {
-            return b.multiply(BigInteger.valueOf(-1));
-        }else return b;
+            b = b.multiply(BigInteger.valueOf(-1));
+        } else if (n == 0) {
+            b = BigInteger.valueOf(0);
+        }
+        return b;
     }
 }
