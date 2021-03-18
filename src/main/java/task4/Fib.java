@@ -29,8 +29,8 @@ public class Fib {
             b = a.add(b);
             a = temp;
         }
-        if (n < 0) {
-            if (n % 2 == 0) return b.multiply(new BigInteger("-1"));
+        if (n < 0 && n % 2 == 0) {
+            return b.multiply(new BigInteger("-1"));
         }
         return b;
     }

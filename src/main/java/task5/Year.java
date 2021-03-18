@@ -15,24 +15,25 @@ public class Year {
         System.out.println(f(startDay, currentDay, month));
     }
 
-    public static String f(int s, int c, int m) {
+    public static String f(int a, int b, int c) {
         int[] daysInMonth = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
-        int numberOfDays = c - 1;
-        if (s > 7 || s < 1) {
-            return "День недели должен быть в пределе 1-7" + s;
+        int numberOfDays = b - 1;
+        if (a > 7 || a < 1) {
+            return "День недели должен быть в пределе 1-7. Введенный день недели: " + a;
         }
-        if (m > 12 || m < 1) {
-            return "Месяц должен быть в пределе 1-12";
+        if (c > 12 || c < 1) {
+            return "Месяц должен быть в пределе 1-12. Введенный месяц: " + c;
         }
-        if (c > daysInMonth[m] || c < 1) {
-            return "Искомый день должен быть не меньше 1 и не больше числа дней в заданном месяце";
+        if (b > daysInMonth[c] || b < 1) {
+            return "Искомый день должен быть не меньше 1 и не больше числа дней в заданном месяце. " +
+                    "Заданный месяц: " + c + " Искомый день: " + b;
         }
         String[] week = {"Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота", "Воскресенье"};
 
-        for (int i = 0; i < m; i++) {
+        for (int i = 0; i < c; i++) {
             numberOfDays = numberOfDays + daysInMonth[i];
         }
 
-        return week[(numberOfDays + s - 1) % 7];
+        return week[(numberOfDays + a - 1) % 7];
     }
 }

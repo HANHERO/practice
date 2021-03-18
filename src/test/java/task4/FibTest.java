@@ -1,7 +1,6 @@
 package task4;
 import org.junit.Test;
 
-import java.io.ByteArrayInputStream;
 import java.math.BigInteger;
 
 import static org.junit.Assert.assertEquals;
