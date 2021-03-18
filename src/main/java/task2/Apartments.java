@@ -51,24 +51,24 @@ public class Apartments {
     /**
      * Determine the floor and entrance of the apartment according to the specified parameters.
      *
-     * @param apNum  the apartment number
-     * @param apps   apartment on the floor
+     * @param apartmentNumber  the apartment number
+     * @param apartmentsOnTheFloor   apartment on the floor
      * @param floors number of floors in entrance
      * @return the string
      */
-    public static String determineFloorAndEntrance(int apNum, int apps, int floors) {
-        if ((long) apps * floors > Integer.MAX_VALUE) {
-            return ERROR_MESSAGE + " Квартир на этаже " + apps + ", этажей в подъезде " + floors +
-                    ", квартир в подъезде " + (long) apps * floors + " > " + Integer.MAX_VALUE;
+    public static String determineFloorAndEntrance(int apartmentNumber, int apartmentsOnTheFloor, int floors) {
+        if ((long) apartmentsOnTheFloor * floors > Integer.MAX_VALUE) {
+            return ERROR_MESSAGE + " Квартир на этаже " + apartmentsOnTheFloor + ", этажей в подъезде " + floors +
+                    ", квартир в подъезде " + (long) apartmentsOnTheFloor * floors + " > " + Integer.MAX_VALUE;
         }
-        if (apNum < 1 || apps < 1 || floors < 1) {
-            return ERROR_MESSAGE + " Номер квартиры  " + apNum + ", квартир на этаже "
-                    + apps + ", этажей в подъезде " + floors;
+        if (apartmentNumber < 1 || apartmentsOnTheFloor < 1 || floors < 1) {
+            return ERROR_MESSAGE + " Номер квартиры  " + apartmentNumber + ", квартир на этаже "
+                    + apartmentsOnTheFloor + ", этажей в подъезде " + floors;
         }
-        int appInPod = apps * floors;
-        int pod = (apNum - 1) / appInPod + 1;
-        int et = ((apNum - 1) % appInPod) / apps + 1;
+        int apartmentsInTheEntrance = apartmentsOnTheFloor * floors;
+        int determinedEntrance = (apartmentNumber - 1) / apartmentsInTheEntrance + 1;
+        int determinedFloor = ((apartmentNumber - 1) % apartmentsInTheEntrance) / apartmentsOnTheFloor + 1;
 
-        return et + " этаж, " + pod + " подъезд.";
+        return determinedFloor + " этаж, " + determinedEntrance + " подъезд.";
     }
 }

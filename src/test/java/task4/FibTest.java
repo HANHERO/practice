@@ -5,7 +5,7 @@ import java.math.BigInteger;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
-import static task4.Fib.f;
+import static task4.Fib.findFib;
 
 public class FibTest {
 
@@ -236,12 +236,12 @@ public class FibTest {
 
     }
     private void s(String f, int i) {
-        assertEquals(f, f(i).toString());
+        assertEquals(f, findFib(i).toString());
     }
     private void s(int i) {
-        BigInteger fib = f(i);
-        BigInteger fib1 = f(i-1);
-        BigInteger fib2 = f(i-2);
+        BigInteger fib = findFib(i);
+        BigInteger fib1 = findFib(i-1);
+        BigInteger fib2 = findFib(i-2);
         if (i > 10000) {
             assertTrue(fib1.compareTo(fib2) > 0);
             assertEquals(fib2.add(fib1), fib);

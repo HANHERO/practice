@@ -3,7 +3,7 @@ package task5;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
-import static task5.Year.f;
+import static task5.Year.findDay;
 
 public class YearTest {
 
@@ -755,16 +755,16 @@ public class YearTest {
     }
 
     private void validParamsTest(String s, int a, int b, int c) {
-        assertEquals(s, f(a, b, c));
+        assertEquals(s, findDay(a, b, c));
     }
     private void invalidDayOfWeekTest(int a, int b, int c) {
-        assertEquals("День недели должен быть в пределе 1-7. Введенный день недели: " + a, f(a, b, c));
+        assertEquals("День недели должен быть в пределе 1-7. Введенный день недели: " + a, findDay(a, b, c));
     }
     private void invalidMonthTest(int a, int b, int c) {
-        assertEquals("Месяц должен быть в пределе 1-12. Введенный месяц: " + c, f(a, b, c));
+        assertEquals("Месяц должен быть в пределе 1-12. Введенный месяц: " + c, findDay(a, b, c));
     }
     private void invalidFoundedDayTest(int a, int b, int c) {
         assertEquals("Искомый день должен быть не меньше 1 и не больше числа дней в заданном месяце. " +
-                "Заданный месяц: " + c + " Искомый день: " + b, f(a, b, c));
+                "Заданный месяц: " + c + " Искомый день: " + b, findDay(a, b, c));
     }
 }

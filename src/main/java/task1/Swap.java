@@ -11,10 +11,10 @@ public class Swap {
         int a = Integer.parseInt(br.readLine());
         System.out.print("Введите число B: ");
         int b = Integer.parseInt(br.readLine());
-        System.out.println(s(a, b));
+        System.out.println(swap(a, b));
     }
 
-    public static String s(int a, int b) {
+    public static String swap(int a, int b) {
         a = a + b;
         b = a - b;
         a = a - b;

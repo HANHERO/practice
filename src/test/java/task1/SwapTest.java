@@ -1093,6 +1093,6 @@ public class SwapTest {
     }
 
     public void s(int a, int b){
-        assertEquals("A = " + b + ", B = " + a, Swap.s(a, b));
+        assertEquals("A = " + b + ", B = " + a, Swap.swap(a, b));
     }
 }

@@ -3,7 +3,7 @@ package task3;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
-import static task3.GCD.f;
+import static task3.GCD.calculateGCD;
 
 public class GCDTest {
 
@@ -271,30 +271,30 @@ public class GCDTest {
     }
 
     private void s(int gcd, int a, int b, int c, int d) {
-        assertEquals(gcd, f(a, b, c, d));
-        assertEquals(gcd, f(a, c, b, d));
-        assertEquals(gcd, f(a, d, c, b));
-        assertEquals(gcd, f(a, c, d, b));
-        assertEquals(gcd, f(a, d, b, c));
-        assertEquals(gcd, f(a, b, d, c));
-        assertEquals(gcd, f(b, c, d, a));
-        assertEquals(gcd, f(b, d, c, a));
-        assertEquals(gcd, f(b, a, d, c));
-        assertEquals(gcd, f(b, d, a, c));
-        assertEquals(gcd, f(b, a, c, d));
-        assertEquals(gcd, f(b, c, a, d));
-        assertEquals(gcd, f(d, b, c, a));
-        assertEquals(gcd, f(d, c, b, a));
-        assertEquals(gcd, f(d, a, c, b));
-        assertEquals(gcd, f(d, c, a, b));
-        assertEquals(gcd, f(d, a, b, c));
-        assertEquals(gcd, f(d, b, a, c));
-        assertEquals(gcd, f(c, b, d, a));
-        assertEquals(gcd, f(c, d, b, a));
-        assertEquals(gcd, f(c, a, d, b));
-        assertEquals(gcd, f(c, d, a, b));
-        assertEquals(gcd, f(c, a, b, d));
-        assertEquals(gcd, f(c, b, a, d));
+        assertEquals(gcd, calculateGCD(a, b, c, d));
+        assertEquals(gcd, calculateGCD(a, c, b, d));
+        assertEquals(gcd, calculateGCD(a, d, c, b));
+        assertEquals(gcd, calculateGCD(a, c, d, b));
+        assertEquals(gcd, calculateGCD(a, d, b, c));
+        assertEquals(gcd, calculateGCD(a, b, d, c));
+        assertEquals(gcd, calculateGCD(b, c, d, a));
+        assertEquals(gcd, calculateGCD(b, d, c, a));
+        assertEquals(gcd, calculateGCD(b, a, d, c));
+        assertEquals(gcd, calculateGCD(b, d, a, c));
+        assertEquals(gcd, calculateGCD(b, a, c, d));
+        assertEquals(gcd, calculateGCD(b, c, a, d));
+        assertEquals(gcd, calculateGCD(d, b, c, a));
+        assertEquals(gcd, calculateGCD(d, c, b, a));
+        assertEquals(gcd, calculateGCD(d, a, c, b));
+        assertEquals(gcd, calculateGCD(d, c, a, b));
+        assertEquals(gcd, calculateGCD(d, a, b, c));
+        assertEquals(gcd, calculateGCD(d, b, a, c));
+        assertEquals(gcd, calculateGCD(c, b, d, a));
+        assertEquals(gcd, calculateGCD(c, d, b, a));
+        assertEquals(gcd, calculateGCD(c, a, d, b));
+        assertEquals(gcd, calculateGCD(c, d, a, b));
+        assertEquals(gcd, calculateGCD(c, a, b, d));
+        assertEquals(gcd, calculateGCD(c, b, a, d));
     }
 
     private void s(int gcd, int block, int sc) {

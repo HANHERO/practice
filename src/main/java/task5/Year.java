@@ -12,10 +12,10 @@ public class Year {
         int currentDay = Integer.parseInt(br.readLine());
         System.out.print("Введите искомый месяц: ");
         int month = Integer.parseInt(br.readLine());
-        System.out.println(f(startDay, currentDay, month));
+        System.out.println(findDay(startDay, currentDay, month));
     }
 
-    public static String f(int a, int b, int c) {
+    public static String findDay(int a, int b, int c) {
         int[] daysInMonth = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
         int numberOfDays = b - 1;
         if (a > 7 || a < 1) {

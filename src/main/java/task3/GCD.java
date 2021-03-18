@@ -14,13 +14,13 @@ public class GCD {
             int b = Integer.parseInt(br.readLine());
             int c = Integer.parseInt(br.readLine());
             int d = Integer.parseInt(br.readLine());
-            System.out.print("НОД = " + f(a, b, c, d));
+            System.out.print("НОД = " + calculateGCD(a, b, c, d));
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    public static int f(int a, int b, int c, int d) {
+    public static int calculateGCD(int a, int b, int c, int d) {
         boolean isFounded = false;
         int[] mass = new int[]{a, b, c, d};
         int nod = 0;
