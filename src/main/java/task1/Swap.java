@@ -15,9 +15,9 @@ public class Swap {
     }
 
     public static String s(int a, int b) {
-        a = a + b; // 5 + 3 = 8
-        b = a - b; // 8 - 5 = 3
-        a = a - b; // 8 - 3 = 5
+        a = a + b;
+        b = a - b;
+        a = a - b;
         return "A = " + a + ", B = " + b;
     }
 }

@@ -23,6 +23,7 @@ import java.io.InputStreamReader;
  * @version 1.0
  */
 public class Apartments {
+    private static final String ERROR_MESSAGE = "Введены не корректные данные.";
     /**
      * <b>Main</b> is used for both the entry point to the application and
      * the entry point for the desired apartment and characteristics of the house.
@@ -39,11 +40,11 @@ public class Apartments {
             if (inputArray.length == 3) {
                 System.out.print(determineFloorAndEntrance(Integer.parseInt(inputArray[0]),
                         Integer.parseInt(inputArray[1]), Integer.parseInt(inputArray[2])));
-            }else {
+            } else {
                 throw new IOException();
             }
         } catch (Exception e) {
-            System.out.print("Введены не корректные данные.");
+            System.out.print(ERROR_MESSAGE);
         }
     }
 
@@ -56,12 +57,17 @@ public class Apartments {
      * @return the string
      */
     public static String determineFloorAndEntrance(int apNum, int apps, int floors) {
-        if ((long) apps * floors > Integer.MAX_VALUE || apNum < 1 || apps < 1 || floors < 1) {
-            return "Введены не корректные данные.";
+        if ((long) apps * floors > Integer.MAX_VALUE) {
+            return ERROR_MESSAGE + " Квартир на этаже " + apps + ", этажей в подъезде " + floors +
+                    ", квартир в подъезде " + (long) apps * floors + " > " + Integer.MAX_VALUE;
+        }
+        if (apNum < 1 || apps < 1 || floors < 1) {
+            return ERROR_MESSAGE + " Номер квартиры  " + apNum + ", квартир на этаже "
+                    + apps + ", этажей в подъезде " + floors;
         }
         int appInPod = apps * floors;
-        int pod = ((apNum - 1) / appInPod) + 1;
-        int et = (((apNum - 1) % appInPod) / apps) + 1;
+        int pod = (apNum - 1) / appInPod + 1;
+        int et = ((apNum - 1) % appInPod) / apps + 1;
 
         return et + " этаж, " + pod + " подъезд.";
     }
