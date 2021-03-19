@@ -68,9 +68,17 @@ public class Apartments {
             return;
         }
         int apartmentsInTheEntrance = apartmentsOnTheFloor * floors;
-        int determinedEntrance = (apartmentNumber - 1) / apartmentsInTheEntrance + 1;
-        int determinedFloor = ((apartmentNumber - 1) % apartmentsInTheEntrance) / apartmentsOnTheFloor + 1;
+        int determinedEntrance = determineEntrance(apartmentNumber, apartmentsInTheEntrance);
+        int determinedFloor = determineFloor(apartmentNumber, apartmentsInTheEntrance, apartmentsOnTheFloor);
 
         System.out.print(determinedFloor + " этаж, " + determinedEntrance + " подъезд.");
+    }
+
+    private static int determineEntrance(int apartmentNumber, int apartmentsInTheEntrance) {
+        return (apartmentNumber - 1) / apartmentsInTheEntrance + 1;
+    }
+
+    private static int determineFloor(int apartmentNumber, int apartmentsInTheEntrance, int apartmentsOnTheFloor) {
+        return ((apartmentNumber - 1) % apartmentsInTheEntrance) / apartmentsOnTheFloor + 1;
     }
 }
