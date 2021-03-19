@@ -49,14 +49,7 @@ public class Apartments {
         }
     }
 
-    /**
-     * Determine the floor and entrance of the apartment according to the specified parameters.
-     *
-     * @param apartmentNumber      the apartment number
-     * @param apartmentsOnTheFloor apartment on the floor
-     * @param floors               number of floors in entrance
-     */
-    public static void determineFloorAndEntrance(int apartmentNumber, int apartmentsOnTheFloor, int floors) {
+    private static void determineFloorAndEntrance(int apartmentNumber, int apartmentsOnTheFloor, int floors) {
         if ((long) apartmentsOnTheFloor * floors > Integer.MAX_VALUE) {
             System.out.print(ERROR_MESSAGE + " Квартир на этаже " + apartmentsOnTheFloor + ", этажей в подъезде " + floors +
                     ", квартир в подъезде " + (long) apartmentsOnTheFloor * floors + " > " + Integer.MAX_VALUE);

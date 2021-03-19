@@ -3,7 +3,16 @@ package task5;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
+/**
+ * The type Year.
+ */
 public class Year {
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     * @throws Exception the exception
+     */
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         System.out.print("Введите день недели Нового года числом (4 = четверг): ");
@@ -15,6 +24,14 @@ public class Year {
         System.out.println(findDay(startDay, currentDay, month));
     }
 
+    /**
+     * Find day string.
+     *
+     * @param a the a
+     * @param b the b
+     * @param c the c
+     * @return the string
+     */
     public static String findDay(int a, int b, int c) {
         int[] daysInMonth = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
         int numberOfDays = b - 1;
