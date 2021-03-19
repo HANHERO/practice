@@ -9,7 +9,7 @@ import static org.junit.Assert.assertEquals;
 public class SwapTest {
 
     @Test
-    public void startScenarios(){
+    public void runScenarios(){
         final int min = Integer.MIN_VALUE;
         final int max = Integer.MAX_VALUE;
         ////////////////////////////////1. Граничные значения области определения

@@ -1926,7 +1926,7 @@ public class ApartmentsTest {
         System.setOut(new PrintStream(output));
         System.setIn(new ByteArrayInputStream((n + " " + nA + " " + p + " " + a).getBytes()));
         main(new String[]{});
-        assertEquals(incorrectInput, output.toString());
+        assertEquals(incorrectNumberOfParams + "4", output.toString());
     }
 
     private void twoParamsTest(int n, int nA) {
@@ -1934,7 +1934,7 @@ public class ApartmentsTest {
         System.setOut(new PrintStream(output));
         System.setIn(new ByteArrayInputStream((n + " " + nA).getBytes()));
         main(new String[]{});
-        assertEquals(incorrectInput, output.toString());
+        assertEquals(incorrectNumberOfParams + "2", output.toString());
     }
 
     private void oneParamTest(int n) {
@@ -1942,7 +1942,7 @@ public class ApartmentsTest {
         System.setOut(new PrintStream(output));
         System.setIn(new ByteArrayInputStream(String.valueOf(n).getBytes()));
         main(new String[]{});
-        assertEquals(incorrectInput, output.toString());
+        assertEquals(incorrectNumberOfParams + "1", output.toString());
     }
 
     private void zeroParamsTest() {
@@ -1958,8 +1958,10 @@ public class ApartmentsTest {
         System.setOut(new PrintStream(output));
         System.setIn(new ByteArrayInputStream((n + "  " + nA + "  " + p).getBytes()));
         main(new String[]{});
-        assertEquals(incorrectInput, output.toString());
+        assertEquals(incorrectNumberOfParams + "5", output.toString());
     }
+    private final String incorrectNumberOfParams = "Введите номер квартиры, количество квартир на этаже и количество этажей через пробел: "
+            +"Введено неверное число параметров: ";
 
     private final String incorrectInput = "Введите номер квартиры, количество квартир на этаже и количество этажей через пробел:" +
             " Введены не корректные данные.";

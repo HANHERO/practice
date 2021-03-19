@@ -1,7 +1,6 @@
 package task2;
 
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
 
 /**
@@ -41,8 +40,10 @@ public class Apartments {
             if (inputArray.length == 3) {
                 determineFloorAndEntrance(Integer.parseInt(inputArray[0]), Integer.parseInt(inputArray[1]), Integer.parseInt(inputArray[2]));
             } else {
-                throw new IOException();
+                throw new NotThreeParamsException("Введено неверное число параметров: " + inputArray.length);
             }
+        } catch (NotThreeParamsException e) {
+            System.out.print(e.getMessage());
         } catch (Exception e) {
             System.out.print(ERROR_MESSAGE);
         }
