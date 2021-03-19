@@ -56,7 +56,6 @@ public class Apartments {
      * @param apartmentsOnTheFloor apartment on the floor
      * @param floors               number of floors in entrance
      */
-
     public static void determineFloorAndEntrance(int apartmentNumber, int apartmentsOnTheFloor, int floors) {
         if ((long) apartmentsOnTheFloor * floors > Integer.MAX_VALUE) {
             System.out.print(ERROR_MESSAGE + " Квартир на этаже " + apartmentsOnTheFloor + ", этажей в подъезде " + floors +
