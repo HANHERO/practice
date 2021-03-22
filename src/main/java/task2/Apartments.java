@@ -31,19 +31,17 @@ public class Apartments {
      * @param args the input arguments of main
      */
     public static void main(String[] args) {
-
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         try {
             System.out.print("Введите номер квартиры, количество квартир на этаже и количество этажей через пробел: ");
             String input = br.readLine();
             String[] inputArray = input.split(" ");
+
             if (inputArray.length == 3) {
                 determineFloorAndEntrance(Integer.parseInt(inputArray[0]), Integer.parseInt(inputArray[1]), Integer.parseInt(inputArray[2]));
             } else {
-                throw new NotThreeParamsException("Введено неверное число параметров: " + inputArray.length);
+                System.out.println("Введено неверное число параметров: " + inputArray.length);
             }
-        } catch (NotThreeParamsException e) {
-            System.out.print(e.getMessage());
         } catch (Exception e) {
             System.out.print(ERROR_MESSAGE);
         }
@@ -61,10 +59,9 @@ public class Apartments {
             return;
         }
         int apartmentsInTheEntrance = apartmentsOnTheFloor * floors;
-        int determinedEntrance = determineEntrance(apartmentNumber, apartmentsInTheEntrance);
-        int determinedFloor = determineFloor(apartmentNumber, apartmentsInTheEntrance, apartmentsOnTheFloor);
 
-        System.out.print(determinedFloor + " этаж, " + determinedEntrance + " подъезд.");
+        System.out.print(determineFloor(apartmentNumber, apartmentsInTheEntrance, apartmentsOnTheFloor) +
+                " этаж, " + determineEntrance(apartmentNumber, apartmentsInTheEntrance) + " подъезд.");
     }
 
     private static int determineEntrance(int apartmentNumber, int apartmentsInTheEntrance) {
