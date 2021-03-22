@@ -14,12 +14,12 @@ public class Fib {
      * @param args the input arguments
      */
     public static void main(String[] args) {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         System.out.print("Введите порядковый номер необходимого числа Фибоначчи: ");
-        try {
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
             int fibDigit = Integer.parseInt(br.readLine());
             System.out.println(findFib(fibDigit));
         } catch (Exception e) {
+            System.out.println("Введено не число.");
             e.printStackTrace();
         }
     }
@@ -41,10 +41,13 @@ public class Fib {
             b = a.add(b);
             a = temp;
         }
-        if (n < 0 && n % 2 == 0) {
-            b = b.multiply(BigInteger.valueOf(-1));
-        } else if (n == 0) {
+
+        if (n == 0) {
             b = BigInteger.valueOf(0);
+        }
+
+        if (n < 0 && (n % 2) == 0) { //if the number is negative and even
+            b = b.multiply(BigInteger.valueOf(-1));
         }
         return b;
     }

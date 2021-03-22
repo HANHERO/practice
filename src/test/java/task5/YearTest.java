@@ -2,8 +2,12 @@ package task5;
 
 import org.junit.Test;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+
 import static org.junit.Assert.assertEquals;
-import static task5.Year.findDay;
+import static task5.Year.main;
 
 public class YearTest {
 
@@ -691,7 +695,6 @@ public class YearTest {
         invalidMonthTest(1, 1, 13);
         invalidDayOfWeekTest(0, 1, 1);
         invalidFoundedDayTest(1, 0, 1);
-        invalidMonthTest(1, 1, 0);
         //////////////////////////////////5. Случайные тесты
         validParamsTest(ch, 3, 17, 7);
         validParamsTest(sb, 5, 17, 7);
@@ -755,16 +758,39 @@ public class YearTest {
     }
 
     private void validParamsTest(String s, int a, int b, int c) {
-        assertEquals(s, findDay(a, b, c));
+        ByteArrayOutputStream output = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(output));
+        System.setIn(new ByteArrayInputStream((a + " " + b + " " + c).getBytes()));
+        main(new String[]{});
+        assertEquals("Введите день недели Нового года числом, искомый день и искомый месяц через пробел: "
+                + s, output.toString());
     }
+
     private void invalidDayOfWeekTest(int a, int b, int c) {
-        assertEquals("День недели должен быть в пределе 1-7. Введенный день недели: " + a, findDay(a, b, c));
+        ByteArrayOutputStream output = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(output));
+        System.setIn(new ByteArrayInputStream((a + " " + b + " " + c).getBytes()));
+        main(new String[]{});
+        assertEquals("Введите день недели Нового года числом, искомый день и искомый месяц через пробел: Некоректный ввод. " +
+                "День недели должен быть в пределе 1-7. Введенный день недели: " + a, output.toString());
     }
+
     private void invalidMonthTest(int a, int b, int c) {
-        assertEquals("Месяц должен быть в пределе 1-12. Введенный месяц: " + c, findDay(a, b, c));
+        ByteArrayOutputStream output = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(output));
+        System.setIn(new ByteArrayInputStream((a + " " + b + " " + c).getBytes()));
+        main(new String[]{});
+        assertEquals("Введите день недели Нового года числом, искомый день и искомый месяц через пробел: Некоректный ввод. " +
+                "Месяц должен быть в пределе 1-12. Введенный месяц: " + c, output.toString());
     }
+
     private void invalidFoundedDayTest(int a, int b, int c) {
-        assertEquals("Искомый день должен быть не меньше 1 и не больше числа дней в заданном месяце. " +
-                "Заданный месяц: " + c + " Искомый день: " + b, findDay(a, b, c));
+        ByteArrayOutputStream output = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(output));
+        System.setIn(new ByteArrayInputStream((a + " " + b + " " + c).getBytes()));
+        main(new String[]{});
+        assertEquals("Введите день недели Нового года числом, искомый день и искомый месяц через пробел: Некоректный ввод. " +
+                "Искомый день должен быть не меньше 1 и не больше числа дней в заданном месяце. " +
+                "Заданный месяц: " + c + " Искомый день: " + b, output.toString());
     }
 }

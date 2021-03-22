@@ -1,56 +1,63 @@
 package task5;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 
-/**
- * The type Year.
- */
 public class Year {
-    /**
-     * The entry point of application.
-     *
-     * @param args the input arguments
-     * @throws Exception the exception
-     */
-    public static void main(String[] args) throws Exception {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        System.out.print("Введите день недели Нового года числом (4 = четверг): ");
-        int startDay = Integer.parseInt(br.readLine());
-        System.out.print("Введите искомый день: ");
-        int currentDay = Integer.parseInt(br.readLine());
-        System.out.print("Введите искомый месяц: ");
-        int month = Integer.parseInt(br.readLine());
-        System.out.println(findDay(startDay, currentDay, month));
+    private static final byte[] daysInMonth = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+
+    public static void main(String[] args) {
+        String[] week = {"Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота", "Воскресенье"};
+        int minDayOfWeek = 1;
+        int maxDayOfWeek = 7;
+        int minNumberOfMonth = 1;
+        int maxNumberOfMonth = 12;
+        int minDaysInMonth = 1;
+        String message = "";
+
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
+            System.out.print("Введите день недели Нового года числом, искомый день и искомый месяц через пробел: ");
+            String input = br.readLine();
+
+            String[] inputArray = input.split(" ");
+
+            int startDay = Integer.parseInt(inputArray[0]);
+            int currentDay = Integer.parseInt(inputArray[1]);
+            int month = Integer.parseInt(inputArray[2]);
+
+            if (startDay > maxDayOfWeek || startDay < minDayOfWeek) {
+                message = "День недели должен быть в пределе 1-7. Введенный день недели: " + startDay;
+                throw new IOException();
+            }
+
+            if (month > maxNumberOfMonth || month < minNumberOfMonth) {
+                message = "Месяц должен быть в пределе 1-12. Введенный месяц: " + month;
+                throw new IOException();
+            }
+
+            if (currentDay > daysInMonth[month] || currentDay < minDaysInMonth) {
+                message = "Искомый день должен быть не меньше 1 и не больше числа дней в заданном месяце. " +
+                        "Заданный месяц: " + month + " Искомый день: " + currentDay;
+                throw new IOException();
+            }
+
+            message = week[findDay(startDay, currentDay, month)];
+
+        } catch (Exception e) {
+            System.out.print("Некоректный ввод. ");
+        }finally {
+            System.out.print(message);
+        }
     }
 
-    /**
-     * Find day string.
-     *
-     * @param a the a
-     * @param b the b
-     * @param c the c
-     * @return the string
-     */
-    public static String findDay(int a, int b, int c) {
-        int[] daysInMonth = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
-        int numberOfDays = b - 1;
-        if (a > 7 || a < 1) {
-            return "День недели должен быть в пределе 1-7. Введенный день недели: " + a;
-        }
-        if (c > 12 || c < 1) {
-            return "Месяц должен быть в пределе 1-12. Введенный месяц: " + c;
-        }
-        if (b > daysInMonth[c] || b < 1) {
-            return "Искомый день должен быть не меньше 1 и не больше числа дней в заданном месяце. " +
-                    "Заданный месяц: " + c + " Искомый день: " + b;
-        }
-        String[] week = {"Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота", "Воскресенье"};
+    private static byte findDay(int startDay, int currentDay, int month) {
+        int numberOfDays =  currentDay - 1;
 
-        for (int i = 0; i < c; i++) {
-            numberOfDays = numberOfDays + daysInMonth[i];
+        for (byte i = 0; i < month; i++) {
+            numberOfDays += daysInMonth[i]; //counting the number of days from the first day of the year to the required one.
         }
 
-        return week[(numberOfDays + a - 1) % 7];
+        return (byte) ((numberOfDays + startDay - 1) % 7);
     }
 }

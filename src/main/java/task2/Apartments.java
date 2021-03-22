@@ -31,23 +31,24 @@ public class Apartments {
      * @param args the input arguments of main
      */
     public static void main(String[] args) {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        try {
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
             System.out.print("Введите номер квартиры, количество квартир на этаже и количество этажей через пробел: ");
             String input = br.readLine();
-            String[] inputArray = input.split(" ");
-
-            if (inputArray.length == 3) {
-                determineFloorAndEntrance(Integer.parseInt(inputArray[0]), Integer.parseInt(inputArray[1]), Integer.parseInt(inputArray[2]));
-            } else {
-                System.out.print("Введено неверное число параметров: " + inputArray.length);
-            }
+            determineFloorAndEntrance(input.split(" "));
         } catch (Exception e) {
             System.out.print(ERROR_MESSAGE);
         }
     }
 
-    private static void determineFloorAndEntrance(int apartmentNumber, int apartmentsOnTheFloor, int floors) {
+    private static void determineFloorAndEntrance(String[] inputArray) {
+        if (inputArray.length != 3) {
+            System.out.print("Введено неверное число параметров: " + inputArray.length);
+            return;
+        }
+        int apartmentNumber = Integer.parseInt(inputArray[0]);
+        int apartmentsOnTheFloor = Integer.parseInt(inputArray[1]);
+        int floors = Integer.parseInt(inputArray[2]);
+
         if ((long) apartmentsOnTheFloor * floors > Integer.MAX_VALUE) {
             System.out.print(ERROR_MESSAGE + " Квартир на этаже " + apartmentsOnTheFloor + ", этажей в подъезде " + floors +
                     ", квартир в подъезде " + (long) apartmentsOnTheFloor * floors + " > " + Integer.MAX_VALUE);
@@ -58,17 +59,15 @@ public class Apartments {
                     + apartmentsOnTheFloor + ", этажей в подъезде " + floors);
             return;
         }
-        int apartmentsInTheEntrance = apartmentsOnTheFloor * floors;
-
-        System.out.print(determineFloor(apartmentNumber, apartmentsInTheEntrance, apartmentsOnTheFloor) +
-                " этаж, " + determineEntrance(apartmentNumber, apartmentsInTheEntrance) + " подъезд.");
-    }
-
-    private static int determineEntrance(int apartmentNumber, int apartmentsInTheEntrance) {
-        return (apartmentNumber - 1) / apartmentsInTheEntrance + 1;
+        System.out.print(determineFloor(apartmentNumber, apartmentsOnTheFloor * floors, apartmentsOnTheFloor) +
+                " этаж, " + determineEntrance(apartmentNumber, apartmentsOnTheFloor * floors) + " подъезд.");
     }
 
     private static int determineFloor(int apartmentNumber, int apartmentsInTheEntrance, int apartmentsOnTheFloor) {
         return ((apartmentNumber - 1) % apartmentsInTheEntrance) / apartmentsOnTheFloor + 1;
+    }
+
+    private static int determineEntrance(int apartmentNumber, int apartmentsInTheEntrance) {
+        return (apartmentNumber - 1) / apartmentsInTheEntrance + 1;
     }
 }
