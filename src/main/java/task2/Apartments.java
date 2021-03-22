@@ -40,7 +40,7 @@ public class Apartments {
             if (inputArray.length == 3) {
                 determineFloorAndEntrance(Integer.parseInt(inputArray[0]), Integer.parseInt(inputArray[1]), Integer.parseInt(inputArray[2]));
             } else {
-                System.out.println("Введено неверное число параметров: " + inputArray.length);
+                System.out.print("Введено неверное число параметров: " + inputArray.length);
             }
         } catch (Exception e) {
             System.out.print(ERROR_MESSAGE);
