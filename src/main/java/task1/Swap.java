@@ -10,11 +10,6 @@ import java.util.Arrays;
  */
 public class Swap {
 
-    /**
-     * The entry point of application.
-     *
-     * @param args the input arguments
-     */
     public static void main(String[] args) {
         try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
             System.out.print("Введите число А: ");
@@ -24,16 +19,10 @@ public class Swap {
             System.out.println(Arrays.toString(swap(a, b)));
         } catch (IOException ioE) {
             System.out.println("Вы ввели не число.");
+            ioE.printStackTrace();
         }
     }
 
-    /**
-     * Swap int [ ].
-     *
-     * @param a the a
-     * @param b the b
-     * @return the int [ ]
-     */
     public static int[] swap(int a, int b) {
         a = a + b;
         b = a - b;

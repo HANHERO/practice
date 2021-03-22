@@ -8,15 +8,16 @@ public class Year {
     private static final byte[] daysInMonth = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 
     public static void main(String[] args) {
-        String[] week = {"Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота", "Воскресенье"};
-        int minDayOfWeek = 1;
-        int maxDayOfWeek = 7;
-        int minNumberOfMonth = 1;
-        int maxNumberOfMonth = 12;
-        int minDaysInMonth = 1;
         String message = "";
-
         try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
+            String[] week = {"Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота", "Воскресенье"};
+            int minDayOfWeek = 1;
+            int maxDayOfWeek = 7;
+            int minNumberOfMonth = 1;
+            int maxNumberOfMonth = 12;
+            int minDaysInMonth = 1;
+
+
             System.out.print("Введите день недели Нового года числом, искомый день и искомый месяц через пробел: ");
             String input = br.readLine();
 
@@ -46,6 +47,7 @@ public class Year {
 
         } catch (Exception e) {
             System.out.print("Некоректный ввод. ");
+            e.printStackTrace();
         }finally {
             System.out.print(message);
         }
@@ -55,9 +57,11 @@ public class Year {
         int numberOfDays =  currentDay - 1;
 
         for (byte i = 0; i < month; i++) {
-            numberOfDays += daysInMonth[i]; //counting the number of days from the first day of the year to the required one.
+            numberOfDays += daysInMonth[i]; //Counting the number of days from the first day of the year to the required one.
         }
 
-        return (byte) ((numberOfDays + startDay - 1) % 7);
+        int daysFromFirstDayInYearWithShift = numberOfDays + startDay - 1;
+
+        return (byte) (daysFromFirstDayInYearWithShift % 7);
     }
 }

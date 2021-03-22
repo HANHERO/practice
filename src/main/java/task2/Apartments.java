@@ -22,7 +22,7 @@ import java.io.InputStreamReader;
  * @version 1.0
  */
 public class Apartments {
-    private static final String ERROR_MESSAGE = "Введены не корректные данные.";
+    private static String message = "";
 
     /**
      * <b>Main</b> is used for both the entry point to the application and
@@ -31,43 +31,46 @@ public class Apartments {
      * @param args the input arguments of main
      */
     public static void main(String[] args) {
+        message = "Введены не корректные данные.";
         try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
             System.out.print("Введите номер квартиры, количество квартир на этаже и количество этажей через пробел: ");
             String input = br.readLine();
             determineFloorAndEntrance(input.split(" "));
         } catch (Exception e) {
-            System.out.print(ERROR_MESSAGE);
+            e.printStackTrace();
+        }finally {
+            System.out.print(message);
         }
     }
 
     private static void determineFloorAndEntrance(String[] inputArray) {
+        boolean isCorrect = true;
         if (inputArray.length != 3) {
-            System.out.print("Введено неверное число параметров: " + inputArray.length);
+            message = "Введено неверное число параметров: " + inputArray.length;
             return;
         }
         int apartmentNumber = Integer.parseInt(inputArray[0]);
         int apartmentsOnTheFloor = Integer.parseInt(inputArray[1]);
         int floors = Integer.parseInt(inputArray[2]);
 
-        if ((long) apartmentsOnTheFloor * floors > Integer.MAX_VALUE) {
-            System.out.print(ERROR_MESSAGE + " Квартир на этаже " + apartmentsOnTheFloor + ", этажей в подъезде " + floors +
-                    ", квартир в подъезде " + (long) apartmentsOnTheFloor * floors + " > " + Integer.MAX_VALUE);
-            return;
-        }
         if (apartmentNumber < 1 || apartmentsOnTheFloor < 1 || floors < 1) {
-            System.out.print(ERROR_MESSAGE + " Номер квартиры  " + apartmentNumber + ", квартир на этаже "
-                    + apartmentsOnTheFloor + ", этажей в подъезде " + floors);
-            return;
+            message = "Введены не корректные данные. Номер квартиры  " + apartmentNumber + ", квартир на этаже "
+                    + apartmentsOnTheFloor + ", этажей в подъезде " + floors;
+            isCorrect = false;
         }
-        System.out.print(determineFloor(apartmentNumber, apartmentsOnTheFloor * floors, apartmentsOnTheFloor) +
-                " этаж, " + determineEntrance(apartmentNumber, apartmentsOnTheFloor * floors) + " подъезд.");
-    }
 
-    private static int determineFloor(int apartmentNumber, int apartmentsInTheEntrance, int apartmentsOnTheFloor) {
-        return ((apartmentNumber - 1) % apartmentsInTheEntrance) / apartmentsOnTheFloor + 1;
-    }
+        if ((long) apartmentsOnTheFloor * floors > Integer.MAX_VALUE) {
+            message = "Введены не корректные данные. Квартир на этаже " + apartmentsOnTheFloor + ", этажей в подъезде " + floors +
+                    ", квартир в подъезде " + (long) apartmentsOnTheFloor * floors + " > " + Integer.MAX_VALUE;
+            isCorrect = false;
+        }
 
-    private static int determineEntrance(int apartmentNumber, int apartmentsInTheEntrance) {
-        return (apartmentNumber - 1) / apartmentsInTheEntrance + 1;
+        if (isCorrect) {
+            int apartmentsInTheEntrance = apartmentsOnTheFloor * floors;
+            int determinedFloor = ((apartmentNumber - 1) % apartmentsInTheEntrance) / apartmentsOnTheFloor + 1;
+            int determineEntrance = (apartmentNumber - 1) / apartmentsInTheEntrance + 1;
+
+            message = determinedFloor + " этаж, " + determineEntrance + " подъезд.";
+        }
     }
 }

@@ -1657,7 +1657,7 @@ public class ApartmentsTest {
         outOfIntRangeTest(min, 46341, 46341);
         outOfIntRangeTest(max, 46341, 46341);
 
-        stringInputTest("1", "1", "fersef");
+        stringInputTest("1", "1", "gtrgerg");
         stringInputTest("1", "gfdhjyr", "1");
         stringInputTest("1", "ytrffee", "defrhgfd");
         stringInputTest("rghdvvbm", "1", "1");
