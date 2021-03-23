@@ -9,8 +9,10 @@ public class Fib {
     public static void main(String[] args) {
         System.out.print("Введите порядковый номер необходимого числа Фибоначчи: ");
         try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
+
             int fibDigit = Integer.parseInt(br.readLine());
             System.out.println(findFib(fibDigit));
+
         } catch (Exception e) {
             System.out.println("Введено не число.");
             e.printStackTrace();
