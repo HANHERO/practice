@@ -4,15 +4,8 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
 
-/**
- * The type Gcd.
- */
 public class GCD {
-    /**
-     * The entry point of application.
-     *
-     * @param args the input arguments
-     */
+
     public static void main(String[] args) {
         System.out.print("Введите 4 числа через энтер: ");
 
@@ -28,15 +21,6 @@ public class GCD {
         }
     }
 
-    /**
-     * Calculate gcd int.
-     *
-     * @param a the a
-     * @param b the b
-     * @param c the c
-     * @param d the d
-     * @return the int
-     */
     public static int calculateGCD(int a, int b, int c, int d) {
         boolean isFounded = false;
         int[] mass = new int[]{a, b, c, d};

@@ -17,7 +17,6 @@ public class Year {
             int maxNumberOfMonth = 12;
             int minDaysInMonth = 1;
 
-
             System.out.print("Введите день недели Нового года числом, искомый день и искомый месяц через пробел: ");
             String input = br.readLine();
 
