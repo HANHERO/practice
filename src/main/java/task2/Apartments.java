@@ -61,7 +61,7 @@ public class Apartments {
             int[] outputArray = determineFloorAndEntrance(apartmentNumber, apartmentsOnTheFloor, floors);
             System.out.println(outputArray[0] + " этаж, " + outputArray[1] + " подъезд.");
 
-        } catch (Exception e) {
+        } catch (IOException e) {
             System.out.println(errorMessage);
             e.printStackTrace();
         }
