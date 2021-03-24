@@ -1,6 +1,7 @@
 package task3;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 
 
@@ -15,7 +16,7 @@ public class GCD {
             int c = Integer.parseInt(br.readLine());
             int d = Integer.parseInt(br.readLine());
             System.out.print("НОД = " + calculateGCD(a, b, c, d));
-        } catch (Exception e) {
+        } catch (IOException e) {
             System.out.println("Неправильный ввод значений.");
             e.printStackTrace();
         }
