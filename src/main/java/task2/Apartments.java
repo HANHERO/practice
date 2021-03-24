@@ -69,7 +69,8 @@ public class Apartments {
 
     private static int[] determineFloorAndEntrance(int apartmentNumber, int apartmentsOnTheFloor, int floors) {
         int apartmentsInTheEntrance = apartmentsOnTheFloor * floors;
-        int determinedFloor = ((apartmentNumber - 1) % apartmentsInTheEntrance) / apartmentsOnTheFloor + 1;
+        int restApartmentsInRequiredEntrance = (apartmentNumber - 1) % apartmentsInTheEntrance;
+        int determinedFloor = restApartmentsInRequiredEntrance / apartmentsOnTheFloor + 1;
         int determineEntrance = (apartmentNumber - 1) / apartmentsInTheEntrance + 1;
 
         return new int[]{determinedFloor, determineEntrance};
