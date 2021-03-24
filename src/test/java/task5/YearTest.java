@@ -771,7 +771,7 @@ public class YearTest {
         System.setOut(new PrintStream(output));
         System.setIn(new ByteArrayInputStream((a + " " + b + " " + c).getBytes()));
         main(new String[]{});
-        assertEquals("Введите день недели Нового года числом, искомый день и искомый месяц через пробел: Некоректный ввод. " +
+        assertEquals("Введите день недели Нового года числом, искомый день и искомый месяц через пробел: " +
                 "День недели должен быть в пределе 1-7. Введенный день недели: " + a, output.toString());
     }
 
@@ -780,7 +780,7 @@ public class YearTest {
         System.setOut(new PrintStream(output));
         System.setIn(new ByteArrayInputStream((a + " " + b + " " + c).getBytes()));
         main(new String[]{});
-        assertEquals("Введите день недели Нового года числом, искомый день и искомый месяц через пробел: Некоректный ввод. " +
+        assertEquals("Введите день недели Нового года числом, искомый день и искомый месяц через пробел: " +
                 "Месяц должен быть в пределе 1-12. Введенный месяц: " + c, output.toString());
     }
 
@@ -789,7 +789,7 @@ public class YearTest {
         System.setOut(new PrintStream(output));
         System.setIn(new ByteArrayInputStream((a + " " + b + " " + c).getBytes()));
         main(new String[]{});
-        assertEquals("Введите день недели Нового года числом, искомый день и искомый месяц через пробел: Некоректный ввод. " +
+        assertEquals("Введите день недели Нового года числом, искомый день и искомый месяц через пробел: " +
                 "Искомый день должен быть не меньше 1 и не больше числа дней в заданном месяце. " +
                 "Заданный месяц: " + c + " Искомый день: " + b, output.toString());
     }

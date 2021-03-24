@@ -8,7 +8,6 @@ public class Year {
     private static final byte[] daysInMonth = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 
     public static void main(String[] args) {
-        String message = "";
         try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
             String[] week = {"Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота", "Воскресенье"};
             int minDayOfWeek = 1;
@@ -27,28 +26,23 @@ public class Year {
             int month = Integer.parseInt(inputArray[2]);
 
             if (startDay > maxDayOfWeek || startDay < minDayOfWeek) {
-                message = "День недели должен быть в пределе 1-7. Введенный день недели: " + startDay;
-                throw new IOException();
+                throw new IOException("День недели должен быть в пределе 1-7. Введенный день недели: " + startDay);
             }
 
             if (month > maxNumberOfMonth || month < minNumberOfMonth) {
-                message = "Месяц должен быть в пределе 1-12. Введенный месяц: " + month;
-                throw new IOException();
+                throw new IOException("Месяц должен быть в пределе 1-12. Введенный месяц: " + month);
             }
 
             if (currentDay > daysInMonth[month] || currentDay < minDaysInMonth) {
-                message = "Искомый день должен быть не меньше 1 и не больше числа дней в заданном месяце. " +
-                        "Заданный месяц: " + month + " Искомый день: " + currentDay;
-                throw new IOException();
+                throw new IOException("Искомый день должен быть не меньше 1 и не больше числа дней в заданном месяце. " +
+                        "Заданный месяц: " + month + " Искомый день: " + currentDay);
             }
 
-            message = week[findDay(startDay, currentDay, month)];
+            System.out.print(week[findDay(startDay, currentDay, month)]);
 
         } catch (Exception e) {
-            System.out.print("Некоректный ввод. ");
+            System.out.print(e.getMessage());
             e.printStackTrace();
-        }finally {
-            System.out.print(message);
         }
     }
 
