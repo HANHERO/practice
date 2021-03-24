@@ -6,7 +6,6 @@ import java.io.InputStreamReader;
 
 public class Year {
     private static final byte[] DAYS_IN_MONTH = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
-    private static final String[] WEEK = {"Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота", "Воскресенье"};
     private static final int MIN_DAY_OF_WEEK = 1;
     private static final int MAX_DAY_OF_WEEK = 7;
     private static final int MIN_NUMBER_OF_MONTH = 1;
@@ -38,7 +37,7 @@ public class Year {
                         "Заданный месяц: " + month + " Искомый день: " + currentDay);
             }
 
-            System.out.print(WEEK[findDay(startDay, currentDay, month)]);
+            System.out.print(findDay(startDay, currentDay, month).toString());
 
         } catch (Exception e) {
             System.out.print(e.getMessage());
@@ -46,15 +45,16 @@ public class Year {
         }
     }
 
-    private static byte findDay(int startDay, int currentDay, int month) {
+    private static DayOfWeek findDay(int startDay, int currentDay, int month) {
         int numberOfDays =  currentDay - 1;
 
-        for (byte i = 0; i < month; i++) {
+        for (int i = 0; i < month; i++) {
             numberOfDays += DAYS_IN_MONTH[i];
         }
 
         int daysFromFirstDayInYearWithShift = numberOfDays + startDay - 1;
+        int numberOfDayOfWeek = daysFromFirstDayInYearWithShift % MAX_DAY_OF_WEEK;
 
-        return (byte) (daysFromFirstDayInYearWithShift % 7);
+        return DayOfWeek.values()[numberOfDayOfWeek];
     }
 }

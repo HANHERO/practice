@@ -13,13 +13,13 @@ public class YearTest {
 
     @Test
     public void runScenarios() {
-        String pn = "Понедельник";
-        String vt = "Вторник";
-        String sr = "Среда";
-        String ch = "Четверг";
-        String pt = "Пятница";
-        String sb = "Суббота";
-        String vs = "Воскресенье";
+        String pn = "MONDAY";
+        String vt = "TUESDAY";
+        String sr = "WEDNESDAY";
+        String ch = "THURSDAY";
+        String pt = "FRIDAY";
+        String sb = "SATURDAY";
+        String vs = "SUNDAY";
         ////////////////////////////////1. Граничные значения области определения
         validParamsTest(pn, 1, 1, 1);
         validParamsTest(sr, 1, 31, 1);

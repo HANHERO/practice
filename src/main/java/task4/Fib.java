@@ -33,9 +33,7 @@ public class Fib {
 
         if (n == 0) {
             b = BigInteger.valueOf(0);
-        }
-
-        if (n < 0 && (n % 2) == 0) { //if the number is negative and even
+        } else if (n < 0 && (n % 2) == 0) { //if the number is negative and even
             b = b.multiply(BigInteger.valueOf(-1));
         }
         return b;
