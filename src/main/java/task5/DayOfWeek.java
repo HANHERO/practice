@@ -1,7 +1,7 @@
 package task5;
 
 /**
- * The enum Day of week.
+ * The enum Day of week. Contains days of the week.
  *
  * @author Michael Pilipenko
  * @see Year
