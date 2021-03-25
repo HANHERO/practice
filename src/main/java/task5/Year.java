@@ -65,7 +65,7 @@ public class Year {
                         "Заданный месяц: " + month + " Искомый день: " + currentDay);
             }
 
-            System.out.print(findDay(DayOfWeek.values()[startDay], currentDay, Month.values()[month]).toString());
+            System.out.print(findDay(DayOfWeek.values()[startDay-1], currentDay, Month.values()[month-1]).toString());
 
         } catch (IOException ioE) {
             System.out.print(ioE.getMessage());
@@ -76,11 +76,11 @@ public class Year {
     private static DayOfWeek findDay(DayOfWeek startDay, int currentDay, Month month) {
         int numberOfDays =  currentDay - 1;
 
-        for (int i = 0; i < month.ordinal(); i++) {
+        for (int i = 0; i <= month.ordinal(); i++) {
             numberOfDays += DAYS_IN_MONTH[i];
         }
 
-        int daysFromFirstDayInYearWithShift = numberOfDays + startDay.ordinal() - 1;
+        int daysFromFirstDayInYearWithShift = numberOfDays + startDay.ordinal();
         int numberOfDayOfWeek = daysFromFirstDayInYearWithShift % MAX_DAY_OF_WEEK;
 
         return DayOfWeek.values()[numberOfDayOfWeek];
