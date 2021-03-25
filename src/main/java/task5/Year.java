@@ -20,10 +20,9 @@ import java.io.InputStreamReader;
  * And you wil see in the console "TUESDAY".
  *
  * @author Michael Pilipenko
+ * @version 1.0
  * @see DayOfWeek
  * @see Month
- * @version 1.0
- *
  */
 public class Year {
     private static final byte[] DAYS_IN_MONTH = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
@@ -65,7 +64,7 @@ public class Year {
                         "Заданный месяц: " + month + " Искомый день: " + currentDay);
             }
 
-            System.out.print(findDay(DayOfWeek.values()[startDay-1], currentDay, Month.values()[month-1]).toString());
+            System.out.print(findDay(DayOfWeek.values()[startDay - 1], currentDay, Month.values()[month - 1]).toString());
 
         } catch (IOException ioE) {
             System.out.print(ioE.getMessage());
@@ -74,7 +73,7 @@ public class Year {
     }
 
     private static DayOfWeek findDay(DayOfWeek startDay, int currentDay, Month month) {
-        int numberOfDays =  currentDay - 1;
+        int numberOfDays = currentDay - 1;
 
         for (int i = 0; i <= month.ordinal(); i++) {
             numberOfDays += DAYS_IN_MONTH[i];
