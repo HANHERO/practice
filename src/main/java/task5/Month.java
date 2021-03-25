@@ -10,28 +10,34 @@ package task5;
  *
  */
 public enum Month {
+
     /**January month.*/
-    JANUARY,
+    JANUARY(0),
     /**February month.*/
-    FEBRUARY,
+    FEBRUARY(31),
     /**March month.*/
-    MARCH,
+    MARCH(28),
     /**April month.*/
-    APRIL,
+    APRIL(31),
     /**May month.*/
-    MAY,
+    MAY(30),
     /**June month.*/
-    JUNE,
+    JUNE(31),
     /**July month.*/
-    JULY,
+    JULY(30),
     /**August month.*/
-    AUGUST,
+    AUGUST(31),
     /**September month.*/
-    SEPTEMBER,
+    SEPTEMBER(31),
     /**October month.*/
-    OCTOBER,
+    OCTOBER(30),
     /**November month.*/
-    NOVEMBER,
+    NOVEMBER(31),
     /**December month.*/
-    DECEMBER
+    DECEMBER(30);
+
+    Month(int i) {
+        daysToAdd = i;
+    }
+    int daysToAdd;
 }

@@ -22,6 +22,7 @@ import java.math.BigInteger;
  * @version 1.0
  */
 public class Fib {
+    private static BigInteger temp, a, b;
 
     /**
      * The entry point of application. This is where user input is expected and validates.
@@ -53,10 +54,11 @@ public class Fib {
      * @param n is int. This is the index number of Fibonacci sequence.
      * @return the big integer.
      */
+
     public static BigInteger findFib(int n) {
-        BigInteger temp;
-        BigInteger a = BigInteger.valueOf(0);
-        BigInteger b = BigInteger.valueOf(1);
+        a = BigInteger.valueOf(0);
+        b = BigInteger.valueOf(1);
+
         int nABS = Math.abs(n);
 
         for (int i = 1; i < nABS; i++) {
