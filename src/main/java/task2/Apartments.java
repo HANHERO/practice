@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 /**
- * A program that finds the location of a given apartment in a house based on its characteristics.<br><br>
+ * Main class of program that finds the location of a given apartment in a house based on its characteristics.<br><br>
  * <b>Why is this program needed?</b><br>
  * If you want to know where the apartment is in the building, you know the apartment number,
  * the number of floors in the building and the number of apartments on the floor.<br>
@@ -26,10 +26,15 @@ public class Apartments {
     /**
      * <b>Main</b> is used for both the entry point to the application and
      * the entry point for the desired apartment and characteristics of the house.
+     * This method asks you to enter the necessary information to find an apartment, then determines the correctness of
+     * the input, if the input is not correct, it displays a message with the type of error in the console,
+     * if it is correct, it displays the location of the given apartment in the console.
      *
-     * @param args the input arguments of main
+     * @param args the input arguments of main. Not used in this version.
      */
+
     public static void main(String[] args) {
+
         String errorMessage = "Введены не корректные данные.";
 
         try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {

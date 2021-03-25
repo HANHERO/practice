@@ -4,6 +4,26 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+/**
+ * Main class of the Year program.<br><br>
+ *
+ * <b>Why is this program needed?</b><br>
+ * Еhe purpose of the program is to find the day of the week of a given date,
+ * starting from the day of the week of the first day of the year.<br>
+ * <b>How to use this program?</b><br>
+ * You need to run this program and follow the directions in the console.
+ * If the input data is valid, the calculation result will be displayed in the console,
+ * otherwise, error information will be displayed.<br>
+ * <b>Usage example</b><br>
+ * For example, you want to know the day of the week of the first day of summer this year.
+ * You know that the first of January this year was Friday. You need to run the program and enter "5 1 6".
+ * And you wil see in the console "TUESDAY".
+ *
+ * @author Michael Pilipenko
+ * @see DayOfWeek
+ * @version 1.0
+ *
+ */
 public class Year {
     private static final byte[] DAYS_IN_MONTH = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
     private static final int MIN_DAY_OF_WEEK = 1;
@@ -12,6 +32,13 @@ public class Year {
     private static final int MAX_NUMBER_OF_MONTH = 12;
     private static final int MIN_DAYS_IN_MONTH = 1;
 
+    /**
+     * This is where user input is expected and validates. If the input is valid,
+     * then the method sends it for calculation and displays the result to the console.
+     * Otherwise, displays information about the error.
+     *
+     * @param args the input arguments. Not used in this version.
+     */
     public static void main(String[] args) {
         try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
 
