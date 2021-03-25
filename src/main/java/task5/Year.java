@@ -58,7 +58,7 @@ public class Year {
                 throw new IOException("Месяц должен быть в пределе 1-12. Введенный месяц: " + month);
             }
 
-            if (currentDay > Month.values()[month].ordinal() || currentDay < MIN_DAYS_IN_MONTH) {
+            if (currentDay > Month.values()[month].daysToAdd || currentDay < MIN_DAYS_IN_MONTH) {
                 throw new IOException("Искомый день должен быть не меньше 1 и не больше числа дней в заданном месяце. " +
                         "Заданный месяц: " + month + " Искомый день: " + currentDay);
             }

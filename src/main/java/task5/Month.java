@@ -34,7 +34,9 @@ public enum Month {
     /**November month.*/
     NOVEMBER(31),
     /**December month.*/
-    DECEMBER(30);
+    DECEMBER(30),
+
+    THIRTEENTH(31);
 
     Month(int i) {
         daysToAdd = i;
