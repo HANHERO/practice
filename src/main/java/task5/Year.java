@@ -25,10 +25,15 @@ import java.io.InputStreamReader;
  * @see Month
  */
 public class Year {
+    /**The Min day of week. Monday.*/
     private static final int MIN_DAY_OF_WEEK = 1;
+    /**The Max day of week. Sunday.*/
     private static final int MAX_DAY_OF_WEEK = 7;
+    /**The Min number of month. January*/
     private static final int MIN_NUMBER_OF_MONTH = 1;
+    /**The Max number of month. December*/
     private static final int MAX_NUMBER_OF_MONTH = 12;
+    /**The Min days in month. The first day in month.*/
     private static final int MIN_DAYS_IN_MONTH = 1;
 
     /**
@@ -58,7 +63,7 @@ public class Year {
                 throw new IOException("Месяц должен быть в пределе 1-12. Введенный месяц: " + month);
             }
 
-            if (currentDay > Month.values()[month].daysToAdd || currentDay < MIN_DAYS_IN_MONTH) {
+            if (currentDay > Month.values()[month].daysInMonth || currentDay < MIN_DAYS_IN_MONTH) {
                 throw new IOException("Искомый день должен быть не меньше 1 и не больше числа дней в заданном месяце. " +
                         "Заданный месяц: " + month + " Искомый день: " + currentDay);
             }
@@ -75,7 +80,7 @@ public class Year {
         int numberOfDays = currentDay - 1;
 
         for (int i = 0; i <= month.ordinal(); i++) {
-            numberOfDays += Month.values()[i].daysToAdd;
+            numberOfDays += Month.values()[i].daysInMonth;
         }
 
         int daysFromFirstDayInYearWithShift = numberOfDays + startDay.ordinal();

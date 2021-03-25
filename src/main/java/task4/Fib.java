@@ -22,7 +22,8 @@ import java.math.BigInteger;
  * @version 1.0
  */
 public class Fib {
-    private static BigInteger temp, a, b;
+    /**Variables temp, a and b. Used as temporary storage for calculating Fibonacci sequence.*/
+    public static BigInteger temp, a, b;
 
     /**
      * The entry point of application. This is where user input is expected and validates.
@@ -46,7 +47,7 @@ public class Fib {
 
     /**
      * Find fib method calculates fibonacci number.
-     *
+     * <p>
      * The principle of its operation is to add the previous numbers by the modulus to obtain the next.
      * If param n is negative and even then the fibonacci number is multiplied by -1.
      * If param n is zero method returns zero;
@@ -54,7 +55,6 @@ public class Fib {
      * @param n is int. This is the index number of Fibonacci sequence.
      * @return the big integer.
      */
-
     public static BigInteger findFib(int n) {
         a = BigInteger.valueOf(0);
         b = BigInteger.valueOf(1);

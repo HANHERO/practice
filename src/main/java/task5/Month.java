@@ -3,43 +3,56 @@ package task5;
 /**
  * The enum Month.
  *
- *
- * @see Year
  * @author Michael Pilipenko
  * @version 1.0
- *
+ * @see Year
  */
 public enum Month {
 
+    /**Zero month. Needed for calculating day of week in the first month*/
+    ZERO(0),
+
     /**January month.*/
-    JANUARY(0),
+    JANUARY(31),
+
     /**February month.*/
-    FEBRUARY(31),
+    FEBRUARY(28),
+
     /**March month.*/
-    MARCH(28),
+    MARCH(31),
+
     /**April month.*/
-    APRIL(31),
+    APRIL(30),
+
     /**May month.*/
-    MAY(30),
+    MAY(31),
+
     /**June month.*/
-    JUNE(31),
+    JUNE(30),
+
     /**July month.*/
-    JULY(30),
+    JULY(31),
+
     /**August month.*/
     AUGUST(31),
+
     /**September month.*/
-    SEPTEMBER(31),
+    SEPTEMBER(30),
+
     /**October month.*/
-    OCTOBER(30),
+    OCTOBER(31),
+
     /**November month.*/
-    NOVEMBER(31),
+    NOVEMBER(30),
+
     /**December month.*/
-    DECEMBER(30),
+    DECEMBER(31);
 
-    THIRTEENTH(31);
-
+    /**Constructor month*/
     Month(int i) {
-        daysToAdd = i;
+        daysInMonth = i;
     }
-    int daysToAdd;
+
+    /**Days in month.*/
+    int daysInMonth;
 }
