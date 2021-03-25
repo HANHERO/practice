@@ -67,9 +67,9 @@ public class Year {
 
             System.out.print(findDay(DayOfWeek.values()[startDay], currentDay, Month.values()[month]).toString());
 
-        } catch (Exception e) {
-            System.out.print(e.getMessage());
-            e.printStackTrace();
+        } catch (IOException ioE) {
+            System.out.print(ioE.getMessage());
+            ioE.printStackTrace();
         }
     }
 

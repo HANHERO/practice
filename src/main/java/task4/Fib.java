@@ -1,6 +1,7 @@
 package task4;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.math.BigInteger;
 
@@ -36,9 +37,9 @@ public class Fib {
             int fibDigit = Integer.parseInt(br.readLine());
             System.out.println(findFib(fibDigit));
 
-        } catch (Exception e) {
+        } catch (IOException ioE) {
             System.out.println("Введено не число.");
-            e.printStackTrace();
+            ioE.printStackTrace();
         }
     }
 
