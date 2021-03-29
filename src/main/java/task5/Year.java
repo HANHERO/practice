@@ -25,7 +25,9 @@ import java.util.Scanner;
  */
 public class Year {
 
-    /**The Min days in month. The first day in month.*/
+    /**
+     * The Min days in month. The first day in month.
+     */
     private static final int FIRST_DAY_IN_MONTH = 1;
 
     /**
@@ -51,11 +53,12 @@ public class Year {
                 throw new IllegalArgumentException("День недели должен быть в пределе 1-7. Введенный день недели: " + startDay);
             }
 
-            if (month > Month.DECEMBER.ordinal() || month < Month.JANUARY.ordinal()) {
-                throw new IllegalArgumentException("Месяц должен быть в пределе 1-12. Введенный месяц: " + month);
+            if (month < (Month.JANUARY.ordinal() + 1) || month > (Month.DECEMBER.ordinal() + 1)) {
+                throw new IllegalArgumentException("Месяц должен быть в пределе " + (Month.JANUARY.ordinal() + 1) + "-"
+                        + (Month.DECEMBER.ordinal() + 1) + ". Введенный месяц: " + month);
             }
 
-            if (currentDay > Month.values()[month].getDaysInMonth() || currentDay < FIRST_DAY_IN_MONTH) {
+            if (currentDay > Month.values()[month-1].getDaysInMonth() || currentDay < FIRST_DAY_IN_MONTH) {
                 throw new IllegalArgumentException("Искомый день должен быть не меньше 1 и не больше числа дней в заданном месяце. " +
                         "Заданный месяц: " + month + " Искомый день: " + currentDay);
             }
@@ -71,8 +74,10 @@ public class Year {
     private static DayOfWeek findDay(DayOfWeek startDay, int currentDay, Month month) {
         int numberOfDays = currentDay - 1;
 
-        for (int i = 0; i <= month.ordinal(); i++) {
-            numberOfDays += Month.values()[i].getDaysInMonth();
+        if (month.ordinal() > Month.JANUARY.ordinal()) {
+            for (int i = 0; i < month.ordinal(); i++) {
+                numberOfDays += Month.values()[i].getDaysInMonth();
+            }
         }
 
         int daysFromFirstDayInYearWithShift = numberOfDays + startDay.ordinal();

@@ -9,9 +9,6 @@ package task5;
  */
 public enum Month {
 
-    /**Zero month. Needed for calculating day of week in the first month*/
-    ZERO(0),
-
     /**January month.*/
     JANUARY(31),
 
