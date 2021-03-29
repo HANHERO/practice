@@ -3,6 +3,7 @@ package task3;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Scanner;
 
 
 /**
@@ -33,15 +34,15 @@ public class GCD {
     public static void main(String[] args) {
         System.out.print("Введите 4 числа через энтер: ");
 
-        try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
-            int a = Integer.parseInt(br.readLine());
-            int b = Integer.parseInt(br.readLine());
-            int c = Integer.parseInt(br.readLine());
-            int d = Integer.parseInt(br.readLine());
+        try (Scanner br = new Scanner(System.in)) {
+            int a = Integer.parseInt(br.nextLine());
+            int b = Integer.parseInt(br.nextLine());
+            int c = Integer.parseInt(br.nextLine());
+            int d = Integer.parseInt(br.nextLine());
             System.out.print("НОД = " + calculateGCD(a, b, c, d));
-        } catch (IOException ioE) {
+        } catch (IllegalArgumentException iAE) {
             System.out.println("Неправильный ввод значений.");
-            ioE.printStackTrace();
+            iAE.printStackTrace();
         }
     }
 

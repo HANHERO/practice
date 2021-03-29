@@ -1,8 +1,7 @@
 package task5;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+
+import java.util.Scanner;
 
 /**
  * Main class of the Year program.<br><br>
@@ -37,10 +36,10 @@ public class Year {
      * @param args the input arguments. Not used in this version.
      */
     public static void main(String[] args) {
-        try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
+        try (Scanner br = new Scanner(System.in)) {
 
             System.out.print("Введите день недели Нового года числом, искомый день и искомый месяц через пробел: ");
-            String input = br.readLine();
+            String input = br.nextLine();
 
             String[] inputArray = input.split(" ");
 
@@ -49,23 +48,23 @@ public class Year {
             int month = Integer.parseInt(inputArray[2]);
 
             if (startDay > DayOfWeek.SUNDAY.getDay() || startDay < DayOfWeek.MONDAY.getDay()) {
-                throw new IOException("День недели должен быть в пределе 1-7. Введенный день недели: " + startDay);
+                throw new IllegalArgumentException("День недели должен быть в пределе 1-7. Введенный день недели: " + startDay);
             }
 
             if (month > Month.DECEMBER.ordinal() || month < Month.JANUARY.ordinal()) {
-                throw new IOException("Месяц должен быть в пределе 1-12. Введенный месяц: " + month);
+                throw new IllegalArgumentException("Месяц должен быть в пределе 1-12. Введенный месяц: " + month);
             }
 
             if (currentDay > Month.values()[month].getDaysInMonth() || currentDay < FIRST_DAY_IN_MONTH) {
-                throw new IOException("Искомый день должен быть не меньше 1 и не больше числа дней в заданном месяце. " +
+                throw new IllegalArgumentException("Искомый день должен быть не меньше 1 и не больше числа дней в заданном месяце. " +
                         "Заданный месяц: " + month + " Искомый день: " + currentDay);
             }
 
             System.out.print(findDay(DayOfWeek.values()[startDay - 1], currentDay, Month.values()[month - 1]).toString());
 
-        } catch (IOException ioE) {
-            System.out.print(ioE.getMessage());
-            ioE.printStackTrace();
+        } catch (IllegalArgumentException iAE) {
+            System.out.print(iAE.getMessage());
+            iAE.printStackTrace();
         }
     }
 

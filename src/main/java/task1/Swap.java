@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
+import java.util.Scanner;
 
 /**
  * Main class of program swaps the given variables.<br><br>
@@ -29,15 +30,15 @@ public class Swap {
      * @param args the input arguments. Not used in this version.
      */
     public static void main(String[] args) {
-        try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
+        try (Scanner sc = new Scanner(System.in)) {
             System.out.print("Введите число А: ");
-            int a = Integer.parseInt(br.readLine());
+            int a = Integer.parseInt(sc.nextLine());
             System.out.print("Введите число B: ");
-            int b = Integer.parseInt(br.readLine());
+            int b = Integer.parseInt(sc.nextLine());
             System.out.println(Arrays.toString(swap(a, b)));
-        } catch (IOException ioE) {
+        } catch (IllegalArgumentException iAE) {
             System.out.println("Вы ввели не число.");
-            ioE.printStackTrace();
+            iAE.printStackTrace();
         }
     }
 
