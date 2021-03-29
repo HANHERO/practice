@@ -52,8 +52,8 @@ public class Fib {
      * @return the big integer.
      */
     public static BigInteger findFib(int n) {
-        BigInteger a = BigInteger.valueOf(0);
-        BigInteger b = BigInteger.valueOf(1);
+        BigInteger a = BigInteger.ZERO;
+        BigInteger b = BigInteger.ONE;
         int nABS = Math.abs(n);
 
         for (int i = 1; i < nABS; i++) {
@@ -62,7 +62,7 @@ public class Fib {
         }
 
         if (n == 0) {
-            b = BigInteger.valueOf(0);
+            b = BigInteger.ZERO;
         } else if (n < 0 && (n % 2) == 0) { //if the number is negative and even
             b = b.multiply(BigInteger.valueOf(-1));
         }
