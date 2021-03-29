@@ -54,8 +54,7 @@ public class Year {
             }
 
             if (month < (Month.JANUARY.ordinal() + 1) || month > (Month.DECEMBER.ordinal() + 1)) {
-                throw new IllegalArgumentException("Месяц должен быть в пределе " + (Month.JANUARY.ordinal() + 1) + "-"
-                        + (Month.DECEMBER.ordinal() + 1) + ". Введенный месяц: " + month);
+                throw new IllegalArgumentException("Месяц должен быть в пределе 1-12. Введенный месяц: " + month);
             }
 
             if (currentDay > Month.values()[month-1].getDaysInMonth() || currentDay < FIRST_DAY_IN_MONTH) {
