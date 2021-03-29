@@ -31,11 +31,11 @@ public class GCD {
     public static void main(String[] args) {
         System.out.print("Введите 4 числа через энтер: ");
 
-        try (Scanner br = new Scanner(System.in)) {
-            int a = Integer.parseInt(br.nextLine());
-            int b = Integer.parseInt(br.nextLine());
-            int c = Integer.parseInt(br.nextLine());
-            int d = Integer.parseInt(br.nextLine());
+        try (Scanner sc = new Scanner(System.in)) {
+            int a = Integer.parseInt(sc.nextLine());
+            int b = Integer.parseInt(sc.nextLine());
+            int c = Integer.parseInt(sc.nextLine());
+            int d = Integer.parseInt(sc.nextLine());
             System.out.print("НОД = " + calculateGCD(a, b, c, d));
         } catch (IllegalArgumentException iAE) {
             System.out.println("Неправильный ввод значений.");

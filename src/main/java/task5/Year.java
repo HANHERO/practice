@@ -38,10 +38,10 @@ public class Year {
      * @param args the input arguments. Not used in this version.
      */
     public static void main(String[] args) {
-        try (Scanner br = new Scanner(System.in)) {
+        try (Scanner sc = new Scanner(System.in)) {
 
             System.out.print("Введите день недели Нового года числом, искомый день и искомый месяц через пробел: ");
-            String input = br.nextLine();
+            String input = sc.nextLine();
 
             String[] inputArray = input.split(" ");
 
