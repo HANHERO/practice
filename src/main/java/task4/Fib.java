@@ -57,10 +57,8 @@ public class Fib {
         int nABS = Math.abs(n);
 
         for (int i = 1; i < nABS; i++) {
-            a = a.add(b);
-            b = a.subtract(b);
-            a = a.subtract(b);
-            b = a.add(b);
+            b = b.add(a);
+            a = b.subtract(a);
         }
 
         if (n == 0) {
