@@ -3,6 +3,7 @@ package task2;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Scanner;
 
 /**
  * Main class of program that finds the location of a given apartment in a house based on its characteristics.<br><br>
@@ -33,18 +34,18 @@ public class Apartments {
      * @param args the input arguments of main. Not used in this version.
      */
 
-    public static void main(String[] args) {
+    public static void main(String[] args){
 
         String errorMessage = "Введены не корректные данные.";
 
-        try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
+        try (Scanner sc = new Scanner(System.in)) {
             System.out.print("Введите номер квартиры, количество квартир на этаже и количество этажей через пробел: ");
-            String input = br.readLine();
+            String input = sc.nextLine();
             String[] inputArray = input.split(" ");
 
             if (inputArray.length != 3) {
                 errorMessage = "Введено неверное число параметров: " + inputArray.length;
-                throw new IOException();
+                throw new IllegalArgumentException();
             }
 
             int apartmentNumber = Integer.parseInt(inputArray[0]);
@@ -54,19 +55,19 @@ public class Apartments {
             if ((long) apartmentsOnTheFloor * floors > Integer.MAX_VALUE) {
                 errorMessage = "Введены не корректные данные. Квартир на этаже " + apartmentsOnTheFloor + ", этажей в подъезде " + floors +
                         ", квартир в подъезде " + (long) apartmentsOnTheFloor * floors + " > " + Integer.MAX_VALUE;
-                throw new IOException();
+                throw new IllegalArgumentException();
             }
 
             if (apartmentNumber < 1 || apartmentsOnTheFloor < 1 || floors < 1) {
                 errorMessage = "Введены не корректные данные. Номер квартиры  " + apartmentNumber + ", квартир на этаже "
                         + apartmentsOnTheFloor + ", этажей в подъезде " + floors;
-                throw new IOException();
+                throw new IllegalArgumentException();
             }
 
             int[] outputArray = determineFloorAndEntrance(apartmentNumber, apartmentsOnTheFloor, floors);
             System.out.println(outputArray[0] + " этаж, " + outputArray[1] + " подъезд.");
 
-        } catch (IOException e) {
+        } catch (IllegalArgumentException e) {
             System.out.println(errorMessage);
             e.printStackTrace();
         }

@@ -1668,7 +1668,6 @@ public class ApartmentsTest {
         moreThenOneSpace(min, min, min);
         moreThenOneSpace(max, max, max);
 
-        zeroParamsTest();
         oneParamTest(min);
         oneParamTest(max);
         twoParamsTest(min, min);
@@ -1934,14 +1933,6 @@ public class ApartmentsTest {
         System.setIn(new ByteArrayInputStream(String.valueOf(n).getBytes()));
         main(new String[]{});
         assertEquals(incorrectNumberOfParams + "1" + "\r\n", output.toString());
-    }
-
-    private void zeroParamsTest() {
-        ByteArrayOutputStream output = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(output));
-        System.setIn(new ByteArrayInputStream("".getBytes()));
-        main(new String[]{});
-        assertEquals(incorrectInput + "\r\n", output.toString());
     }
 
     private void moreThenOneSpace(int n, int nA, int p) {

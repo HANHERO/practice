@@ -23,7 +23,9 @@ import java.math.BigInteger;
  */
 public class Fib {
     /**Variables temp, a and b. Used as temporary storage for calculating Fibonacci sequence.*/
-    public static BigInteger temp, a, b;
+    private static BigInteger a = BigInteger.valueOf(0);
+    private static BigInteger b = BigInteger.valueOf(1);
+
 
     /**
      * The entry point of application. This is where user input is expected and validates.
@@ -32,16 +34,16 @@ public class Fib {
      *
      * @param args the input arguments. Not used in this version.
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException{
         System.out.print("Введите порядковый номер необходимого числа Фибоначчи: ");
         try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
 
             int fibDigit = Integer.parseInt(br.readLine());
             System.out.println(findFib(fibDigit));
 
-        } catch (IOException ioE) {
+        } catch (IllegalArgumentException iAE) {
             System.out.println("Введено не число.");
-            ioE.printStackTrace();
+            iAE.printStackTrace();
         }
     }
 
@@ -56,15 +58,16 @@ public class Fib {
      * @return the big integer.
      */
     public static BigInteger findFib(int n) {
-        a = BigInteger.valueOf(0);
-        b = BigInteger.valueOf(1);
-
         int nABS = Math.abs(n);
 
         for (int i = 1; i < nABS; i++) {
-            temp = b;
+            //temp = b;
+            //b = a.add(b);
+            //a = temp;
+            a = a.add(b);
+            b = a.subtract(b);
+            a = a.subtract(b);
             b = a.add(b);
-            a = temp;
         }
 
         if (n == 0) {
