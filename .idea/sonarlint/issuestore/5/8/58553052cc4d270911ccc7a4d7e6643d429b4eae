@@ -1,0 +1,17 @@
+
+C
+java:S1444"'Make this "public static b" field final(ÖÒ€S8ª¸ÊÒ†/
+C
+java:S1444"'Make this "public static a" field final(ÖÒ€S8ª¸ÊÒ†/
+;
+java:S1659"Declare "b" on a separate line.(ÖÒ€S8ª¸ÊÒ†/
+F
+java:S1444"*Make this "public static temp" field final(ÖÒ€S8‹˜ÄÒ†/
+i
+java:S1104"MMake a a static final constant or non-public and provide accessors if needed.(ÖÒ€S8ª¸ÊÒ†/
+i
+java:S1104"MMake b a static final constant or non-public and provide accessors if needed.(ÖÒ€S8ª¸ÊÒ†/
+l
+java:S1104"PMake temp a static final constant or non-public and provide accessors if needed.(ÖÒ€S8‹˜ÄÒ†/
+;
+java:S1659"Declare "a" on a separate line.(ÖÒ€S8ª¸ÊÒ†/

@@ -45,7 +45,7 @@ public enum Month {
     /**November month.*/
     NOVEMBER(30),
 
-    /**December month.*/
+    /** December month.*/
     DECEMBER(31);
 
     /**Constructor month*/
@@ -54,5 +54,14 @@ public enum Month {
     }
 
     /**Days in month.*/
-    int daysInMonth;
+    private final int daysInMonth;
+
+    /**
+     * Gets days in month.
+     *
+     * @return the days in month
+     */
+    public int getDaysInMonth() {
+        return daysInMonth;
+    }
 }

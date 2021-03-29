@@ -25,16 +25,9 @@ import java.io.InputStreamReader;
  * @see Month
  */
 public class Year {
-    /**The Min day of week. Monday.*/
-    private static final int MIN_DAY_OF_WEEK = 1;
-    /**The Max day of week. Sunday.*/
-    private static final int MAX_DAY_OF_WEEK = 7;
-    /**The Min number of month. January*/
-    private static final int MIN_NUMBER_OF_MONTH = 1;
-    /**The Max number of month. December*/
-    private static final int MAX_NUMBER_OF_MONTH = 12;
+
     /**The Min days in month. The first day in month.*/
-    private static final int MIN_DAYS_IN_MONTH = 1;
+    private static final int FIRST_DAY_IN_MONTH = 1;
 
     /**
      * This is where user input is expected and validates. If the input is valid,
@@ -55,15 +48,15 @@ public class Year {
             int currentDay = Integer.parseInt(inputArray[1]);
             int month = Integer.parseInt(inputArray[2]);
 
-            if (startDay > MAX_DAY_OF_WEEK || startDay < MIN_DAY_OF_WEEK) {
+            if (startDay > DayOfWeek.SUNDAY.getDay() || startDay < DayOfWeek.MONDAY.getDay()) {
                 throw new IOException("День недели должен быть в пределе 1-7. Введенный день недели: " + startDay);
             }
 
-            if (month > MAX_NUMBER_OF_MONTH || month < MIN_NUMBER_OF_MONTH) {
+            if (month > Month.DECEMBER.ordinal() || month < Month.JANUARY.ordinal()) {
                 throw new IOException("Месяц должен быть в пределе 1-12. Введенный месяц: " + month);
             }
 
-            if (currentDay > Month.values()[month].daysInMonth || currentDay < MIN_DAYS_IN_MONTH) {
+            if (currentDay > Month.values()[month].getDaysInMonth() || currentDay < FIRST_DAY_IN_MONTH) {
                 throw new IOException("Искомый день должен быть не меньше 1 и не больше числа дней в заданном месяце. " +
                         "Заданный месяц: " + month + " Искомый день: " + currentDay);
             }
@@ -80,11 +73,11 @@ public class Year {
         int numberOfDays = currentDay - 1;
 
         for (int i = 0; i <= month.ordinal(); i++) {
-            numberOfDays += Month.values()[i].daysInMonth;
+            numberOfDays += Month.values()[i].getDaysInMonth();
         }
 
         int daysFromFirstDayInYearWithShift = numberOfDays + startDay.ordinal();
-        int numberOfDayOfWeek = daysFromFirstDayInYearWithShift % MAX_DAY_OF_WEEK;
+        int numberOfDayOfWeek = daysFromFirstDayInYearWithShift % DayOfWeek.SUNDAY.getDay();
 
         return DayOfWeek.values()[numberOfDayOfWeek];
     }
